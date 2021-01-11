@@ -11,7 +11,7 @@ include '../includes/header_nav.php';
                 <div class="list w3-border">
                     <ul class="w3-ul w3-hoverable" style="overflow: auto; height: 100%">
                         <li class="w3-bar" style="padding: 0;">
-                            <a href="anime.html" class="list-elem">
+                            <a href="anime.php" class="list-elem">
                                 <img src="https://cdn.myanimelist.net/images/anime/1171/109222l.webp"
                                      class="w3-bar-item"
                                      style="padding: 0; width: 100px" alt="">
@@ -52,7 +52,7 @@ include '../includes/header_nav.php';
                 <div class="list w3-border">
                     <ul class="w3-ul w3-hoverable" style="overflow: auto; height: 100%">
                         <li class="w3-bar" style="padding: 0;">
-                            <a href="anime.html" class="list-elem">
+                            <a href="anime.php" class="list-elem">
                                 <img src="https://cdn.myanimelist.net/images/anime/1171/109222l.webp"
                                      class="w3-bar-item"
                                      style="padding: 0; width: 100px" alt="">
@@ -79,7 +79,7 @@ include '../includes/header_nav.php';
                             </div>
                         </li>
                         <li class="w3-bar" style="padding: 0;">
-                            <a href="anime.html" class="list-elem">
+                            <a href="anime.php" class="list-elem">
                                 <img src="https://cdn.myanimelist.net/images/anime/1171/109222l.webp"
                                      class="w3-bar-item"
                                      style="padding: 0; width: 100px" alt="">
@@ -113,7 +113,7 @@ include '../includes/header_nav.php';
                 <div class="list w3-border">
                     <ul class="w3-ul w3-hoverable" style="overflow: auto; height: 100%">
                         <li class="w3-bar" style="padding: 0;">
-                            <a href="anime.html" class="list-elem">
+                            <a href="anime.php" class="list-elem">
                                 <img src="https://cdn.myanimelist.net/images/anime/1171/109222l.webp"
                                      class="w3-bar-item"
                                      style="padding: 0; width: 100px" alt="">

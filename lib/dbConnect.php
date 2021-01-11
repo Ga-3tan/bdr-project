@@ -12,10 +12,10 @@
  */
 class dbConnect {
     // Class constants initialization
-    const DB_HOST     = 'localhost';      	   // Contains the host name
-    const DB_NAME     = 'bdr_project';  	   // Contains the database name
-    const DB_USER     = 'root';                // User name
-    const DB_PASSWORD = '1234';                // Database connection password
+    const DB_HOST     = 'localhost';  // Contains the host name
+    const DB_NAME     = 'bdr_projet'; // Contains the database name
+    const DB_USER     = 'root';       // User name
+    const DB_PASSWORD = '';           // Database connection password
 
     // connection declaration
     private $dbCurrentConnexion; // This will contain the current connection
@@ -36,6 +36,14 @@ class dbConnect {
             // Displays the connection error message
             echo 'Erreur lors de la connection à la base de données : ' . $e->getMessage();
         }
+    }
+
+    /**
+     * Verifies if a username is already taken
+     * @return bool
+     */
+    public function isUsernameTaken($username) {
+        return false;
     }
 
     /**

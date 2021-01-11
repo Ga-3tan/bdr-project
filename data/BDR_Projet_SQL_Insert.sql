@@ -1,3 +1,5 @@
+USE bdr_projet;
+
 -- CATEGORIES
 INSERT INTO Categorie (Tag) VALUES ('Action'),
                                    ('Adventure'),

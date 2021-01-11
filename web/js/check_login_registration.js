@@ -1,7 +1,7 @@
 /*
  -----------------------------------------------------------------------------------
  Projet BDR
- File        : check_registration.js
+ File        : check_login_registration.js
  Author(s)   : Zwick Gaétan, Ngueukam Djeuda Wilfried Karel, Maziero Marco
  Date        : 11.01.2021
  Goal        : Contains the functions used to verify the registration fields
@@ -10,9 +10,34 @@
  -----------------------------------------------------------------------------------
  */
 
+function validateLogin() {
+    // Variables declaration
+    let isFormValid = true; // This is the validation boolean returned at the end of the verification
+
+    // Gets the form fields
+    let itemUsername = document.getElementsByName('login_username')[0];
+    let itemPassword = document.getElementsByName('login_password')[0];
+
+    // Checks the username field
+    if (!(/^[a-z0-9_\-\.]+$/i.test(itemUsername.value))) {
+        // Displays the error and deactivates the valid boolean
+        isFormValid = false;
+        displayError(itemUsername);
+    }
+
+    // Checks the password
+    if (!(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}$/i.test(itemPassword.value))) {
+        // Displays the error and deactivates the valid boolean
+        isFormValid = false;
+        displayError(itemPassword);
+    }
+
+    return isFormValid;
+}
+
 function validateRegistration() {
     // Variables declaration
-    let isFormValid = true;      // This is the validation boolean returned at the end of the verification
+    let isFormValid = true; // This is the validation boolean returned at the end of the verification
 
     // Gets the form fields
     let itemUsername         = document.getElementsByName('reg_username')[0];
@@ -25,46 +50,41 @@ function validateRegistration() {
     if (!(/^[a-z]+$/i.test(itemFirstName.value))) {
         // Displays the error and deactivates the valid boolean
         isFormValid = false;
-        displayError(itemFirstName, "Ce prénom n'est pas valide");
+        displayError(itemFirstName);
     }
 
     // Checks the last names field
     if (!(/^[a-z]+$/i.test(itemLastName.value))) {
         // Displays the error and deactivates the valid boolean
         isFormValid = false;
-        displayError(itemLastName, "Ce nom n'est pas valide");
+        displayError(itemLastName);
     }
 
     // Checks the username field
     if (!(/^[a-z0-9_\-\.]+$/i.test(itemUsername.value))) {
         // Displays the error and deactivates the valid boolean
         isFormValid = false;
-        displayError(itemUsername, "Le pseudo entré est invalide");
+        displayError(itemUsername);
     }
 
     // Checks the mail field
     if (!(/^[a-z0-9\.]{2,}@[a-z0-9]{2,}\.([a-z]{2,4})$/i.test(itemEmail.value))) {
         // Displays the error and deactivates the valid boolean
         isFormValid = false;
-        displayError(itemEmail, "Le format du mail doit être xxx@yyy.zzz");
+        displayError(itemEmail);
     }
 
     // Checks the password
     if (!(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}$/i.test(itemPassword.value))) {
         // Displays the error and deactivates the valid boolean
         isFormValid = false;
-        displayError(itemPassword, "Doit contenir une majuscule, un chiffre et au minimum 4 caractères");
+        displayError(itemPassword);
     }
 
     return isFormValid;
 }
 
-/**
- * Displays an error message under a wrong field.
- * @param itemWrongDiv, Represents the wrong div.
- * @param strErrorMessage, Represents the error message.
- */
-function displayError(itemWrongDiv, strErrorMessage)
+function displayError(itemWrongDiv)
 {
     // Colors the wrong field
     itemWrongDiv.style.border = "solid 1px red";

@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Added header and session verif includes">
+    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Added registration verification">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/main_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/main_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/js/check_registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/check_registration.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_Insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Insert.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dbConnect.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dbConnect.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/js/check_registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/check_login_registration.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/php/backend/check_login.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/backend/check_login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/php/backend/check_registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/backend/check_registration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/php/frontend/lists.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/lists.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/php/frontend/welcome.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/welcome.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/php/includes/header_nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/includes/header_nav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/php/includes/session_check.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/includes/session_check.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +70,8 @@
       <updated>1609186531293</updated>
       <workItem from="1609186532417" duration="32786000" />
       <workItem from="1610372072737" duration="2673000" />
-      <workItem from="1610374805447" duration="6358000" />
+      <workItem from="1610374805447" duration="6407000" />
+      <workItem from="1610385070520" duration="5276000" />
     </task>
     <task id="LOCAL-00001" summary="Changed project structure and added data files">
       <created>1610374272706</created>
@@ -90,7 +94,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610377291454</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added registration verification">
+      <created>1610381264275</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1610381264275</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,6 +125,7 @@
     <MESSAGE value="Updated files" />
     <MESSAGE value="Added new files and fixes dependencies" />
     <MESSAGE value="Added header and session verif includes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added header and session verif includes" />
+    <MESSAGE value="Added registration verification" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added registration verification" />
   </component>
 </project>
