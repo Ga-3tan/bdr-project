@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Updated files">
-      <change afterPath="$PROJECT_DIR$/web/css/user.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/php/frontend/user.php" afterDir="false" />
+    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Added new files and fixes dependencies">
+      <change afterPath="$PROJECT_DIR$/web/php/includes/header_nav.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/php/includes/session_check.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/php/frontend/anime.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/anime.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/php/frontend/base_template_demo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/php/frontend/lists.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/lists.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/php/frontend/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/search.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/php/frontend/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/welcome.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/css/lists.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/css/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/main_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/css/user.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/css/welcome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/php/frontend/anime.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/anime.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/php/frontend/lists.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/lists.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/php/frontend/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/php/frontend/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/php/frontend/welcome.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/welcome.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +73,7 @@
       <updated>1609186531293</updated>
       <workItem from="1609186532417" duration="32786000" />
       <workItem from="1610372072737" duration="2673000" />
-      <workItem from="1610374805447" duration="1176000" />
+      <workItem from="1610374805447" duration="2426000" />
     </task>
     <task id="LOCAL-00001" summary="Changed project structure and added data files">
       <created>1610374272706</created>
@@ -79,7 +82,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610374272706</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added new files and fixes dependencies">
+      <created>1610376025166</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1610376025166</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -101,6 +111,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Changed project structure and added data files" />
     <MESSAGE value="Updated files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated files" />
+    <MESSAGE value="Added new files and fixes dependencies" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added new files and fixes dependencies" />
   </component>
 </project>
