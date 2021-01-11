@@ -19,8 +19,9 @@
         <div class="w3-dropdown-hover">
             <button class="w3-padding-large w3-button" title="More">ANIME <i class="fa fa-caret-down"></i></button>
             <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                <a href="" class="w3-bar-item w3-button">TOP ANIME</a>
-                <a href="search.html" class="w3-bar-item w3-button">SEARCH ANIME</a>
+                <a href="lists.php" class="w3-bar-item w3-button">MY LISTS</a>
+                <a href="search.php" class="w3-bar-item w3-button">TOP ANIME</a>
+                <a href="search.php" class="w3-bar-item w3-button">SEARCH ANIME</a>
             </div>
         </div>
     </div>
