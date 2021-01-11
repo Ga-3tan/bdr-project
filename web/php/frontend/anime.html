@@ -27,18 +27,16 @@
 
 <div style="width: 90%; min-width: 1000px; margin: 100px;">
     <div class="w3-col" style="width: 250px;">
-        <img class="w3-border w3-padding" src="https://cdn.myanimelist.net/images/anime/1171/109222l.webp"
+        <img class="w3-border w3-padding w3-round" src="https://cdn.myanimelist.net/images/anime/1171/109222l.webp"
              style="width: 100%;" alt="thumbnail">
-        <div class="w3-border w3-round" style="margin-top: 10px">
-            <ul class="w3-ul w3-border">
-                <li class="w3-center"><b>Informations</b></li>
-                <li>Type:</li>
-                <li>Episodes:</li>
-                <li>Release date:</li>
-                <li>Duration:</li>
-                <li>Seasons:</li>
-            </ul>
-        </div>
+        <ul class="w3-ul w3-border w3-round" style="margin-top: 10px">
+            <li class="w3-center"><b>Informations</b></li>
+            <li>Type:</li>
+            <li>Episodes:</li>
+            <li>Release date:</li>
+            <li>Duration:</li>
+            <li>Seasons:</li>
+        </ul>
     </div>
     <div class="w3-rest">
         <div class="w3-row-padding" style="padding-left: 20px">
@@ -66,17 +64,48 @@
 
             <div class="w3-row" style="margin-top: 10px">
                 <div class="w3-col" style="width: 150px; padding-right: 10px">
-                    <div class="w3-border w3-round">
-                        <ul class="w3-ul w3-border">
-                            <li class="w3-center"><b>add to list</b></li>
-                            <ul class="w3-ul w3-hoverable">
-                                <li>Watching</li>
-                                <li>Plan to watch</li>
-                                <li>Finished</li>
-                                <li>Dropped</li>
-                            </ul>
+                    <ul class="w3-ul w3-border w3-round">
+                        <li class="w3-center"><b>add to list</b></li>
+                        <ul class="w3-ul w3-hoverable">
+                            <li>Watching</li>
+                            <li>Plan to watch</li>
+                            <li>Finished</li>
+                            <li>Dropped</li>
                         </ul>
-                    </div>
+                    </ul>
+                </div>
+
+                <div class="w3-col" style="width: 200px;">
+                    <ul class="w3-ul w3-border w3-round">
+                        <li class="w3-center"><b>note: 5.5/10</b></li>
+                        <li class="w3-center"><b>your note: 5</b></li>
+                        <li>
+<!--                            <a href="">1</a>-->
+<!--                            <a href="">2</a>-->
+<!--                            <a href="">3</a>-->
+<!--                            <a href="">4</a>-->
+<!--                            <a href="">5</a>-->
+<!--                            <a href="">6</a>-->
+<!--                            <a href="">7</a>-->
+<!--                            <a href="">8</a>-->
+<!--                            <a href="">9</a>-->
+<!--                            <a href="">10</a>-->
+
+                            <select class="w3-select" name="option">
+                                <option value="" disabled selected>your note</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </li>
+                    </ul>
                 </div>
                 <div class="w3-col w3-border w3-round w3-right"
                      style="min-width: 320px;width: 30%; height: 235px;overflow: auto">
@@ -118,6 +147,27 @@
                                     <span class="w3-large">Seto, Asami</span><br>
                                     <span>as Kugisaki, Nobara</span>
                                 </div>
+                            </li>
+                        </ul>
+                    </ul>
+                </div>
+                <div class="w3-col w3-rest" style="padding-top: 10px">
+                    <ul class="w3-ul w3-border w3-round">
+                        <li>
+                            <form class="w3-container">
+                                <label>Comments</label>
+                                <input class="w3-input w3-round" type="text">
+                                <button class="w3-btn">Send</button>
+                            </form>
+                        </li>
+                        <ul class="w3-ul">
+                            <li>
+                                <div>25.02.21, from : <a href="">username</a> </div>
+                                <div>this is a comment</div>
+                            </li>
+                            <li>
+                                <div>25.02.21, from : <a href="">username</a> </div>
+                                <div>this is a comment</div>
                             </li>
                         </ul>
                     </ul>
