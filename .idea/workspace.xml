@@ -1,32 +1,176 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="" />
+    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_BDD.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Insert.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Requetes.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Vues.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/schema_ER.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/dbConnect.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/100633.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/101365.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/102576.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/106551.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/107914.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/108941.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/17405.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/17407.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/18179.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/19644.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/20936.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/22061.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/22128.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/24647.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/25254.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/27013.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/29134.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/32527.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/33465.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/33657.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/33713.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/39717.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/40409.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/40451.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/43399.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/43643.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/46931.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/47347.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/49459.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/50177.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/50331.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/50521.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/5123.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/55225.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/64447.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/64449.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/65185.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/65187.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/65409.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/67177.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/6883.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/70187.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/71553.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/71772.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/71777.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/71992.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/72943.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/73178.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/73199.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/73245.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/73249.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/73474.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/74683.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/75195.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/75274.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/75299.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/75509.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/75514.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/75587.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/75639.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/75810.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/75815.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/75919.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/76014.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/76049.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/76662.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/77809.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/77831.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/77957.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/77966.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/7804.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/78311.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/78745.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/79410.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/79597.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/79697.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/80356.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/83188.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/84004.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/84177.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/85221.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/85468.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/86733.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/87048.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/88019.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/90408.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/92084.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/92110.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/93586.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/9391.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/9453.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/94850.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/95033.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/95088.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/95946.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/96435.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/96541.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/96929.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/99571.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/covers/99889.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/js/check_registration.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/php/backend/check_login.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/php/backend/check_registration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/anime.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_template_demo.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/base_template_demo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lists.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/lists.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lists.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/lists.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/search.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/welcome.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/welcome.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/welcome.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1mIgU4sMafJAlu2KLucFd6iHqU2" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\bdr-project\web\php\includes" />
+      <recent name="C:\xampp\htdocs\bdr-project\web\php\frontend" />
+      <recent name="C:\xampp\htdocs\bdr-project\web\css" />
+      <recent name="C:\xampp\htdocs\bdr-project\web" />
+      <recent name="C:\xampp\htdocs\bdr-project\data" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -37,10 +181,25 @@
       <option name="presentableId" value="Default" />
       <updated>1609186531293</updated>
       <workItem from="1609186532417" duration="32786000" />
+      <workItem from="1610372072737" duration="2122000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
