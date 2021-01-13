@@ -1,5 +1,10 @@
 <?php
-session_start()
+session_start();
+
+if (isset($_SESSION['USER_LOGGED'])) {
+    header("Location: lists.php");
+    die();
+}
 ?>
 
 <!DOCTYPE html>

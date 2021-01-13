@@ -11,7 +11,7 @@
  -----------------------------------------------------------------------------------
  */
 
-include "../../../lib/dbConnect.php";
+include "../../../lib/model/dbConnect.php";
 session_start();
 
 // DB Connexion
@@ -20,7 +20,7 @@ $db = new dbConnect();
 // Validates the registration
 if (isset($_POST['reg_send']) && validateRegistration($db)) {
     // Adds the user to the database and connects him
-    // TODO : CREATE USER IN DATABASE
+    $db->createUser($_POST['reg_firstname'], $_POST['reg_lastname'], $_POST['reg_email'], $_POST['reg_username'], $_POST['reg_password']);
     $_SESSION['USER_LOGGED'] = true;
     header('Location: ../frontend/lists.php');
 } else {
@@ -32,6 +32,7 @@ if (isset($_POST['reg_send']) && validateRegistration($db)) {
 
 /**
  * Validates all the registration form via php
+ * @param $dbConnexion dbConnect Current Connection
  * @return bool boolean true if the form is valid, false if it's not
  */
 function validateRegistration($dbConnexion) {

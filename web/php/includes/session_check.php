@@ -16,7 +16,7 @@ session_start();
 
 // Checks if the user is logged in
 if (!isset($_SESSION['USER_LOGGED'])) {
-    header("Location: ../../../lists.php");
+    header("Location: welcome.php");
     die();
 }
 ?>

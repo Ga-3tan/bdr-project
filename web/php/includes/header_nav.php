@@ -15,6 +15,7 @@
                 class="fa fa-bars"></i></a>
         <a href="search.php" class="w3-padding-large w3-hover-red w3-hide-small w3-left"><i
                 class="fa fa-search"></i></a>
+        <a href="../backend/sign_out.php" class="w3-bar-item w3-button w3-padding-large w3-right"><i class="fa fa-sign-out"></i></a>
         <a href="user.php" class="w3-bar-item w3-button w3-padding-large w3-right"><i class="fa fa-user"></i></a>
         <div class="w3-dropdown-hover">
             <button class="w3-padding-large w3-button" title="More">ANIME <i class="fa fa-caret-down"></i></button>
