@@ -59,6 +59,10 @@ class dbConnect {
         else return null;
     }
 
+    private function getUserId($username) {
+        return $data = $this->executeSqlRequest("SELECT idPersonne FROM Utilisateur WHERE pseudo = '" . $username . "';", true)[0]['idPersonne'];
+    }
+
     public function createUser($firstname, $lastname, $email, $username, $password) {
         // Hash password
         $hashedPwd = password_hash($password,  PASSWORD_DEFAULT);
@@ -92,6 +96,76 @@ class dbConnect {
         if (!empty($data)) return true;
 
         return false;
+    }
+
+    public function getMediaData($mediaId) {
+        return $this->executeSqlRequest("SELECT * FROM vFilm WHERE id = " . $mediaId . "
+                                                  UNION
+                                                  SELECT * FROM vSerie WHERE id = " . $mediaId . ";", true);
+    }
+
+    public function getUserNote($username, $mediaId) {
+        $usrId = $this->getUserId($username);
+        return $this->executeSqlRequest("SELECT note, dateNote FROM utilisateur_media_note WHERE idPersonne = " . $usrId . " AND idMedia = " . $mediaId . ";", true);
+    }
+
+    public function getAvgNote($mediaId) {
+        return $this->executeSqlRequest("SELECT AVG(note) AS 'moyenne' FROM utilisateur_media_note WHERE idMedia = " . $mediaId . ";", true)[0]['moyenne'];
+    }
+
+    public function getDubbers($mediaId) {
+        return $this->executeSqlRequest("SELECT id, nom, prenom, dateNaissance, sexe, photoProfil
+                                                  FROM vDoubleur INNER JOIN Doubleur_Media
+                                                      ON vDoubleur.id = Doubleur_Media.idPersonne
+                                                  WHERE Doubleur_Media.idMedia = " . $mediaId . ";", true);
+    }
+
+    public function getComments($mediaId) {
+        return $this->executeSqlRequest("SELECT pseudo, commentaire, dateAjout
+                                                  FROM vUtilisateur 
+                                                      INNER JOIN Utilisateur_Media_Commentaire
+                                                          ON id = Utilisateur_Media_Commentaire.idPersonne
+                                                  WHERE idMedia = " . $mediaId . ";", true);
+    }
+
+    public function addComment($username, $mediaId, $comment) {
+        $usrId = $this->getUserId($username);
+        $this->executeSqlRequest("INSERT INTO Utilisateur_Media_Commentaire VALUES (" . $usrId . ", " . $mediaId . ", NOW(), '" . addslashes($comment) . "');", false);
+    }
+
+    public function addNote($username, $mediaId, $note) {
+        $usrId = $this->getUserId($username);
+        $this->executeSqlRequest("INSERT INTO Utilisateur_Media_Note VALUES (" . $usrId . ", " . $mediaId . ", " . $note . ", NOW());", false);
+    }
+
+    public function addMediaToList($username, $mediaId, $listId) {
+        $usrId = $this->getUserId($username);
+        $list = "";
+        $isMovie = false;
+        $mediaData = $this->getMediaData($mediaId);
+        if ($mediaData[0]['nbsaisons'] == 0) return;
+        if ($mediaData[0]['type'] == "Movie") $isMovie = true;
+
+        switch ($listId) {
+            case 0:
+                $list = "Plan to watch";
+                break;
+            case 1:
+                $list = "Watching";
+                break;
+            case 2:
+                $list = "Finished";
+                break;
+            case 3:
+                $list = "Dropped";
+                break;
+        }
+
+        if ($isMovie) {
+            $this->executeSqlRequest("INSERT INTO Utilisateur_Film VALUES (" . $usrId . ", " . $mediaId . ", '" . $list . "', NOW());", false);
+        } else {
+            $this->executeSqlRequest("INSERT INTO Utilisateur_Saison VALUES (" . $usrId . ", " . $mediaId . ", 1, '" . $list . "', NOW());", false);
+        }
     }
 
     /**

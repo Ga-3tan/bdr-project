@@ -407,11 +407,11 @@ INSERT INTO media_categorie VALUES ('Magic', 1),
                                    ('Seinen', 101);
 
 -- FILMS
-INSERT INTO Film (idMedia, dateSortie) VALUES (10, '2016-08-26'),
-                                              (27, '2016-09-17'),
-                                              (37, '2001-07-20'),
-                                              (90, '1997-07-12'),
-                                              (96, '2004-11-20');
+INSERT INTO Film (idMedia, dateSortie) VALUES (11, '2016-08-26'),
+                                              (29, '2016-09-17'),
+                                              (39, '2001-07-20'),
+                                              (92, '1997-07-12'),
+                                              (98, '2004-11-20');
 
 -- SERIES
 INSERT INTO Serie VALUES (1),

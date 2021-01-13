@@ -31,10 +31,7 @@ FROM Media
 WHERE titre LIKE "%<Titre du media>%";
 
 --moyenne des notes
-SELECT AVG(Note.note) as 'moyenne'
-FROM Media
-    INNER JOIN Utilisateur_Media_Note as Note
-        ON Utilisateur_Media_Note.idMedia = Media.id
+SELECT AVG(note) AS 'moyenne' FROM utilisateur_media_note WHERE idMedia = <id>;
         
 
 -- Sélectionner la liste des média ayant un doubleur donné
@@ -42,4 +39,3 @@ SELECT *
 FROM Media
    INNER JOIN vDoubleur ON Media.id = vDoubleur.id
 WHERE vDoubleur.nom = "<Nom doubleur>";
-

@@ -13,8 +13,7 @@ Comment(s) : -
 session_start();
 
 // Checks if the user is logged in
-if (isset($_SESSION['USER_LOGGED']))
-    unset($_SESSION['USER_LOGGED']);
+session_destroy();
 
 // Redirects
 header("Location: ../../../index.php");
