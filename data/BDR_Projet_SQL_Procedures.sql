@@ -30,5 +30,30 @@ BEGIN
 END//
 
 -- Ajout d'un film
+DROP PROCEDURE IF EXISTS ajouter_film;
+DELIMITER //
+CREATE PROCEDURE ajouter_utilisateur (IN titre VARCHAR(45),
+                                      IN description TEXT,
+                                      IN duree INT,
+                                      IN image VARCHAR(512),
+                                      IN idStudioAnimation INT,
+                                      IN dateSortie DATE)
+
+BEGIN
+    INSERT INTO Media VALUES (NULL, titre, description, duree, image, idStudioAnimation);
+    INSERT INTO Film VALUES (dateSortie, LAST_INSERT_ID());
+END//
 
 -- Ajout d'une série
+DROP PROCEDURE IF EXISTS ajouter_film;
+DELIMITER //
+CREATE PROCEDURE ajouter_utilisateur (IN titre VARCHAR(45),
+                                      IN description TEXT,
+                                      IN duree INT,
+                                      IN image VARCHAR(512),
+                                      IN idStudioAnimation INT)
+
+BEGIN
+    INSERT INTO Media VALUES (NULL, titre, description, duree, image, idStudioAnimation);
+    INSERT INTO Serie VALUES (LAST_INSERT_ID());
+END//

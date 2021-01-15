@@ -45,3 +45,19 @@ BEGIN
 END;
 $$
 DELIMITER ;
+
+-- Verification dates de sortie des saisons
+DROP TRIGGER IF EXISTS before_saison_insert;
+DELIMITER $$
+CREATE TRIGGER before_saison_insert
+    BEFORE INSERT
+    ON saison
+    FOR EACH ROW
+BEGIN
+    IF EXISTS (SELECT * FROM Saison WHERE Saison.idSerie = NEW.idSerie AND NEW.num < Saison.num AND Saison.dateSortie > NEW.dateSortie) THEN
+        SET @s = '[table:serie] - New season cant be released before the old ones';
+        SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = @s;
+    END IF;
+END;
+$$
+DELIMITER ;
