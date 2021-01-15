@@ -115,8 +115,9 @@ class dbConnect {
 
     public function getDubbers($mediaId) {
         return $this->executeSqlRequest("SELECT id, nom, prenom, dateNaissance, sexe, photoProfil
-                                                  FROM vDoubleur INNER JOIN Doubleur_Media
-                                                      ON vDoubleur.id = Doubleur_Media.idPersonne
+                                                  FROM vDoubleur
+                                                      INNER JOIN Doubleur_Media
+                                                        ON vDoubleur.id = Doubleur_Media.idPersonne
                                                   WHERE Doubleur_Media.idMedia = " . $mediaId . ";", true);
     }
 

@@ -2,7 +2,8 @@
 SELECT idPersonne FROM Utilisateur WHERE pseudo = '<pseudo>';
 
 -- Creer un nouvel utilisateur dans la base de donnees
-INSERT INTO Personne(nom, prenom) VALUES ('<prenom>', '<nom>');
+INSERT INTO Personne(nom, prenom)
+    VALUES ('<prenom>', '<nom>');
 
 INSERT INTO Utilisateur(email, pseudo, password, idPersonne)
 VALUES ('<email>>', 'pseudo', '<mot de passe>', <id>);
@@ -24,20 +25,51 @@ FROM utilisateur_media_note
 WHERE idPersonne = <idUtilisateur> AND idMedia = <idMedia>;
 
 -- Recuperation de la note moyenne d'un media
+SELECT AVG(note) AS 'moyenne'
+FROM utilisateur_media_note
+WHERE idMedia = <idMedia>;
+
 -- Recuperation des doubleurs d'un media
+SELECT id, nom, prenom, dateNaissance, sexe, photoProfil
+FROM vDoubleur
+    INNER JOIN Doubleur_Media
+        ON vDoubleur.id = Doubleur_Media.idPersonne
+WHERE Doubleur_Media.idMedia = <idMedia>;
+
 -- Recuperation des commentaires d'un media
+SELECT pseudo, commentaire, dateAjout
+FROM vUtilisateur
+    INNER JOIN Utilisateur_Media_Commentaire
+        ON id = Utilisateur_Media_Commentaire.idPersonne
+WHERE idMedia = <idMedia>;
+
 -- Ajout d'un commentaire sur un media
+INSERT INTO Utilisateur_Media_Commentaire
+    VALUES (<idUtilisateur>, <idMedia>, NOW(), '<commentaire>');
+
 -- Ajout d'une note sur un media
+REPLACE INTO Utilisateur_Media_Note
+    VALUES (<idUtilisateur>, <idMedia>, <note>, NOW());
+
 -- Ajout d'un media dans une liste
+REPLACE INTO Utilisateur_Film
+    VALUES (<idUtilisateur>, <idMedia>, '<liste>', NOW());
+
+REPLACE INTO Utilisateur_Saison
+    VALUES (<idUtilisateur>, <idSaison>, <idMedia>, '<liste>', NOW(), <nbEpisodesVus>);
+
 -- Recuperation d'une saison d'un media
+SELECT * FROM Saison WHERE idSerie = <idSerie> AND num = <NoSaison>;
 
 
--- Sélectionner tous les médias produit par un studio
+-----------------------------NON UTILISE----------------------------------
+
+
+-- Sélectionner tous les médias produits par un studio
 SELECT *
 FROM Media
    INNER JOIN StudioAnimation ON Media.idStudioAnimation = StudioAnimation.id
 WHERE Studio.nom = "<Nom Studio>";
-
 
 -- Sélectionner la liste des films
 SELECT Media.*, Film.dateSortie
