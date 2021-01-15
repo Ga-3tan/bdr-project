@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Lots of fixes&#10;Finished admin_panel.php&#10;Users can now customize their profile!&#10;Added an ALL-IN-ONE SQL file -&gt; BDR_Projet_SQL_AIO.sql">
+    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Added restrictions for users vs moderators&#10;Added root user (moderator)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_AIO.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_AIO.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_Insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Insert.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_Vues.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Vues.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/php/frontend/admin_panel.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/admin_panel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/php/frontend/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_Requetes.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Requetes.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +75,7 @@
       <workItem from="1610385070520" duration="5345000" />
       <workItem from="1610480907937" duration="116000" />
       <workItem from="1610553813327" duration="19048000" />
-      <workItem from="1610698086433" duration="50472000" />
+      <workItem from="1610698086433" duration="50742000" />
     </task>
     <task id="LOCAL-00001" summary="Changed project structure and added data files">
       <created>1610374272706</created>
@@ -221,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610749336211</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Added restrictions for users vs moderators&#10;Added root user (moderator)">
+      <created>1610750310047</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1610750310047</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,6 +264,7 @@
     <MESSAGE value="Added new triggers and procedures" />
     <MESSAGE value="Added media creation in control panel" />
     <MESSAGE value="Lots of fixes&#10;Finished admin_panel.php&#10;Users can now customize their profile!&#10;Added an ALL-IN-ONE SQL file -&gt; BDR_Projet_SQL_AIO.sql" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lots of fixes&#10;Finished admin_panel.php&#10;Users can now customize their profile!&#10;Added an ALL-IN-ONE SQL file -&gt; BDR_Projet_SQL_AIO.sql" />
+    <MESSAGE value="Added restrictions for users vs moderators&#10;Added root user (moderator)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added restrictions for users vs moderators&#10;Added root user (moderator)" />
   </component>
 </project>

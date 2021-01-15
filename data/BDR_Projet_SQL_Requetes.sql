@@ -7,6 +7,20 @@ SELECT idPersonne FROM Utilisateur WHERE pseudo = '<pseudo>';
 -- Creer un nouvel utilisateur dans la base de donnees
 CALL ajouter_utilisateur('<nom>', '<prenom>', '<dateNaissance>', '<sexe>', '<photoProfil>', '<email>', '<pseudo>', '<password>');
 
+-- Mettre a jou un utilisateur existant
+UPDATE Personne SET
+            nom = '<pseudo>',
+            prenom = '<prenom>',
+            dateNaissance = '<dateNaissance>',
+            sexe = '<sexe>',
+            photoProfil = '<photoProfil>'
+WHERE id = <idPersonne>;
+
+UPDATE Utilisateur SET
+           email = '<email>',
+           pseudo = '<pseudo>'
+WHERE idPersonne = <idPersonne>;
+
 -- Verification de l'utilisateur
 SELECT password FROM Utilisateur WHERE pseudo = '<pseudo>';
 
