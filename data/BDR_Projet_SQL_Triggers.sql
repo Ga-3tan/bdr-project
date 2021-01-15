@@ -70,27 +70,8 @@ END;
 $$
 DELIMITER ;
 
--- Verifcation de l'ajout dans les listes d'un série qui n'est pas encore sortie
-DROP TRIGGER IF EXISTS before_list_insert;
-DELIMITER $$
-CREATE TRIGGER before_list_insert
-    BEFORE INSERT
-    ON saison
-    FOR EACH ROW
-BEGIN
-    IF EXISTS (SELECT * FROM Saison
-                    WHERE Saison.idSerie = NEW.idSerie
-                      AND Saison.num < NEW.num
-                      AND Saison.dateSortie > NEW.dateSortie)
-    THEN
-        SET @s = '[table:saison] - New season cant be released before the old ones';
-        SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = @s;
-    END IF;
-END;
-$$
-DELIMITER ;
-
 -- Ajout d'une list : nombre d'episodes vus, soit entre 0 et le nb d'episodes de la saison
+-- Verifcation de l'ajout dans les listes d'un série qui n'est pas encore sortie
 DROP TRIGGER IF EXISTS before_utilisateur_saison_insert;
 DELIMITER $$
 CREATE TRIGGER before_utilisateur_saison_insert
@@ -102,6 +83,9 @@ BEGIN
     IF NEW.nbEpisodesVus > saisonNbEpisodes THEN
         SET @s = '[table:utilisateur_saison] - [nbEpisodesVus] column is not valid';
         SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = @s;
+    ELSEIF NEW.nom != 'Plan to watch' AND NOW() < (SELECT dateSortie FROM Saison WHERE Saison.idSerie = NEW.idMedia AND saison.num = NEW.numSaison) THEN
+        SET @t = '[table:utilisateur_saison] - [nom] The season is not out yet, cannot put it in this list';
+        SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = @t;
     END IF;
 END;
 $$
