@@ -70,7 +70,35 @@ AS
         INNER JOIN Moderateur
             ON Moderateur.idPersonne = Utilisateur.idPersonne;
     
-    
+
+-- Vue pour la liste des films apparaissant dans les listes des utilisateurs
+DROP VIEW IF EXISTS vUtilisateur_Lists_Film;
+CREATE VIEW vUtilisateur_Lists_Film
+AS
+    SELECT DISTINCT 
+        Pers.nom,
+        Pers.prenom,
+        User_film.nom AS 'liste',
+        Media.titre AS 'film'
+    FROM Utilisateur_film AS User_film
+        INNER JOIN Personne AS Pers ON Pers.id = User_film.idPersonne
+        INNER JOIN Media ON Media.id = User_film.idMedia;
+
+-- Vue pour la liste des séries et leurs saisons apparaissant dans les listes des utilisateurs
+DROP VIEW IF EXISTS vUtilisateur_Lists_Serie;
+CREATE VIEW vUtilisateur_Lists_Serie
+AS
+    SELECT DISTINCT 
+        Pers.nom, 
+        Pers.prenom, 
+        User_sa.nom AS 'liste', 
+        Saison.num AS 'saison', 
+        Media.titre AS 'serie',
+        User_sa.nbEpisodesVus AS 'Nombre episodes vus'
+    FROM Utilisateur_saison AS User_Sa
+        INNER JOIN Personne AS Pers ON Pers.id = User_Sa.idPersonne
+        INNER JOIN Saison ON Saison.num = User_Sa.numSaison
+        INNER JOIN Media ON Media.id = User_Sa.idMedia;
     
     
     
