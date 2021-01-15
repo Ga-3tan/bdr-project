@@ -75,7 +75,8 @@ AS
 DROP VIEW IF EXISTS vUtilisateur_Lists_Film;
 CREATE VIEW vUtilisateur_Lists_Film
 AS
-    SELECT DISTINCT 
+    SELECT DISTINCT
+        Pers.id AS 'id'
         Pers.nom,
         Pers.prenom,
         User_film.nom AS 'liste',
@@ -89,6 +90,7 @@ DROP VIEW IF EXISTS vUtilisateur_Lists_Serie;
 CREATE VIEW vUtilisateur_Lists_Serie
 AS
     SELECT DISTINCT 
+        Pers.id AS 'id'
         Pers.nom, 
         Pers.prenom, 
         User_sa.nom AS 'liste', 

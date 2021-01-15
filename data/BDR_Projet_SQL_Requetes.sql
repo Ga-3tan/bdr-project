@@ -39,3 +39,13 @@ SELECT *
 FROM Media
    INNER JOIN vDoubleur ON Media.id = vDoubleur.id
 WHERE vDoubleur.nom = "<Nom doubleur>";
+
+-- Liste de films qui appartiennent à un utilisateur
+SELECT * 
+FROM vUtilisateur_Lists_Film
+WHERE id = <userid>;
+
+-- Liste de séries qui appartiennent à un utilisateur
+SELECT *
+FROM vUtilisateur_Lists_Serie
+WHERE id = <userid>;
