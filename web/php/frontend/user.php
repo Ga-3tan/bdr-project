@@ -29,6 +29,11 @@ include '../includes/header_nav.php';
         <li>
             <button class="w3-button w3-blue">edit</button>
         </li>
+        <li>
+            <form action="insert.php">
+                <input class="w3-button w3-blue" type="submit" value="Add content" />
+            </form>
+        </li>
     </ul>
 </div>
 

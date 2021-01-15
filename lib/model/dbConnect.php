@@ -34,7 +34,7 @@ class dbConnect {
             $this->dbCurrentConnexion = new PDO("mysql:host=" . self::DB_HOST . ";dbname=" . self::DB_NAME . "", self::DB_USER, self::DB_PASSWORD, $options);
         } catch (PDOException $e) {
             // Displays the connection error message
-            echo 'An error occurred when trying to connect to the database : ' . $e->getMessage();
+            //echo '<p>An error occurred when trying to connect to the database : ' . $e->getMessage() . "</p><br>";
         }
     }
 
@@ -46,12 +46,10 @@ class dbConnect {
      */
     private function executeSqlRequest($strQuery, $returnArray) {
         try {
-            // Prepares the request
             $sqlRequest = $this->dbCurrentConnexion->prepare($strQuery);
-            // Executes the request
             $sqlRequest->execute();
         } catch (PDOException $e) {
-            echo 'An error occurred when trying to send a query to the database : ' . $e->getMessage();
+            //echo 'An error occurred when trying to send a query to the database : ' . $e->getMessage();
         }
 
         // Returns the associative array
@@ -174,6 +172,33 @@ class dbConnect {
 
     public function getMediaSeason($mediaId, $seasonId) {
         return $this->executeSqlRequest("SELECT * FROM Saison WHERE idSerie = " . $mediaId . " AND num = " . $seasonId . ";", true);
+    }
+
+    public function getAllCategories() {
+        return $this->executeSqlRequest("SELECT * FROM Categorie;", true);
+    }
+
+    public function getAllStudios() {
+        return $this->executeSqlRequest("SELECT * FROM StudioAnimation;", true);
+    }
+
+    public function createMovie($title, $description, $duration, $picture, $studioId, $releaseDate, $categories) {
+        $newId = $this->executeSqlRequest("CALL ajouter_film('" . $title . "', '" . $description . "', " . $duration . ", '" . $picture . "', " . $studioId . ", '" . $releaseDate . "', @newId);", true);
+        $this->addCategoryToMedia($newId[0]['newId'], $categories);
+    }
+
+    public function createSerie($title, $description, $duration, $picture, $studioId, $categories) {
+        $newId = $this->executeSqlRequest("CALL ajouter_serie('" . $title . "', '" . $description . "', " . $duration . ", '" . $picture . "', " . $studioId . ", @newId);", true);
+        $this->addCategoryToMedia($newId[0]['newId'], $categories);
+    }
+
+    public function addCategoryToMedia($mediaId, $categories) {
+        foreach ($categories as $c)
+            $this->executeSqlRequest("INSERT INTO Media_Categorie VALUES ('" . $c . "', " . $mediaId . ");", false);
+    }
+
+    public function getMediaCategories($mediaId) {
+        return $this->executeSqlRequest("SELECT tagCategorie FROM Media_Categorie WHERE idMedia =" . $mediaId . ";", true);
     }
 
     /**

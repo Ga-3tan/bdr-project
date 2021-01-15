@@ -37,11 +37,13 @@ CREATE PROCEDURE ajouter_film (IN titre VARCHAR(45),
                                IN duree INT,
                                IN image VARCHAR(512),
                                IN idStudioAnimation INT,
-                               IN dateSortie DATE)
-
+                               IN dateSortie DATE,
+                               OUT newId INT)
 BEGIN
     INSERT INTO Media VALUES (NULL, titre, description, duree, image, idStudioAnimation);
-    INSERT INTO Film VALUES (dateSortie, LAST_INSERT_ID());
+    SET newId = LAST_INSERT_ID();
+    INSERT INTO Film VALUES (dateSortie, newId);
+    SELECT newId;
 END//
 
 -- Ajout d'une série
@@ -51,9 +53,11 @@ CREATE PROCEDURE ajouter_serie (IN titre VARCHAR(45),
                                 IN description TEXT,
                                 IN duree INT,
                                 IN image VARCHAR(512),
-                                IN idStudioAnimation INT)
-
+                                IN idStudioAnimation INT,
+                                OUT newId INT)
 BEGIN
     INSERT INTO Media VALUES (NULL, titre, description, duree, image, idStudioAnimation);
-    INSERT INTO Serie VALUES (LAST_INSERT_ID());
+    SET newId = LAST_INSERT_ID();
+    INSERT INTO Serie VALUES (newId);
+    SELECT newId;
 END//

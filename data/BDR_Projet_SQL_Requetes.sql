@@ -61,6 +61,14 @@ REPLACE INTO Utilisateur_Saison
 -- Recuperation d'une saison d'un media
 SELECT * FROM Saison WHERE idSerie = <idSerie> AND num = <NoSaison>;
 
+-- Recuperation des categories
+SELECT * FROM Categorie;
+
+-- Récupération des studios d'animation
+SELECT * FROM StudioAnimation;
+
+-- Ajouter une categorie a un media
+INSERT INTO Media_Categorie VALUES ('<tag categorie>', <idMedia>);
 
 -----------------------------NON UTILISE----------------------------------
 

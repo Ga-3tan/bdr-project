@@ -20,7 +20,7 @@ if (empty($data)) {
     die();
 }
 $data = $data[0];
-
+$mediaCat = $db->getMediaCategories($_GET['id']);
 if (!file_exists("../../img/covers/" . $data['image'])) $data['image'] = "blank.jpg";
 ?>
 <div style="width: 90%; min-width: 1000px; margin: 100px;">
@@ -33,9 +33,10 @@ if (!file_exists("../../img/covers/" . $data['image'])) $data['image'] = "blank.
             $ep =  $data['nbEpisodes'] == 0 ? '-' : $data['nbEpisodes'];
             $sea =  $data['nbSaisons'] == 0 ? '-' : $data['nbSaisons'];
 
-            echo '<li>Type: ' . $data['type'] . '</li>
-                  <li>Category: ' . $data['categorie'] . '</li>
-                  <li>Episodes: ' . $ep . '</li>
+            echo '<li>Type: ' . $data['type'] . '</li>';
+            for ($i = 0; $i < count($mediaCat) && $i < 3; ++$i)
+                echo '<li>Category ' . ($i+1) . ': ' . $mediaCat[$i]['tagCategorie'] . '</li>';
+            echo '<li>Episodes: ' . $ep . '</li>
                   <li>Release date: ' . $data['dateSortie'] . '</li>
                   <li>Duration: ' . $data['duree'] . '</li>
                   <li>Seasons: ' . $sea . '</li>';
