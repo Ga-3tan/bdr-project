@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Fixed inser file problems">
+    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Fixed user password in insert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_Insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Insert.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_Procedures.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Procedures.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_Triggers.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Triggers.sql" afterDir="false" />
     </list>
@@ -69,7 +68,7 @@
       <workItem from="1610385070520" duration="5345000" />
       <workItem from="1610480907937" duration="116000" />
       <workItem from="1610553813327" duration="19048000" />
-      <workItem from="1610698086433" duration="20720000" />
+      <workItem from="1610698086433" duration="23024000" />
     </task>
     <task id="LOCAL-00001" summary="Changed project structure and added data files">
       <created>1610374272706</created>
@@ -169,7 +168,21 @@
       <option name="project" value="LOCAL" />
       <updated>1610718893400</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Fixed insert file problems">
+      <created>1610719709793</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1610719709793</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Fixed user password in insert">
+      <created>1610721323256</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1610721323256</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,6 +217,8 @@
     <MESSAGE value="Added lists views and requests" />
     <MESSAGE value="Updates requests" />
     <MESSAGE value="Fixed inser file problems" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed inser file problems" />
+    <MESSAGE value="Fixed insert file problems" />
+    <MESSAGE value="Fixed user password in insert" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed user password in insert" />
   </component>
 </project>
