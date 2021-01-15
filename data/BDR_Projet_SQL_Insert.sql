@@ -203,20 +203,20 @@ INSERT INTO StudioAnimation(nom, description, logo) VALUES ('3Hz', 'Studio descr
 -- MEDIAS
 INSERT INTO Media (titre, description, duree, image, idStudioAnimation) VALUES ('Death Note', 'A shinigami, as a god of death, can kill any person—provided they see their victim\'s face and write their victim\'s name in a notebook called a Death Note. One day, Ryuk, bored by the shinigami lifesty...', 24, '9453.jpg', 115),
 ('Shingeki no Kyojin', 'Centuries ago, mankind was slaughtered to near extinction by monstrous humanoid creatures called titans, forcing humans to hide in fear behind enormous concentric walls. What makes these giants truly...', 24, '47347.jpg', 89),
-('Fullmetal Alchemist: Brotherhood', '"""In order for something to be obtained, something of equal value must be lost."" Alchemy is bound by this Law of Equivalent Exchange—something the young brothers Edward and Alphonse Elric only realize..."', 24, '96541.jpg', 1),
-('Sword Art Online', '"In the year 2022, virtual reality has progressed by leaps and bounds, and a massive online role-playing game called Sword Art Online (SAO) is launched. With the aid of ""NerveGear"" technology, players..."', 24, '39717.jpg', 29),
+('Fullmetal Alchemist: Brotherhood', ''''In order for something to be obtained, something of equal value must be lost.'' Alchemy is bound by this Law of Equivalent Exchange—something the young brothers Edward and Alphonse Elric only realize...'', 24, '96541.jpg', 1),
+('Sword Art Online', ''In the year 2022, virtual reality has progressed by leaps and bounds, and a massive online role-playing game called Sword Art Online (SAO) is launched. With the aid of ''NerveGear'' technology, players...'', 24, '39717.jpg', 29),
 ('One Punch Man', 'The seemingly ordinary and unimpressive Saitama has a rather unique hobby: being a hero. In order to pursue his childhood dream, he trained relentlessly for three years—and lost all of his hair in the...', 24, '76049.jpg', 84),
 ('Tokyo Ghoul', 'Tokyo has become a cruel and merciless city—a place where vicious creatures called “ghouls” exist alongside humans. The citizens of this once great metropolis live in constant fear of these bloodthirs...', 24, '64449.jpg', 74),
-('Boku no Hero Academia', '"The appearance of ""quirks,"" newly discovered super powers, has been steadily increasing over the years, with 80 percent of humanity possessing various abilities from manipulation of elements to shapes..."', 24, '78745.jpg', 67),
+('Boku no Hero Academia', ''The appearance of ''quirks,'' newly discovered super powers, has been steadily increasing over the years, with 80 percent of humanity possessing various abilities from manipulation of elements to shapes...'', 24, '78745.jpg', 67),
 ('Naruto', 'Moments prior to Naruto Uzumaki\'s birth, a huge demon known as the Kyuubi, the Nine-Tailed Fox, attacked Konohagakure, the Hidden Leaf Village, and wreaked havoc. In order to put an end to the Kyuubi\'...', 24, '17405.jpg', 31),
-('"Stein\'s Gate"', '"The self-proclaimed mad scientist Rintarou Okabe rents out a room in a rickety old building in Akihabara, where he indulges himself in his hobby of inventing prospective ""future gadgets"" with fellow l..."', 24, '73199.jpg', 102),
-('No Game No Life', '"No Game No Life is a surreal comedy that follows Sora and Shiro, shut-in NEET siblings and the online gamer duo behind the legendary username ""Blank."" They view the real world as just another lousy ga..."', 24, '65187.jpg', 70),
+(''Stein\'s Gate'', ''The self-proclaimed mad scientist Rintarou Okabe rents out a room in a rickety old building in Akihabara, where he indulges himself in his hobby of inventing prospective ''future gadgets'' with fellow l...'', 24, '73199.jpg', 102),
+('No Game No Life', ''No Game No Life is a surreal comedy that follows Sora and Shiro, shut-in NEET siblings and the online gamer duo behind the legendary username ''Blank.'' They view the real world as just another lousy ga...'', 24, '65187.jpg', 70),
 ('Kimi no Na wa.', 'Mitsuha Miyamizu, a high school girl, yearns to live the life of a boy in the bustling city of Tokyo—a dream that stands in stark contrast to her present life in the countryside. Meanwhile in the city...', 120, '87048.jpg', 77),
 ('Hunter x Hunter (2011)', 'Hunter x Hunter is set in a world where Hunters exist to perform all manner of dangerous tasks like capturing criminals and bravely searching for lost treasures in uncharted territories. Twelve-year-o...', 24, '33657.jpg', 127),
 ('Angel Beats!', 'Otonashi awakens only to learn he is dead. A rifle-toting girl named Yuri explains that they are in the afterlife, and Otonashi realizes the only thing he can remember about himself is his name. Yuri...', 24, '22061.jpg', 139),
 ('Code Geass: Hangyaku no Lelouch', 'In the year 2010, the Holy Empire of Britannia is establishing itself as a dominant military nation, starting with the conquest of Japan. Renamed to Area 11 after its swift defeat, Japan has seen sign...', 24, '50331.jpg', 63),
 ('Boku no Hero Academia 2nd Season', 'At UA Academy, not even a violent attack can disrupt their most prestigious event: the school sports festival. Renowned across Japan, this festival is an opportunity for aspiring heroes to showcase th...', 24, '85221.jpg', 37),
-('Toradora!', '"Ryuuji Takasu is a gentle high school student with a love for housework but in contrast to his kind nature, he has an intimidating face that often gets him labeled as a delinquent. On the other hand..."', 24, '22128.jpg', 95),
+('Toradora!', ''Ryuuji Takasu is a gentle high school student with a love for housework but in contrast to his kind nature, he has an intimidating face that often gets him labeled as a delinquent. On the other hand...'', 24, '22128.jpg', 95),
 ('Mirai Nikki', 'Lonely high school student, Yukiteru Amano, spends his days writing a diary on his cellphone, while conversing with his two seemingly imaginary friends Deus Ex Machina, who is the god of time and spac...', 24, '33465.jpg', 98),
 ('Noragami', 'In times of need, if you look in the right place, you just may see a strange telephone number scrawled in red. If you call this number, you will hear a young man introduce himself as the Yato God. Yat...', 24, '77809.jpg', 101),
 ('Shingeki no Kyojin Season 2', 'For centuries, humanity has been hunted by giant, mysterious predators known as the Titans. Three mighty walls—Wall Maria, Rose, and Sheena—provided peace and protection for humanity for over a hundre...', 24, '84177.jpg', 94),
@@ -231,7 +231,7 @@ INSERT INTO Media (titre, description, duree, image, idStudioAnimation) VALUES (
 ('Boku dake ga Inai Machi', 'When tragedy is about to strike, Satoru Fujinuma finds himself sent back several minutes before the accident occurs. The detached, 29-year-old manga artist has taken advantage of this powerful yet mys...', 24, '77957.jpg', 2),
 ('Koe no Katachi', 'As a wild youth, elementary school student Shouya Ishida sought to beat boredom in the cruelest ways. When the deaf Shouko Nishimiya transfers into his class, Shouya and the rest of his class thoughtl...', 120, '96435.jpg', 103),
 ('Fairy Tail', 'In the mystical land of Fiore, magic exists as an essential part of everyday life. Countless magic guilds lie at the core of all magical activity, and serve as venues for like-minded mages to band tog...', 24, '18179.jpg', 67),
-('One Piece', '"Gol D. Roger was known as the ""Pirate King,"" the strongest and most infamous being to have sailed the Grand Line. The capture and execution of Roger by the World Government brought a change throughout..."', 24, '73245.jpg', 26),
+('One Piece', ''Gol D. Roger was known as the ''Pirate King,'' the strongest and most infamous being to have sailed the Grand Line. The capture and execution of Roger by the World Government brought a change throughout...'', 24, '73245.jpg', 26),
 ('Kimetsu no Yaiba', 'Ever since the death of his father, the burden of supporting the family has fallen upon Tanjirou Kamado\'s shoulders. Though living impoverished on a remote mountain, the Kamado family are able to enjo...', 24, '99889.jpg', 7),
 ('Boku no Hero Academia 3rd Season', 'As summer arrives for the students at UA Academy, each of these superheroes-in-training puts in their best efforts to become renowned heroes. They head off to a forest training camp run by UA\'s pro he...', 24, '92084.jpg', 5),
 ('Bleach', 'Ichigo Kurosaki is an ordinary high schooler—until his family is attacked by a Hollow, a corrupt spirit that seeks to devour human souls. It is then that he meets a Soul Reaper named Rukia Kuchiki, wh...', 24, '40451.jpg', 41),
@@ -241,23 +241,23 @@ INSERT INTO Media (titre, description, duree, image, idStudioAnimation) VALUES (
 ('Cowboy Bebop', 'In the year 2071, humanity has colonized several of the planets and moons of the solar system leaving the now uninhabitable surface of planet Earth behind. The Inter Solar System Police attempts to ke...', 24, '19644.jpg', 153),
 ('Sen to Chihiro no Kamikakushi', 'Stubborn, spoiled, and naïve, 10-year-old Chihiro Ogino is less than pleased when she and her parents discover an abandoned amusement park on the way to their new house. Cautiously venturing inside, s...', 120, '79597.jpg', 45),
 ('Kiseijuu: Sei no Kakuritsu', 'All of a sudden, they arrived: parasitic aliens that descended upon Earth and quickly infiltrated humanity by burrowing into the brains of vulnerable targets. These insatiable beings acquire full cont...', 24, '73178.jpg', 65),
-('Soul Eater', '"Death City is home to the famous Death Weapon Meister Academy, a technical academy headed by the Shinigami—Lord Death himself. Its mission: to raise ""Death Scythes"" for the Shinigami to wield against..."', 24, '7804.jpg', 70),
+('Soul Eater', ''Death City is home to the famous Death Weapon Meister Academy, a technical academy headed by the Shinigami—Lord Death himself. Its mission: to raise ''Death Scythes'' for the Shinigami to wield against...'', 24, '7804.jpg', 70),
 ('Tengen Toppa Gurren Lagann', 'Simon and Kamina were born and raised in a deep, underground village, hidden from the fabled surface. Kamina is a free-spirited loose cannon bent on making a name for himself, while Simon is a timid y...', 24, '5123.jpg', 85),
 ('Ansatsu Kyoushitsu', 'When a mysterious creature chops the moon down to a permanent crescent, the students of class 3-E of Kunugigaoka Middle School find themselves confronted with an enormous task: assassinate the creatur...', 24, '75639.jpg', 41),
 ('Psycho-Pass', 'Justice, and the enforcement of it, has changed. In the 22nd century, Japan enforces the Sibyl System, an objective means of determining the threat level of each citizen by examining their mental stat...', 24, '43399.jpg', 2),
-('Mob Psycho 100', '"Eighth-grader Shigeo ""Mob"" Kageyama has tapped into his inner wellspring of psychic prowess at a young age. But the power quickly proves to be a liability when he realizes the potential danger in his..."', 24, '80356.jpg', 63),
+('Mob Psycho 100', ''Eighth-grader Shigeo ''Mob'' Kageyama has tapped into his inner wellspring of psychic prowess at a young age. But the power quickly proves to be a liability when he realizes the potential danger in his...'', 24, '80356.jpg', 63),
 ('Another', 'In 1972, a popular student in Yomiyama North Middle School\'s class 3-3 named Misaki passed away during the school year. Since then, the town of Yomiyama has been shrouded by a fearful atmosphere, from...', 24, '75509.jpg', 105),
 ('Tokyo Ghoul √A', 'Ken Kaneki has finally come to accept the monstrous, flesh-craving part of himself that he has feared and despised for so long. After escaping captivity and torture, Kaneki joins Aogiri Tree—the very...', 24, '71777.jpg', 122),
-('Elfen Lied', '"Lucy is a special breed of human referred to as ""Diclonius,"" born with a short pair of horns and invisible telekinetic hands that lands her as a victim of inhumane scientific experimentation by the go..."', 24, '6883.jpg', 148),
+('Elfen Lied', ''Lucy is a special breed of human referred to as ''Diclonius,'' born with a short pair of horns and invisible telekinetic hands that lands her as a victim of inhumane scientific experimentation by the go...'', 24, '6883.jpg', 148),
 ('Death Parade', 'After death, there is no heaven or hell, only a bar that stands between reincarnation and oblivion. There the attendant will, one after another, challenge pairs of the recently deceased to a random ga...', 24, '71553.jpg', 148),
 ('Fullmetal Alchemist', 'Edward Elric, a young, brilliant alchemist, has lost much in his twelve-year life: when he and his brother Alphonse try to resurrect their dead mother through the forbidden act of human transmutation,...', 24, '75815.jpg', 112),
 ('Shokugeki no Souma', 'Ever since he was a child, fifteen-year-old Souma Yukihira has helped his father by working as the sous chef in the restaurant his father runs and owns. Throughout the years, Souma developed a passion...', 24, '72943.jpg', 123),
-('Ano Hana', '"Jinta Yadomi is peacefully living as a recluse, spending his days away from school and playing video games at home instead. One hot summer day, his childhood friend, Meiko ""Menma"" Honma, appears and p..."', 24, '79697.jpg', 129),
+('Ano Hana', ''Jinta Yadomi is peacefully living as a recluse, spending his days away from school and playing video games at home instead. One hot summer day, his childhood friend, Meiko ''Menma'' Honma, appears and p...'', 24, '79697.jpg', 129),
 ('Neon Genesis Evangelion', 'In the year 2015, the world stands on the brink of destruction. Humanity\'s last hope lies in the hands of Nerv, a special agency under the United Nations, and their Evangelions, giant machines capable...', 24, '108941.jpg', 125),
-('Haikyuu!!', '"Inspired after watching a volleyball ace nicknamed ""Little Giant"" in action, small-statured Shouyou Hinata revives the volleyball club at his middle school. The newly-formed team even makes it to a to..."', 24, '76014.jpg', 71),
+('Haikyuu!!', ''Inspired after watching a volleyball ace nicknamed ''Little Giant'' in action, small-statured Shouyou Hinata revives the volleyball club at his middle school. The newly-formed team even makes it to a to...'', 24, '76014.jpg', 71),
 ('Highschool of the Dead', 'It happened suddenly: The dead began to rise and Japan was thrown into total chaos. As these monsters begin terrorizing a high school, Takashi Kimuro is forced to kill his best friend when he gets bit...', 24, '78311.jpg', 52),
-('Durarara!!', '"In Tokyo\'s downtown district of Ikebukuro, amidst many strange rumors and warnings of anonymous gangs and dangerous occupants, one urban legend stands out above the rest—the existence of a headless ""B..."', 24, '71772.jpg', 1),
-('Shingeki no Kyojin Season 3', '"Still threatened by the ""Titans"" that rob them of their freedom, mankind remains caged inside the two remaining walls. Efforts to eradicate these monsters continue however, threats arise not only fro..."', 24, '92110.jpg', 93),
+('Durarara!!', ''In Tokyo\'s downtown district of Ikebukuro, amidst many strange rumors and warnings of anonymous gangs and dangerous occupants, one urban legend stands out above the rest—the existence of a headless ''B...'', 24, '71772.jpg', 1),
+('Shingeki no Kyojin Season 3', ''Still threatened by the ''Titans'' that rob them of their freedom, mankind remains caged inside the two remaining walls. Efforts to eradicate these monsters continue however, threats arise not only fro...'', 24, '92110.jpg', 93),
 ('Clannad', 'Tomoya Okazaki is a delinquent who finds life dull and believes he\'ll never amount to anything. Along with his friend Youhei Sunohara, he skips school and plans to waste his high school days away. One...', 24, '95033.jpg', 142),
 ('Fate/Zero', 'With the promise of granting any wish, the omnipotent Holy Grail triggered three wars in the past, each too cruel and fierce to leave a victor. In spite of that, the wealthy Einzbern family is confide...', 24, '73249.jpg', 13),
 ('DanMAchi', 'Life in the bustling city of Orario is never dull, especially for Bell Cranel, a naïve young man who hopes to become the greatest adventurer in the land. After a chance encounter with the lonely godde...', 24, '70187.jpg', 82),
@@ -266,18 +266,18 @@ INSERT INTO Media (titre, description, duree, image, idStudioAnimation) VALUES (
 ('Noragami Aragoto', 'Yato and Yukine have finally mended their relationship as god and Regalia, and everyone has returned to their daily life. Yato remains a minor and unknown deity who continues taking odd jobs for five...', 24, '94850.jpg', 10),
 ('Overlord', 'The final hour of the popular virtual reality game Yggdrasil has come. However, Momonga, a powerful wizard and master of the dark guild Ainz Ooal Gown, decides to spend his last few moments in the gam...', 24, '88019.jpg', 81),
 ('Charlotte', 'While on the surface Yuu Otosaka appears to be just another charming and intelligent teenager, he has a secret—he has the ability to slip into people\'s minds and fully control their body for five seco...', 24, '74683.jpg', 123),
-('Yakusoku no Neverland', '"Surrounded by a forest and a gated entrance, the Grace Field House is inhabited by orphans happily living together as one big family, looked after by their ""Mama,"" Isabella. Although they are required..."', 24, '96929.jpg', 12),
-('Violet Evergarden', '"The Great War finally came to an end after four long years of conflict fractured in two, the continent of Telesis slowly began to flourish once again. Caught up in the bloodshed was Violet Evergarden..."', 24, '95088.jpg', 139),
+('Yakusoku no Neverland', ''Surrounded by a forest and a gated entrance, the Grace Field House is inhabited by orphans happily living together as one big family, looked after by their ''Mama,'' Isabella. Although they are required...'', 24, '96929.jpg', 12),
+('Violet Evergarden', ''The Great War finally came to an end after four long years of conflict fractured in two, the continent of Telesis slowly began to flourish once again. Caught up in the bloodshed was Violet Evergarden...'', 24, '95088.jpg', 139),
 ('High School DxD', 'High school student Issei Hyoudou is your run-of-the-mill pervert who does nothing productive with his life, peeping on women and dreaming of having his own harem one day. Things seem to be looking up...', 24, '32527.jpg', 13),
 ('Mahou Shoujo Madoka★Magica', 'Madoka Kaname and Sayaka Miki are regular middle school girls with regular lives, but all that changes when they encounter Kyuubey, a cat-like magical familiar, and Homura Akemi, the new transfer stud...', 24, '55225.jpg', 91),
 ('Kono Subarashii Sekai ni Shukufuku wo! 2', 'When Kazuma Satou died, he was given two choices: pass on to heaven or be revived in a fantasy world. After choosing the new world, the goddess Aqua tasked him with defeating the Demon King, and let h...', 24, '83188.jpg', 58),
 ('Hamachi', 'Hachiman Hikigaya is an apathetic high school student with narcissistic and semi-nihilistic tendencies. He firmly believes that joyful youth is nothing but a farce, and everyone who says otherwise is...', 24, '49459.jpg', 15),
-('Guilty Crown', '"Japan, 2039. Ten years after the outbreak of the ""Apocalypse Virus,"" an event solemnly regarded as ""Lost Christmas,"" the once proud nation has fallen under the rule of the GHQ, an independent military..."', 24, '33713.jpg', 73),
+('Guilty Crown', ''Japan, 2039. Ten years after the outbreak of the ''Apocalypse Virus,'' an event solemnly regarded as ''Lost Christmas,'' the once proud nation has fallen under the rule of the GHQ, an independent military...'', 24, '33713.jpg', 73),
 ('One Punch Man 2nd Season', 'In the wake of defeating Boros and his mighty army, Saitama has returned to his unremarkable everyday life in Z-City. However, unbeknownst to him, the number of monsters appearing is still continuousl...', 24, '99571.jpg', 98),
 ('Deadman Wonderland', 'It looked like it would be a normal day for Ganta Igarashi and his classmates—they were preparing to go on a class field trip to a certain prison amusement park called Deadman Wonderland, where the co...', 24, '75299.jpg', 47),
 ('Chuunibyou demo Koi ga Shitai!', 'Everybody has had that stage in their life where they have thought themselves to be special, different from the masses of ordinary humans. They might go as far as seeing themselves capable of wielding...', 24, '46931.jpg', 46),
 ('Darling in the FranXX', 'In the distant future, humanity has been driven to near-extinction by giant beasts known as Klaxosaurs, forcing the surviving humans to take refuge in massive fortress cities called Plantations. Child...', 24, '90408.jpg', 147),
-('Shingeki no Kyojin Season 3 Part 2', '"Seeking to restore humanity’s diminishing hope, the Survey Corps embark on a mission to retake Wall Maria, where the battle against the merciless ""Titans"" takes the stage once again. Returning to the..."', 24, '100633.jpg', 147),
+('Shingeki no Kyojin Season 3 Part 2', ''Seeking to restore humanity’s diminishing hope, the Survey Corps embark on a mission to retake Wall Maria, where the battle against the merciless ''Titans'' takes the stage once again. Returning to the...'', 24, '100633.jpg', 147),
 ('JoJo no Kimyou na Bouken (TV)', 'In 1868, Dario Brando saves the life of an English nobleman, George Joestar. By taking in Dario\'s son Dio when the boy becomes fatherless, George hopes to repay the debt he owes to his savior. However...', 24, '40409.jpg', 137),
 ('Hyouka', 'Energy-conservative high school student Houtarou Oreki ends up with more than he bargained for when he signs up for the Classics Club at his sister\'s behest—especially when he realizes how deep-rooted...', 24, '50521.jpg', 1),
 ('Clannad: After Story', 'Clannad: After Story, the sequel to the critically acclaimed slice-of-life series Clannad, begins after Tomoya Okazaki and Nagisa Furukawa graduate from high school. Together, they experience the emot...', 24, '24647.jpg', 123),
@@ -287,20 +287,20 @@ INSERT INTO Media (titre, description, duree, image, idStudioAnimation) VALUES (
 ('Dragon Ball Z', 'Five years after winning the World Martial Arts tournament, Gokuu is now living a peaceful life with his wife and son. This changes, however, with the arrival of a mysterious enemy named Raditz who pr...', 24, '20936.jpg', 115),
 ('Owari no Seraph', 'With the appearance of a mysterious virus that kills everyone above the age of 13, mankind becomes enslaved by previously hidden, power-hungry vampires who emerge in order to subjugate society with th...', 24, '73474.jpg', 67),
 ('Log Horizon', 'In the blink of an eye, thirty thousand bewildered Japanese gamers are whisked from their everyday lives into the world of the popular MMORPG, Elder Tale, after the game\'s latest update—unable to log...', 24, '84004.jpg', 143),
-('Kuroshitsuji', '"Young Ciel Phantomhive is known as ""the Queen\'s Guard Dog,"" taking care of the many unsettling events that occur in Victorian England for Her Majesty. Aided by Sebastian Michaelis, his loyal butler wi..."', 24, '27013.jpg', 89),
-('Boku no Hero Academia 4th Season', '"After successfully passing his Provisional Hero License exam, Izuku ""Deku"" Midoriya seeks out an extracurricular internship with a professional hero agency. At the recommendation of his mentor All Mig..."', 24, '107914.jpg', 48),
+('Kuroshitsuji', ''Young Ciel Phantomhive is known as ''the Queen\'s Guard Dog,'' taking care of the many unsettling events that occur in Victorian England for Her Majesty. Aided by Sebastian Michaelis, his loyal butler wi...'', 24, '27013.jpg', 89),
+('Boku no Hero Academia 4th Season', ''After successfully passing his Provisional Hero License exam, Izuku ''Deku'' Midoriya seeks out an extracurricular internship with a professional hero agency. At the recommendation of his mentor All Mig...'', 24, '107914.jpg', 48),
 ('Tate no Yuusha no Nariagari', 'The Four Cardinal Heroes are a group of ordinary men from modern-day Japan summoned to the kingdom of Melromarc to become its saviors. Melromarc is a country plagued by the Waves of Catastrophe that h...', 24, '101365.jpg', 75),
 ('Ansatsu Kyoushitsu 2nd Season', 'The students return as school is back in session for the second semester. Following their exploits on the island during summer vacation, Class 3-E continues to sharpen their blades with their sights s...', 24, '77966.jpg', 154),
 ('Dr. Stone', 'After five years of harboring unspoken feelings, high-schooler Taiju Ooki is finally ready to confess his love to Yuzuriha Ogawa. Just when Taiju begins his confession however, a blinding green light...', 24, '102576.jpg', 46),
 ('Mononoke Hime', 'When an Emishi village is attacked by a fierce demon boar, the young prince Ashitaka puts his life at stake to defend his tribe. With its dying breath, the beast curses the prince\'s arm, granting him...', 120, '75919.jpg', 148),
-('Kaichou wa Maid-sama!', '"Being the first female student council president isn\'t easy, especially when your school just transitioned from an all boys high school to a co-ed one. Aptly nicknamed ""Demon President"" by the boys fo..."', 24, '25254.jpg', 2),
+('Kaichou wa Maid-sama!', ''Being the first female student council president isn\'t easy, especially when your school just transitioned from an all boys high school to a co-ed one. Aptly nicknamed ''Demon President'' by the boys fo...'', 24, '25254.jpg', 2),
 ('Kaguya-sama', 'At the renowned Shuchiin Academy, Miyuki Shirogane and Kaguya Shinomiya are the student body\'s top representatives. Ranked the top student in the nation and respected by peers and mentors alike, Miyuk...', 24, '106551.jpg', 59),
 ('Nisekoi', 'Raku Ichijou, a first-year student at Bonyari High School, is the sole heir to an intimidating yakuza family. Ten years ago, Raku made a promise to his childhood friend. Now, all he has to go on is a...', 24, '75587.jpg', 85),
-('Kyoukai no Kanata', '"Mirai Kuriyama is the sole survivor of a clan of Spirit World warriors with the power to employ their blood as weapons. As such, Mirai is tasked with hunting down and killing ""youmu""—creatures said to..."', 24, '85468.jpg', 21),
+('Kyoukai no Kanata', ''Mirai Kuriyama is the sole survivor of a clan of Spirit World warriors with the power to employ their blood as weapons. As such, Mirai is tasked with hunting down and killing ''youmu''—creatures said to...'', 24, '85468.jpg', 21),
 ('Made in Abyss', 'The Abyss—a gaping chasm stretching down into the depths of the earth, filled with mysterious creatures and relics from a time long past. How did it come to be? What lies at the bottom? Countless brav...', 24, '86733.jpg', 2),
 ('Howl no Ugoku Shiro', 'That jumbled piece of architecture, that cacophony of hissing steam and creaking joints, with smoke billowing from it as it moves on its own... That castle is home to the magnificent wizard Howl, infa...', 120, '75810.jpg', 62),
 ('Haikyuu!! Second Season', 'Following their participation at the Inter-High, the Karasuno High School volleyball team attempts to refocus their efforts, aiming to conquer the Spring tournament instead. When they receive an invit...', 24, '76662.jpg', 83),
-('Zankyou no Terror', '"Painted in red, the word ""VON"" is all that is left behind after a terrorist attack on a nuclear facility in Japan. The government is shattered by their inability to act, and the police are left franti..."', 24, '64447.jpg', 94),
+('Zankyou no Terror', ''Painted in red, the word ''VON'' is all that is left behind after a terrorist attack on a nuclear facility in Japan. The government is shattered by their inability to act, and the police are left franti...'', 24, '64447.jpg', 94),
 ('Ouran Koukou Host Club', 'Haruhi Fujioka is a bright scholarship candidate with no rank or title to speak of—a rare species at Ouran Academy, an elite school for students of high pedigree. When she opens the door to Music Room...', 24, '71992.jpg', 73);
 
 -- CATEGORIES DES MEDIAS
@@ -867,16 +867,44 @@ INSERT INTO Personne (nom, prenom, dateNaissance, sexe) VALUES ('Hamakawa', 'Rok
                                                                ('Shimamoto', 'Yuyu', '1986-08-21', 'femme'),
                                                                ('Kashiwagi', 'Namie', '1970-08-16', 'femme'),
                                                                ('Okumura', 'Michi', '2002-11-24', 'femme'),
-                                                               ('Yamashina', 'Yasu', '1971-10-14', 'femme');
+                                                               ('Yamashina', 'Yasu', '1971-10-14', 'femme')
+                                                               ('Clementine','Larsen','2007-02-26', 'femme'),
+                                                               ('Kim','Ewing','2005-07-23', 'femme'),
+                                                               ('Larissa','Reeves','1991-04-08', 'femme'),
+                                                               ('Uta','Conrad','2002-11-19', 'femme'),
+                                                               ('Tasha','Marsh','1987-04-20', 'femme'),
+                                                               ('Ayanna','Camacho','1983-08-13', 'femme'),
+                                                               ('Brenda','Crane','2005-02-02', 'femme'),
+                                                               ('Dahlia','Valenzuela','2003-02-02', 'femme'),
+                                                               ('Suki','Ferrell','1987-01-12', 'femme'),
+                                                               ('Doris','Tate','2000-11-16', 'femme'),
+                                                               ('Brenda','Langley','1995-12-26', 'femme'),
+                                                               ('Yetta','Castro','1993-11-14', 'femme'),
+                                                               ('Kaden','Luna','1995-05-05', 'femme'),
+                                                               ('Helen','Hughes','1998-07-06', 'femme'),
+                                                               ('Magee','Delacruz','1997-06-21', 'homme'),
+                                                               ('Garrison','Maynard','1989-12-14', 'homme'),
+                                                               ('Noble','Dean','2006-05-24', 'homme'),
+                                                               ('Colby','Schmidt','1999-07-12', 'homme'),
+                                                               ('Drake','Acosta','1990-05-02', 'homme'),
+                                                               ('Michael','Booth','2003-08-12', 'homme'),
+                                                               ('Colt','Pace','2002-11-06', 'homme'),
+                                                               ('Patrick','Owen','1997-03-26', 'homme'),
+                                                               ('Blake','Walters','2004-03-26', 'homme'),
+                                                               ('Quamar','Knapp','1988-02-05', 'homme'),
+                                                               ('Ciaran','Wells','2007-02-27', 'homme'),
+                                                               ('Basil','Cunningham','1987-06-22', 'homme'),
+                                                               ('Rajah','Banks','1989-10-04', 'homme'),
+                                                               ('Francis','Jacobson','1991-01-19', 'homme'),
+                                                               ('Mason','Delacruz','1987-03-07', 'homme'),
+                                                               ('Merrill','Mullins','1993-06-20', 'homme'),
+                                                               ('Cullen','Whitley','1996-09-15', 'homme');
                                                                
 INSERT INTO Doubleur VALUES (1),
                             (2),
                             (3),
                             (4),
                             (5),
-                            (6),
-                            (7),
-                            (8),
                             (9),
                             (10),
                             (11),
@@ -1382,3 +1410,103 @@ INSERT INTO Doubleur_Media VALUES (13, 35),
                                   (26, 6),
                                   (35, 97),
                                   (12, 7);
+
+-- UTILISATEUR
+INSERT INTO Utilisateur (email, pseudo, password, idPersonne) 
+   VALUES 
+      ('risus@elit.edu', 'Mckee', md5('vitae'), 41),
+      ('adipiscing@luctusCurabitur.org', 'Vance', md5('rhoncus.'), 42),
+      ('pede@nonluctussit.co.uk', 'Johnston', md5('blandit'), 43),
+      ('libero@tellus.edu', 'Richmond', md5('quam'), 44),
+      ('Mauris@eu.net', 'Winters', md5('nibh.'), 45),
+      ('Lorem@antedictumcursus.edu', 'Petty', md5('dolor'), 46),
+      ('Duis.elementum.dui@placerateget.net', 'Cameron', md5('pharetra,'), 47),
+      ('orci.Ut@inlobortis.co.uk', 'Donovan', md5('accumsan'), 48),
+      ('gravida.mauris.ut@scelerisquelorem.co.uk', 'Petersen', md5('gravida.'), 49),
+      ('euismod@musProinvel.net', 'Jackson', md5('lacus.'), 50),
+      ('arcu.Sed@nonsapienmolestie.edu', 'Key', md5('mauris'), 51),
+      ('porttitor@Aliquam.net', 'Simmons', md5('enim,'), 52),
+      ('Integer@tristiquesenectuset.ca', 'Serrano', md5('lacinia'), 53),
+      ('magna.sed@fringilla.net', 'Page', md5('fermentum'), 54),
+      ('lectus@nonfeugiatnec.com', 'Morrison', md5('magna.'), 55),
+      ('Nullam.velit.dui@placerataugue.ca', 'Steeve', md5('commodo'), 56),
+      ('In.at.pede@Donec.co.uk', 'Mcleod', md5('Nunc'), 57),
+      ('In@commodoatlibero.co.uk', 'Cortez', md5('volutpat.'), 58),
+      ('risus.a@mus.edu', 'Terrell', md5('pede'), 59),
+      ('accumsan.sed@enimcommodo.ca', 'Bradshaw', md5('ipsum'), 60),
+      ('Nunc@Donec.org', 'Kerr', md5('nunc'), 61),
+      ('ut@pedeac.co.uk', 'Vasquez', md5('ligula.'), 62),
+      ('malesuada.id.erat@Aliquam.net', 'Martin', md5('mauris'), 63),
+      ('interdum.enim@justoProinnon.org', 'Mcclure', md5('enim.'), 64),
+      ('mollis.vitae.posuere@nequesed.org', 'Bowen', md5('nascetur'), 65),
+      ('ipsum@sitametconsectetuer.org', 'Hawkins', md5('gravida'), 66),
+      ('elementum@dapibus.com', 'Hull', md5('Phasellus'), 67),
+      ('sagittis.Nullam@ipsumleo.org', 'Callahan', md5('posuere'), 68),
+      ('magnis.dis.parturient@accumsan.edu', 'Barr', md5('sapien.'), 69),
+      ('a.facilisis.non@penatibus.co.uk', 'Dillon', md5('justo'), 70),
+      ('lobortis.quam.a@Maecenasornare.co.uk', 'Levy', md5('Donec'), 71);
+   
+-- UTILISATEUR_FILM
+INSERT INTO Utilisateur_film (idPersonne, idMedia, nom, dateAjout) VALUES
+   (41, 11, 'Plan to watch', NOW()),
+   (41, 39, 'Plan to watch', NOW()),
+   (41, 92, 'Finished', NOW()),
+   (41, 98, 'Finished', NOW()),
+   (41, 29, 'Finished', NOW()),
+   (42, 29, 'Finished', NOW()),
+   (43, 39, 'Finished', NOW()),
+   (43, 92, 'Plan to watch', NOW()),
+   (43, 39, 'Finished', NOW()),
+   (42, 11, 'Finished', NOW());
+
+-- UTILISATEUR_SERIE
+INSERT INTO Utilisateur_saison (idPersonne, numSaison, idMedia, nom, dateAjout, nbEpisodesVus)
+   VALUES
+      (41, 4, 1, 'Dropped', NOW(), 2),
+      (43, 6, 5, 'Finished', '2020-04-06', 17),
+      (43, 8, 2, 'Plan to watch', '2020-04-06', 0),
+      (44, 47, 6, 'Watching', '2020-04-06', 5),
+      (48, 60, 5, 'Watching', '2020-04-06', 10);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
