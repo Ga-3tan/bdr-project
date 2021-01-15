@@ -110,7 +110,7 @@ class dbConnect {
     }
 
     public function getAvgNote($mediaId) {
-        return $this->executeSqlRequest("SELECT AVG(note) AS 'moyenne' FROM utilisateur_media_note WHERE idMedia = " . $mediaId . ";", true)[0]['moyenne'];
+        return $this->executeSqlRequest("SELECT AVG(note) AS 'moyenne' FROM utilisateur_media_note WHERE idMedia = " . $mediaId . ";", true);
     }
 
     public function getDubbers($mediaId) {
@@ -135,15 +135,15 @@ class dbConnect {
 
     public function addNote($username, $mediaId, $note) {
         $usrId = $this->getUserId($username);
-        $this->executeSqlRequest("INSERT INTO Utilisateur_Media_Note VALUES (" . $usrId . ", " . $mediaId . ", " . $note . ", NOW());", false);
+        $this->executeSqlRequest("REPLACE INTO Utilisateur_Media_Note VALUES (" . $usrId . ", " . $mediaId . ", " . $note . ", NOW());", false);
     }
 
-    public function addMediaToList($username, $mediaId, $listId) {
+    public function addMediaToList($username, $mediaId, $seasonId, $listId) {
         $usrId = $this->getUserId($username);
         $list = "";
         $isMovie = false;
         $mediaData = $this->getMediaData($mediaId);
-        if ($mediaData[0]['nbsaisons'] == 0) return;
+        if ($mediaData[0]['nbSaisons'] == 0) return;
         if ($mediaData[0]['type'] == "Movie") $isMovie = true;
 
         switch ($listId) {
@@ -162,10 +162,14 @@ class dbConnect {
         }
 
         if ($isMovie) {
-            $this->executeSqlRequest("INSERT INTO Utilisateur_Film VALUES (" . $usrId . ", " . $mediaId . ", '" . $list . "', NOW());", false);
+            $this->executeSqlRequest("REPLACE INTO Utilisateur_Film VALUES (" . $usrId . ", " . $mediaId . ", '" . $list . "', NOW());", false);
         } else {
-            $this->executeSqlRequest("INSERT INTO Utilisateur_Saison VALUES (" . $usrId . ", " . $mediaId . ", 1, '" . $list . "', NOW());", false);
+            $this->executeSqlRequest("REPLACE INTO Utilisateur_Saison VALUES (" . $usrId . ", " . $seasonId . ", " . $mediaId . ", '" . $list . "', NOW(), 0);", false);
         }
+    }
+
+    public function getMediaSeason($mediaId, $seasonId) {
+        return $this->executeSqlRequest("SELECT * FROM Saison WHERE idSerie = " . $mediaId . " AND num = " . $seasonId . ";", true);
     }
 
     /**

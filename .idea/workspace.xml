@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Finished login and registration.&#10;It is now possible to create an account and login with it.">
-      <change afterPath="$PROJECT_DIR$/web/img/covers/blank.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/profiles/blank.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/php/backend/media_interact.php" afterDir="false" />
+    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Users can add notes&#10;Users can add comments&#10;The anime page displays general data of medias">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_Insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Insert.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_Requetes.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Requetes.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_Vues.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Vues.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/model/dbConnect.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/dbConnect.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/php/backend/check_login.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/backend/check_login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/php/backend/sign_out.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/backend/sign_out.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/php/backend/check_registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/backend/check_registration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/php/backend/media_interact.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/backend/media_interact.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/php/frontend/anime.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/anime.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +71,8 @@
       <workItem from="1610374805447" duration="6407000" />
       <workItem from="1610385070520" duration="5345000" />
       <workItem from="1610480907937" duration="116000" />
-      <workItem from="1610553813327" duration="18856000" />
+      <workItem from="1610553813327" duration="19048000" />
+      <workItem from="1610698086433" duration="10234000" />
     </task>
     <task id="LOCAL-00001" summary="Changed project structure and added data files">
       <created>1610374272706</created>
@@ -119,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610559196344</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Users can add notes&#10;Users can add comments&#10;The anime page displays general data of medias">
+      <created>1610572910672</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1610572910672</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,6 +150,7 @@
     <MESSAGE value="Added registration verification" />
     <MESSAGE value="Added login and regsitration js and php verifications" />
     <MESSAGE value="Finished login and registration.&#10;It is now possible to create an account and login with it." />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished login and registration.&#10;It is now possible to create an account and login with it." />
+    <MESSAGE value="Users can add notes&#10;Users can add comments&#10;The anime page displays general data of medias" />
+    <option name="LAST_COMMIT_MESSAGE" value="Users can add notes&#10;Users can add comments&#10;The anime page displays general data of medias" />
   </component>
 </project>

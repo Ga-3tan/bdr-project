@@ -30,12 +30,15 @@ if (!file_exists("../../img/covers/" . $data['image'])) $data['image'] = "blank.
         <ul class="w3-ul w3-border w3-round" style="margin-top: 10px">
             <li class="w3-center"><b>Informations</b></li>
             <?php
+            $ep =  $data['nbEpisodes'] == 0 ? '-' : $data['nbEpisodes'];
+            $sea =  $data['nbSaisons'] == 0 ? '-' : $data['nbSaisons'];
+
             echo '<li>Type: ' . $data['type'] . '</li>
                   <li>Category: ' . $data['categorie'] . '</li>
-                  <li>Episodes: ' . $data['nbEpisodes'] . '</li>
+                  <li>Episodes: ' . $ep . '</li>
                   <li>Release date: ' . $data['dateSortie'] . '</li>
                   <li>Duration: ' . $data['duree'] . '</li>
-                  <li>Seasons: ' . $data['nbSaisons'] . '</li>';
+                  <li>Seasons: ' . $sea . '</li>';
             ?>
 
         </ul>
@@ -48,43 +51,72 @@ if (!file_exists("../../img/covers/" . $data['image'])) $data['image'] = "blank.
             <div class="w3-row w3-border w3-round" style="font-size: small;text-align: justify;">
                 <p style="padding: 20px;"><?php echo $data['description']; ?></p>
             </div>
+            <?php
+            // Displays the add to list options if there are seasons
+            if ($data['nbSaisons'] != 0) {
+                echo '<div class="w3-row" style="margin-top: 10px">
+                        <div class="w3-col" style="width: 150px; padding-right: 10px">
+                            <ul class="w3-ul w3-border w3-round">
+                                <li class="w3-center"><b>Add to list</b></li>
+                                <ul class="w3-ul w3-hoverable">';
 
-            <div class="w3-row" style="margin-top: 10px">
-                <div class="w3-col" style="width: 150px; padding-right: 10px">
-                    <ul class="w3-ul w3-border w3-round">
-                        <li class="w3-center"><b>Add to list</b></li>
-                        <ul class="w3-ul w3-hoverable">
-                            <form class="w3-container" action="../backend/media_interact.php?id=<?php echo $_GET['id'] ?>" method="post">
-                                <select class="w3-select" name="list_data">
-                            <?php
-                            if ($data['type'] == "Movie") {
-                                echo '<option value="0">Plan to watch</option>
-                                      <option value="1">Watching</option>';
-                            } else {
-                                echo '<option value="0">Plan to watch</option>
-                                      <option value="1">Watching</option>
-                                      <option value="2">Finished</option>
-                                      <option value="3">Dropped</option>';
-                            }
-                            ?>
-                                </select>
-                                <button class="w3-btn" type="submit" value="Login" name="list_send">Send</button>
-                            </form>
+                echo '<form class="w3-container" action="../backend/media_interact.php?id=' . $_GET['id'] . '" method="post">';
+                // Displays season dropdown
+                echo '<select id="listId" onchange="changeNbEp()" class="w3-select" name="list_season">';
+
+                $type = $data['type'] == 'Movie' ? 'Movie' : 'Season';
+                for ($i = 1; $i <= $data['nbSaisons']; ++$i)
+                    echo '<option value="' . $i . '">' . $type . ' ' . $i . '</option>';
+
+                echo '</select>';
+
+                // Sets the nb of watched episodes
+                echo '<script>
+                        function changeNbEp() {
+                            document.getElementById(\'epNbId\').max = document.getElementById(\'s\' + document.getElementById(\'listId\').value).value;
+                        }
+                        </script>';
+
+                echo '<select class="w3-select" name="list_data">';
+                // Displays the lists
+                if ($data['type'] == "Movie") {
+                    echo '<option value="0">Plan to watch</option>
+                          <option value="2">Finished</option>';
+                    echo '</select>';
+                } else {
+                    echo '<option value="0">Plan to watch</option>
+                          <option value="1">Watching</option>
+                          <option value="2">Finished</option>
+                          <option value="3">Dropped</option>';
+                    echo '</select>';
+
+                    // Displays the nb episodes per season
+                    for ($j = 1; $j <= $data['nbSaisons']; ++$j) {
+                        echo '<param id="s' . $j-1 . '" value=' . $db->getMediaSeason($_GET['id'], $j)[0]['nbEpisodes'] . '>';
+                    }
+                    echo '<li><input onchange="changeNbEp()" value="0" id="epNbId" type="number" style="width: 100%" name="list_episodes" min="0" max="0"></li>';
+                }
+
+                echo '
+                      <li><button class="w3-btn" type="submit" value="Send" name="list_send">Send</button></li>
+                        </form>
                         </ul>
                     </ul>
-                </div>
+                </div>';
+            }
+            ?>
 
                 <div class="w3-col" style="width: 200px;">
                     <ul class="w3-ul w3-border w3-round">
                         <?php
                         // Gets the average note and the user note
-                        $avgNote = $db->getAvgNote($_GET['id']);
-                        if ($avgNote == null) $avgNote = "-";
-                        $usrNote = $db->getUserNote($_SESSION['USER_USERNAME'], $_GET['id']);
-                        if (empty($usrNote)) $usrNote = "-";
+                        $avg = $db->getAvgNote($_GET['id']);
+                        $avgNote = empty($avg) ? '-' : $avg[0]['moyenne'];
+                        $note = $db->getUserNote($_SESSION['USER_USERNAME'], $_GET['id']);
+                        $usrNote = empty($note) || $note[0] == null ? '-' : $note[0]['note'];
 
-                        echo '<li class="w3-center"><b>Average note: ' . $avgNote . '/10</b></li>
-                              <li class="w3-center"><b>Your note: ' . $avgNote . '</b></li>';
+                        echo '<li class="w3-center"><b>Average note: ' . ($avgNote == '-' ? $avgNote : round($avgNote)) . '/10</b></li>
+                              <li class="w3-center"><b>Your note: ' . ($usrNote == '-' ? $usrNote : floor($usrNote)) . '</b></li>';
                         ?>
                         <form class="w3-container" action="../backend/media_interact.php?id=<?php echo $_GET['id'] ?>" method="post">
                             <select class="w3-select" name="note_data">
@@ -100,7 +132,7 @@ if (!file_exists("../../img/covers/" . $data['image'])) $data['image'] = "blank.
                                 <option value="9">9</option>
                                 <option value="10">10</option>
                             </select>
-                        <li><button class="w3-btn" type="submit" value="Login" name="note_send">Send</button></li>
+                        <li><button class="w3-btn" type="submit" value="Send" name="note_send">Send</button></li>
                         </form>
                         </li>
                     </ul>
