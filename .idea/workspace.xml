@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Added lists views and requests">
+    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Updates requests">
+      <change afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Procedures.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_Requetes.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Requetes.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/dbConnect.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/dbConnect.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_Insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Insert.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_Triggers.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Triggers.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +69,7 @@
       <workItem from="1610385070520" duration="5345000" />
       <workItem from="1610480907937" duration="116000" />
       <workItem from="1610553813327" duration="19048000" />
-      <workItem from="1610698086433" duration="15279000" />
+      <workItem from="1610698086433" duration="19986000" />
     </task>
     <task id="LOCAL-00001" summary="Changed project structure and added data files">
       <created>1610374272706</created>
@@ -154,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610713333231</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Updates requests">
+      <created>1610714130754</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1610714130754</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,6 +195,7 @@
     <MESSAGE value="Added triggers file" />
     <MESSAGE value="Changed views" />
     <MESSAGE value="Added lists views and requests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added lists views and requests" />
+    <MESSAGE value="Updates requests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updates requests" />
   </component>
 </project>
