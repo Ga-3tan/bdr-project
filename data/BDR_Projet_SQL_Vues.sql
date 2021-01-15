@@ -1,3 +1,4 @@
+-- Vue contenant les medias de type film
 DROP VIEW IF EXISTS vFilm;
 CREATE VIEW vFilm
 AS
@@ -21,6 +22,7 @@ AS
         INNER JOIN Media_Categorie
                    ON Film.idMedia = Media_Categorie.idMedia;
 
+-- Vue contenant les medias de type Série
 DROP VIEW IF EXISTS vSerie;
 CREATE VIEW vSerie
 AS
@@ -44,14 +46,16 @@ AS
         INNER JOIN Media_Categorie
             ON Serie.idMedia = Media_Categorie.idMedia;
 
+-- Vue contenant les utilisateurs de la plateforme
 DROP VIEW IF EXISTS vUtilisateur;
 CREATE VIEW vUtilisateur
 AS
-    SELECT *
+    SELECT *, EXISTS (SELECT * FROM moderateur WHERE idPersonne = moderateur.idPersonne)AS 'moderateur'
     FROM Personne
         INNER JOIN Utilisateur 
             ON Utilisateur.idPersonne = Personne.id;
 
+-- Vue contenant les doubleurs
 DROP VIEW IF EXISTS vDoubleur;
 CREATE VIEW vDoubleur
 AS 
@@ -59,13 +63,3 @@ AS
     FROM Personne
         INNER JOIN Doubleur 
             ON Doubleur.idPersonne = Personne.id;
-
-DROP VIEW IF EXISTS vModerateur;
-CREATE VIEW vModerateur
-AS 
-    SELECT *
-    FROM Personne
-        INNER JOIN Utilisateur 
-            ON Utilisateur.idPersonne = Personne.id
-        INNER JOIN Moderateur
-            ON Moderateur.idPersonne = Utilisateur.idPersonne;

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Fixes">
-      <change afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Triggers.sql" afterDir="false" />
+    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Added triggers file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_Vues.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Vues.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +67,7 @@
       <workItem from="1610385070520" duration="5345000" />
       <workItem from="1610480907937" duration="116000" />
       <workItem from="1610553813327" duration="19048000" />
-      <workItem from="1610698086433" duration="13220000" />
+      <workItem from="1610698086433" duration="13529000" />
     </task>
     <task id="LOCAL-00001" summary="Changed project structure and added data files">
       <created>1610374272706</created>
@@ -132,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610711152249</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added triggers file">
+      <created>1610712050196</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1610712050196</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,6 +169,7 @@
     <MESSAGE value="Users can add notes&#10;Users can add comments&#10;The anime page displays general data of medias" />
     <MESSAGE value="Fixed notes&#10;Fixed add to list&#10;Fixed db seasons&#10;Fixed login prblem" />
     <MESSAGE value="Fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixes" />
+    <MESSAGE value="Added triggers file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added triggers file" />
   </component>
 </project>
