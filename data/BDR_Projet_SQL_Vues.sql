@@ -48,7 +48,7 @@ AS
 DROP VIEW IF EXISTS vUtilisateur;
 CREATE VIEW vUtilisateur
 AS
-    SELECT *, EXISTS (SELECT * FROM moderateur WHERE idPersonne = moderateur.idPersonne)AS 'moderateur'
+    SELECT *, EXISTS (SELECT * FROM moderateur WHERE idPersonne = moderateur.idPersonne) AS 'moderateur'
     FROM Personne
         INNER JOIN Utilisateur 
             ON Utilisateur.idPersonne = Personne.id;

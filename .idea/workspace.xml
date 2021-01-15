@@ -1,50 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Added new triggers and procedures">
-      <change afterPath="$PROJECT_DIR$/web/img/covers/20210115055612373757646.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/20210115060501564857904.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/202101150605131523204879.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/202101150605561467280544.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/2021011506092020598648.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/202101150609341295074610.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/202101150609411392770785.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/202101150611031666674525.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/20210115061208963283696.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/202101150612101216011970.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/20210115061219367404213.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/20210115061704213146747.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/20210115062041125602464.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/20210115062242927913232.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/202101150624142073388545.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/20210115062458343360748.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/202101150625371595374872.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/20210115062628584814947.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/202101150627291298813005.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/20210115062810239239532.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/202101150629271604510417.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/202101150630381975858832.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/20210115063119549293054.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/202101150632381339012488.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/202101150633261569847525.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/20210115063527674937584.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/202101150636171782884552.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/20210115064705702842640.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/202101150648031681418842.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/202101150701421025313761.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/20210115070258686758673.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/covers/202101150703531901932680.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/php/backend/content_insert.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/php/frontend/insert.php" afterDir="false" />
+    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Added media creation in control panel">
+      <change afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_AIO.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/studios/blank.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/php/backend/profile_update.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/php/backend/utils.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_Procedures.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Procedures.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_Requetes.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Requetes.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_Triggers.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Triggers.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_Vues.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Vues.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/model/dbConnect.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/dbConnect.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/js/check_login_registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/check_login_registration.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/php/frontend/anime.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/anime.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/php/backend/check_login.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/backend/check_login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/php/backend/check_registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/backend/check_registration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/php/backend/content_insert.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/backend/content_insert.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/php/backend/media_interact.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/backend/media_interact.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/php/frontend/insert.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/admin_panel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/php/frontend/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/php/frontend/welcome.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/welcome.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/php/includes/header_nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/includes/header_nav.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +40,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
+  </component>
   <component name="ProjectId" id="1mIgU4sMafJAlu2KLucFd6iHqU2" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -82,10 +59,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/img/profiles" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\bdr-project\web\img\profiles" />
+      <recent name="C:\xampp\htdocs\bdr-project\web\img\studios" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\bdr-project\web\php\frontend" />
       <recent name="C:\xampp\htdocs\bdr-project\web\img\covers" />
@@ -108,7 +90,7 @@
       <workItem from="1610385070520" duration="5345000" />
       <workItem from="1610480907937" duration="116000" />
       <workItem from="1610553813327" duration="19048000" />
-      <workItem from="1610698086433" duration="34862000" />
+      <workItem from="1610698086433" duration="49468000" />
     </task>
     <task id="LOCAL-00001" summary="Changed project structure and added data files">
       <created>1610374272706</created>
@@ -236,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610723212770</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Added media creation in control panel">
+      <created>1610733977613</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1610733977613</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,6 +263,7 @@
     <MESSAGE value="Fixed insert file problems" />
     <MESSAGE value="Fixed user password in insert" />
     <MESSAGE value="Added new triggers and procedures" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added new triggers and procedures" />
+    <MESSAGE value="Added media creation in control panel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added media creation in control panel" />
   </component>
 </project>

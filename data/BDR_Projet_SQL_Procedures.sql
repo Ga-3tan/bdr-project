@@ -25,8 +25,8 @@ CREATE PROCEDURE ajouter_doubleur (IN nom VARCHAR(50),
                                    IN photoProfil VARCHAR(512))
 
 BEGIN
-    INSERT INTO Personne VALUES (NULL, nom, prenom, dateNaissance, sexe, photoProfil);
-    INSERT INTO Doubleur VALUES (LAST_INSERT_ID());
+    REPLACE INTO Personne VALUES (NULL, nom, prenom, dateNaissance, sexe, photoProfil);
+    REPLACE INTO Doubleur VALUES (LAST_INSERT_ID());
 END//
 
 -- Ajout d'un film

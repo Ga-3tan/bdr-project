@@ -34,7 +34,7 @@ class dbConnect {
             $this->dbCurrentConnexion = new PDO("mysql:host=" . self::DB_HOST . ";dbname=" . self::DB_NAME . "", self::DB_USER, self::DB_PASSWORD, $options);
         } catch (PDOException $e) {
             // Displays the connection error message
-            //echo '<p>An error occurred when trying to connect to the database : ' . $e->getMessage() . "</p><br>";
+            echo 'An error occurred when trying to connect to the database : ' . $e->getMessage();
         }
     }
 
@@ -49,7 +49,7 @@ class dbConnect {
             $sqlRequest = $this->dbCurrentConnexion->prepare($strQuery);
             $sqlRequest->execute();
         } catch (PDOException $e) {
-            //echo 'An error occurred when trying to send a query to the database : ' . $e->getMessage();
+            echo 'An error occurred when trying to send a query to the database : ' . $e->getMessage();
         }
 
         // Returns the associative array
@@ -57,21 +57,58 @@ class dbConnect {
         else return null;
     }
 
-    private function getUserId($username) {
+    public function getUserId($username) {
         return $data = $this->executeSqlRequest("SELECT idPersonne FROM Utilisateur WHERE pseudo = '" . $username . "';", true)[0]['idPersonne'];
     }
 
-    public function createUser($firstname, $lastname, $email, $username, $password) {
+    public function getUserData($username) {
+        return $data = $this->executeSqlRequest("SELECT * FROM vUtilisateur WHERE pseudo = '" . $username . "';", true);
+    }
+
+    public function getPerson($personId) {
+        return $this->executeSqlRequest("SELECT * FROM Personne WHERE id = " . $personId . ";", true);
+    }
+
+    public function createUser($firstname, $lastname, $birthDate, $gender, $profilePic, $email, $username, $password) {
         // Hash password
         $hashedPwd = password_hash($password,  PASSWORD_DEFAULT);
 
-        // Adds the user in Person table
-        $this->executeSqlRequest("INSERT INTO Personne(nom, prenom)
-                                 VALUES ('" . addslashes($firstname) . "', '" . addslashes($lastname) . "');", false);
+        // Adds the user via procedure
+        $this->executeSqlRequest("CALL ajouter_utilisateur('" .
+                                           addslashes($lastname) . "', '" .
+                                           addslashes($firstname) . "', '" .
+                                           $birthDate . "', '" .
+                                           $gender . "', '" .
+                                           $profilePic . "', '" .
+                                           addslashes($email) . "', '" .
+                                           addslashes($username) . "', '" .
+                                           $hashedPwd . "');", false);
+    }
 
-        // Adds the user in User table
-        $this->executeSqlRequest("INSERT INTO Utilisateur(email, pseudo, password, idPersonne)
-                                 VALUES ('" . addslashes($email) . "', '" . addslashes($username) . "', '" . $hashedPwd . "', " . $this->dbCurrentConnexion->lastInsertId() . ");", false);
+    public function updateUser($id, $firstname, $lastname, $birthDate, $gender, $profilePic, $email, $username) {
+        // Updates the person table
+        $this->executeSqlRequest("UPDATE Personne SET 
+                                            nom = '" . $lastname . "', 
+                                            prenom = '" . $firstname . "', 
+                                            dateNaissance = '" . $birthDate . "', 
+                                            sexe = '" . $gender . "', 
+                                            photoProfil = '" . $profilePic . "' 
+                                            WHERE id = " . $id . ";", false);
+
+        // Updates the user table
+        $this->executeSqlRequest("UPDATE Utilisateur SET 
+                                           email = '" . $email . "', 
+                                           pseudo = '" . $username . "' 
+                                           WHERE idPersonne = " . $id . ";", false);
+    }
+
+    public function createDubber($firstname, $lastname, $birthDate, $gender, $profilePic) {
+        $this->executeSqlRequest("CALL ajouter_doubleur('" .
+            addslashes($firstname) . "', '" .
+            addslashes($lastname) . "', '" .
+            addslashes($birthDate) . "', '" .
+            addslashes($gender) . "', '" .
+            addslashes($profilePic) . "');", false);
     }
 
     public function verifyUser($username, $password) {
@@ -175,20 +212,33 @@ class dbConnect {
     }
 
     public function getAllCategories() {
-        return $this->executeSqlRequest("SELECT * FROM Categorie;", true);
+        return $this->executeSqlRequest("SELECT * FROM Categorie ORDER BY tag;", true);
     }
 
     public function getAllStudios() {
-        return $this->executeSqlRequest("SELECT * FROM StudioAnimation;", true);
+        return $this->executeSqlRequest("SELECT * FROM StudioAnimation ORDER BY nom;", true);
     }
 
     public function createMovie($title, $description, $duration, $picture, $studioId, $releaseDate, $categories) {
-        $newId = $this->executeSqlRequest("CALL ajouter_film('" . $title . "', '" . $description . "', " . $duration . ", '" . $picture . "', " . $studioId . ", '" . $releaseDate . "', @newId);", true);
+        $newId = $this->executeSqlRequest("CALL ajouter_film('" .
+                                                    addslashes($title) . "', '" .
+                                                    addslashes($description). "', " .
+                                                    $duration . ", '" .
+                                                    $picture . "', " .
+                                                    $studioId . ", '" .
+                                                    $releaseDate . "', @newId);", true);
+
         $this->addCategoryToMedia($newId[0]['newId'], $categories);
     }
 
     public function createSerie($title, $description, $duration, $picture, $studioId, $categories) {
-        $newId = $this->executeSqlRequest("CALL ajouter_serie('" . $title . "', '" . $description . "', " . $duration . ", '" . $picture . "', " . $studioId . ", @newId);", true);
+        $newId = $this->executeSqlRequest("CALL ajouter_serie('" .
+                                                    addslashes($title) . "', '" .
+                                                    addslashes($description) . "', " .
+                                                    $duration . ", '" .
+                                                    $picture . "', " .
+                                                    $studioId . ", @newId);", true);
+
         $this->addCategoryToMedia($newId[0]['newId'], $categories);
     }
 
@@ -199,6 +249,30 @@ class dbConnect {
 
     public function getMediaCategories($mediaId) {
         return $this->executeSqlRequest("SELECT tagCategorie FROM Media_Categorie WHERE idMedia =" . $mediaId . ";", true);
+    }
+
+    public function createSeason($mediaId, $seasonNum, $nbEpisodes, $releaseDate) {
+        $this->executeSqlRequest("INSERT INTO Saison VALUES (" . $seasonNum . ", " . $mediaId . ", " . $nbEpisodes . ", '" . $releaseDate . "');", false);
+    }
+
+    public function createCategory($tag) {
+        $this->executeSqlRequest("INSERT INTO Categorie VALUES ('" . addslashes($tag) . "');", false);
+    }
+
+    public function setModerator($username) {
+        $usrId = $this->getUserId($username);
+        $this->executeSqlRequest("INSERT INTO Moderateur VALUES (" . $usrId . ");", false);
+    }
+
+    public function addDubberToMedia($dubberId, $mediaId) {
+        $this->executeSqlRequest("INSERT INTO Doubleur_Media VALUES (" . $dubberId . ", " . $mediaId . ");", false);
+    }
+
+    public function createStudio($name, $description, $logo) {
+        $this->executeSqlRequest("INSERT INTO StudioAnimation VALUES (NULL, '" .
+                                                                              addslashes($name) . "', '" .
+                                                                              addslashes($description) . "', '" .
+                                                                              $logo . "');", false);
     }
 
     /**

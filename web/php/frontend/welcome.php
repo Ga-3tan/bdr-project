@@ -79,7 +79,7 @@ if (isset($_SESSION['USER_LOGGED'])) {
                           <div style="font-size: 10px">Minimum 4 alpha numeric characters</div>';
                 }
                 ?>
-                <input type="submit" value="Login" name="reg_send" onclick="clearErrors()">
+                <input type="submit" value="Register" name="reg_send" onclick="clearErrors()">
             </form>
         </div>
     </div>

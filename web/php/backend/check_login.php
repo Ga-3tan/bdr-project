@@ -22,6 +22,8 @@ if (isset($_POST['login_send']) && validateLogin($db)) {
     // Adds the user to the database and connects him
     $_SESSION['USER_LOGGED'] = true;
     $_SESSION['USER_USERNAME'] = $_POST['login_username'];
+    $v = $db->getUserId($_POST['login_username']);
+    $_SESSION['USER_ID'] = $db->getUserId($_POST['login_username']);
     header('Location: ../frontend/lists.php');
 } else {
     // Error with the fields

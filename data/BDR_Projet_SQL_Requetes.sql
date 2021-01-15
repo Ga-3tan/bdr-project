@@ -1,12 +1,11 @@
+-- Recuperes les informations d'une personne
+SELECT * FROM Personne WHERE id = <idPersonne>;
+
 -- Recuperer l'id de l'utilisateur en fonction de son pseudo
 SELECT idPersonne FROM Utilisateur WHERE pseudo = '<pseudo>';
 
 -- Creer un nouvel utilisateur dans la base de donnees
-INSERT INTO Personne(nom, prenom)
-    VALUES ('<prenom>', '<nom>');
-
-INSERT INTO Utilisateur(email, pseudo, password, idPersonne)
-VALUES ('<email>>', 'pseudo', '<mot de passe>', <id>);
+CALL ajouter_utilisateur('<nom>', '<prenom>', '<dateNaissance>', '<sexe>', '<photoProfil>', '<email>', '<pseudo>', '<password>');
 
 -- Verification de l'utilisateur
 SELECT password FROM Utilisateur WHERE pseudo = '<pseudo>';
@@ -62,13 +61,34 @@ REPLACE INTO Utilisateur_Saison
 SELECT * FROM Saison WHERE idSerie = <idSerie> AND num = <NoSaison>;
 
 -- Recuperation des categories
-SELECT * FROM Categorie;
+SELECT * FROM Categorie ORDER BY tag;
 
 -- Récupération des studios d'animation
-SELECT * FROM StudioAnimation;
+SELECT * FROM StudioAnimation ORDER BY nom;
 
 -- Ajouter une categorie a un media
 INSERT INTO Media_Categorie VALUES ('<tag categorie>', <idMedia>);
+
+-- Recuperer les categories d'un media
+SELECT tagCategorie FROM Media_Categorie WHERE idMedia = <idMedia>;
+
+-- Creer une nouvelle saison pour un media
+INSERT INTO Saison VALUES (<numSaison>, <idMedia>, <nbEpisodes>, '<dateSortie>');
+
+-- Creer une nouvelle categorie
+INSERT INTO Categorie VALUES ('<tag>');
+
+-- Creer un nouveau film
+CALL ajouter_film('<titre>', '<description>', <duree>, '<image>', <idStudio>, '<dateSortie>', @newId);
+
+-- Creer une nouvelle serie
+CALL ajouter_serie('<titre>', '<description>', <duree>, '<image>', <idStudio>, @newId);
+
+-- Creer un nouveau doubleur
+CALL ajouter_doubleur('<nom>', '<prenom>', '<dateNaissance>', '<sexe>', '<photoProfil>');
+
+-- Ajouter un doubleur sur un media
+INSERT INTO Doubleur_Media VALUES (<idDoubleur>, <idMedia>);
 
 -----------------------------NON UTILISE----------------------------------
 
