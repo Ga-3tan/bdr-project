@@ -22,6 +22,7 @@ if (isset($_POST['reg_send']) && validateRegistration($db)) {
     // Adds the user to the database and connects him
     $db->createUser($_POST['reg_firstname'], $_POST['reg_lastname'], $_POST['reg_email'], $_POST['reg_username'], $_POST['reg_password']);
     $_SESSION['USER_LOGGED'] = true;
+    $_SESSION['USER_USERNAME'] = $_POST['reg_username'];
     header('Location: ../frontend/lists.php');
 } else {
     // Error with the fields

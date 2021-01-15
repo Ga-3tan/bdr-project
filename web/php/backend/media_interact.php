@@ -24,7 +24,7 @@ if (isset($_POST['comment_send'])) {
     header('Location: ../frontend/anime.php?id=' . $_GET['id']);
     die();
 } else if (isset($_POST['list_send'])) {
-    $db->addMediaToList($_SESSION['USER_USERNAME'], $_GET['id'], $_POST['list_data']);
+    $db->addMediaToList($_SESSION['USER_USERNAME'], $_GET['id'], $_POST['list_season'], $_POST['list_data']);
     header('Location: ../frontend/anime.php?id=' . $_GET['id']);
     die();
 }

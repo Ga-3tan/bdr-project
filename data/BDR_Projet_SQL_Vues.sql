@@ -33,9 +33,9 @@ AS
         Media_Categorie.tagCategorie as 'categorie',
         Media.image as 'image',
         StudioAnimation.nom as 'nomStudio',
-        (SELECT dateSortie FROM Saison WHERE num = Media.id ORDER BY num LIMIT 1) as 'dateSortie',
-        (SELECT COUNT(num) FROM Saison WHERE num = Media.id) as 'nbSaisons',
-        (SELECT SUM(nbEpisodes) FROM Saison WHERE num = Media.id) as 'nbEpisodes'
+        (SELECT dateSortie FROM Saison WHERE idSerie = Media.id ORDER BY num LIMIT 1) as 'dateSortie',
+        (SELECT COUNT(num) FROM Saison WHERE idSerie = Media.id) as 'nbSaisons',
+        (SELECT SUM(nbEpisodes) FROM Saison WHERE idSerie = Media.id) as 'nbEpisodes'
     FROM Media
         INNER JOIN Serie
             ON Serie.idMedia = Media.id
@@ -66,7 +66,7 @@ AS
     SELECT *
     FROM Personne
         INNER JOIN Utilisateur 
-            ON Utilisateur.idPersonne = Personne.id;
+            ON Utilisateur.idPersonne = Personne.id
         INNER JOIN Moderateur
             ON Moderateur.idPersonne = Utilisateur.idPersonne;
     
