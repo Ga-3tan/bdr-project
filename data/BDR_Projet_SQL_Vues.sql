@@ -69,18 +69,3 @@ AS
             ON Utilisateur.idPersonne = Personne.id
         INNER JOIN Moderateur
             ON Moderateur.idPersonne = Utilisateur.idPersonne;
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    

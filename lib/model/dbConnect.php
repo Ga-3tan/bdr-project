@@ -138,7 +138,7 @@ class dbConnect {
         $this->executeSqlRequest("REPLACE INTO Utilisateur_Media_Note VALUES (" . $usrId . ", " . $mediaId . ", " . $note . ", NOW());", false);
     }
 
-    public function addMediaToList($username, $mediaId, $seasonId, $listId) {
+    public function addMediaToList($username, $mediaId, $seasonId, $listId, $nbWatchedEp) {
         $usrId = $this->getUserId($username);
         $list = "";
         $isMovie = false;
@@ -164,7 +164,10 @@ class dbConnect {
         if ($isMovie) {
             $this->executeSqlRequest("REPLACE INTO Utilisateur_Film VALUES (" . $usrId . ", " . $mediaId . ", '" . $list . "', NOW());", false);
         } else {
-            $this->executeSqlRequest("REPLACE INTO Utilisateur_Saison VALUES (" . $usrId . ", " . $seasonId . ", " . $mediaId . ", '" . $list . "', NOW(), 0);", false);
+            // Checks if finished, all episodes are watched
+            if ($listId == 2) $nbWatchedEp = $this->getMediaSeason($mediaId, $seasonId)[0]['nbEpisodes'];
+
+            $this->executeSqlRequest("REPLACE INTO Utilisateur_Saison VALUES (" . $usrId . ", " . $seasonId . ", " . $mediaId . ", '" . $list . "', NOW(), " . $nbWatchedEp . ");", false);
         }
     }
 

@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Users can add notes&#10;Users can add comments&#10;The anime page displays general data of medias">
+    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Fixed notes&#10;Fixed add to list&#10;Fixed db seasons&#10;Fixed login prblem">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_Insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Insert.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_Vues.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Vues.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/model/dbConnect.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/dbConnect.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/php/backend/check_registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/backend/check_registration.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/php/backend/media_interact.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/backend/media_interact.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/php/frontend/anime.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/anime.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +69,7 @@
       <workItem from="1610385070520" duration="5345000" />
       <workItem from="1610480907937" duration="116000" />
       <workItem from="1610553813327" duration="19048000" />
-      <workItem from="1610698086433" duration="10234000" />
+      <workItem from="1610698086433" duration="12328000" />
     </task>
     <task id="LOCAL-00001" summary="Changed project structure and added data files">
       <created>1610374272706</created>
@@ -123,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610572910672</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Fixed notes&#10;Fixed add to list&#10;Fixed db seasons&#10;Fixed login prblem">
+      <created>1610708455721</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1610708455721</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,6 +155,7 @@
     <MESSAGE value="Added login and regsitration js and php verifications" />
     <MESSAGE value="Finished login and registration.&#10;It is now possible to create an account and login with it." />
     <MESSAGE value="Users can add notes&#10;Users can add comments&#10;The anime page displays general data of medias" />
-    <option name="LAST_COMMIT_MESSAGE" value="Users can add notes&#10;Users can add comments&#10;The anime page displays general data of medias" />
+    <MESSAGE value="Fixed notes&#10;Fixed add to list&#10;Fixed db seasons&#10;Fixed login prblem" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed notes&#10;Fixed add to list&#10;Fixed db seasons&#10;Fixed login prblem" />
   </component>
 </project>
