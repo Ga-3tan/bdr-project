@@ -6,6 +6,13 @@ include "../../../lib/model/dbConnect.php";
 $db = new dbConnect();
 
 // Gets all categories and studios
+$userData = $db->getUserData($_SESSION['USER_USERNAME'])[0];
+// Checks access rights
+if (!$userData['moderateur']) {
+    header("Location: user.php");
+    die();
+}
+
 $categoryData = $db->getAllCategories();
 $studioData   = $db->getAllStudios();
 ?>

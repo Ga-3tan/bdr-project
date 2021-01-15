@@ -899,7 +899,8 @@ INSERT INTO Personne (nom, prenom, dateNaissance, sexe) VALUES ('Hamakawa', 'Rok
                                                                ('Francis','Jacobson','1991-01-19', 'homme'),
                                                                ('Mason','Delacruz','1987-03-07', 'homme'),
                                                                ('Merrill','Mullins','1993-06-20', 'homme'),
-                                                               ('Cullen','Whitley','1996-09-15', 'homme');
+                                                               ('Cullen','Whitley','1996-09-15', 'homme'),
+                                                               ('root','root','2000-01-01', 'autre');
 
 INSERT INTO Doubleur VALUES (1),
                             (2),
@@ -1418,7 +1419,7 @@ INSERT INTO Doubleur_Media VALUES (13, 35),
 -- UTILISATEUR
 INSERT INTO Utilisateur (email, pseudo, password, idPersonne)
 VALUES
-('risus@elit.edu', 'Mckee', md5('vitae'), 41),
+('risus@elit.edu', 'Mckee', '$2y$10$1YmuRLhzGUuv96f4sGKMbeIrhcZly9B39EA3G2/ow5ah9h7/lkvfK', 41),
 ('adipiscing@luctusCurabitur.org', 'Vance', '$2y$10$1YmuRLhzGUuv96f4sGKMbeIrhcZly9B39EA3G2/ow5ah9h7/lkvfK', 42),
 ('pede@nonluctussit.co.uk', 'Johnston', '$2y$10$1YmuRLhzGUuv96f4sGKMbeIrhcZly9B39EA3G2/ow5ah9h7/lkvfK', 43),
 ('libero@tellus.edu', 'Richmond', '$2y$10$1YmuRLhzGUuv96f4sGKMbeIrhcZly9B39EA3G2/ow5ah9h7/lkvfK', 44),
@@ -1448,7 +1449,10 @@ VALUES
 ('sagittis.Nullam@ipsumleo.org', 'Callahan', '$2y$10$1YmuRLhzGUuv96f4sGKMbeIrhcZly9B39EA3G2/ow5ah9h7/lkvfK', 68),
 ('magnis.dis.parturient@accumsan.edu', 'Barr', '$2y$10$1YmuRLhzGUuv96f4sGKMbeIrhcZly9B39EA3G2/ow5ah9h7/lkvfK', 69),
 ('a.facilisis.non@penatibus.co.uk', 'Dillon', '$2y$10$1YmuRLhzGUuv96f4sGKMbeIrhcZly9B39EA3G2/ow5ah9h7/lkvfK', 70),
-('lobortis.quam.a@Maecenasornare.co.uk', 'Levy', '$2y$10$1YmuRLhzGUuv96f4sGKMbeIrhcZly9B39EA3G2/ow5ah9h7/lkvfK', 71);
+('lobortis.quam.a@Maecenasornare.co.uk', 'Levy', '$2y$10$1YmuRLhzGUuv96f4sGKMbeIrhcZly9B39EA3G2/ow5ah9h7/lkvfK', 71),
+('root@root.com', 'root', '$2y$10$1YmuRLhzGUuv96f4sGKMbeIrhcZly9B39EA3G2/ow5ah9h7/lkvfK', 72);
+
+INSERT INTO Moderateur VALUES (72);
 
 -- UTILISATEUR_FILM
 INSERT INTO Utilisateur_film (idPersonne, idMedia, nom, dateAjout) VALUES

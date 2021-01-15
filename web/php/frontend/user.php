@@ -65,11 +65,16 @@ if (!file_exists("../../img/profiles/" . $userData['photoProfil']) || $userData[
         </li>
         </form>
         <li style="background-color: black"></li>
-        <li>
-            <form action="admin_panel.php">
-                <input class="w3-button w3-blue" type="submit" value="Add content in database" />
-            </form>
-        </li>
+        <?php
+        if ($userData['moderateur']) {
+            echo '<li>
+                    <form action="admin_panel.php">
+                        <input class="w3-button w3-blue" type="submit" value="Add content in database" />
+                    </form>
+                </li>';
+        }
+        ?>
+
     </ul>
 </div>
 

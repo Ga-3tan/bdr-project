@@ -1,24 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Added media creation in control panel">
-      <change afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_AIO.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/studios/blank.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/php/backend/profile_update.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/php/backend/utils.php" afterDir="false" />
+    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Lots of fixes&#10;Finished admin_panel.php&#10;Users can now customize their profile!&#10;Added an ALL-IN-ONE SQL file -&gt; BDR_Projet_SQL_AIO.sql">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_Procedures.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Procedures.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_Requetes.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Requetes.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_AIO.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_AIO.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_Insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Insert.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_Vues.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Vues.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/dbConnect.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/dbConnect.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/php/backend/check_login.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/backend/check_login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/php/backend/check_registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/backend/check_registration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/php/backend/content_insert.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/backend/content_insert.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/php/backend/media_interact.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/backend/media_interact.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/php/frontend/insert.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/admin_panel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/php/frontend/admin_panel.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/admin_panel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/php/frontend/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/user.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/php/frontend/welcome.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/welcome.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/php/includes/header_nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/includes/header_nav.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +79,7 @@
       <workItem from="1610385070520" duration="5345000" />
       <workItem from="1610480907937" duration="116000" />
       <workItem from="1610553813327" duration="19048000" />
-      <workItem from="1610698086433" duration="49468000" />
+      <workItem from="1610698086433" duration="50472000" />
     </task>
     <task id="LOCAL-00001" summary="Changed project structure and added data files">
       <created>1610374272706</created>
@@ -225,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610733977613</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Lots of fixes&#10;Finished admin_panel.php&#10;Users can now customize their profile!&#10;Added an ALL-IN-ONE SQL file -&gt; BDR_Projet_SQL_AIO.sql">
+      <created>1610749336211</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1610749336211</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,6 +260,7 @@
     <MESSAGE value="Fixed user password in insert" />
     <MESSAGE value="Added new triggers and procedures" />
     <MESSAGE value="Added media creation in control panel" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added media creation in control panel" />
+    <MESSAGE value="Lots of fixes&#10;Finished admin_panel.php&#10;Users can now customize their profile!&#10;Added an ALL-IN-ONE SQL file -&gt; BDR_Projet_SQL_AIO.sql" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lots of fixes&#10;Finished admin_panel.php&#10;Users can now customize their profile!&#10;Added an ALL-IN-ONE SQL file -&gt; BDR_Projet_SQL_AIO.sql" />
   </component>
 </project>
