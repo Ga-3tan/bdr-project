@@ -309,4 +309,3 @@ class dbConnect {
         unset($this->currentDbconnection);
     }
 }
-?>
