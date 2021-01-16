@@ -70,13 +70,13 @@ SELECT DISTINCT
     Pers.id AS 'id',
     Pers.nom,
     Pers.prenom,
-    User_film.nom AS 'liste',
+    User_Film.nom AS 'liste',
     Media.titre AS 'media',
-    User_film.Media,
+    User_Film.idMedia,
     Media.image
-FROM Utilisateur_film AS User_film
-         INNER JOIN Personne AS Pers ON Pers.id = User_film.idPersonne
-         INNER JOIN Media ON Media.id = User_film.idMedia;
+FROM Utilisateur_Film AS User_Film
+         INNER JOIN Personne AS Pers ON Pers.id = User_Film.idPersonne
+         INNER JOIN Media ON Media.id = User_Film.idMedia;
 
 -- Vue pour la liste des séries et leurs saisons apparaissant dans les listes des utilisateurs
 DROP VIEW IF EXISTS vUtilisateur_Lists_Serie;
@@ -86,13 +86,13 @@ SELECT DISTINCT
     Pers.id AS 'id',
     Pers.nom,
     Pers.prenom,
-    User_sa.nom AS 'liste',
+    User_Sa.nom AS 'liste',
     Saison.num AS 'saison',
     Media.titre AS 'media',
     User_Sa.idMedia,
     Media.image,
-    User_sa.nbEpisodesVus AS 'Nombre episodes vus'
-FROM Utilisateur_saison AS User_Sa
+    User_Sa.nbEpisodesVus AS 'Nombre episodes vus'
+FROM Utilisateur_Saison AS User_Sa
          INNER JOIN Personne AS Pers ON Pers.id = User_Sa.idPersonne
          INNER JOIN Saison ON Saison.num = User_Sa.numSaison
          INNER JOIN Media ON Media.id = User_Sa.idMedia;

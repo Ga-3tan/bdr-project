@@ -33,9 +33,12 @@ if (!file_exists("../../img/covers/" . $data['image'])) $data['image'] = "blank.
             $ep =  $data['nbEpisodes'] == 0 ? '-' : $data['nbEpisodes'];
             $sea =  $data['nbSaisons'] == 0 ? '-' : $data['nbSaisons'];
 
+            echo '<li>Media ID: ' . $data['id'] . '</li>';
             echo '<li>Type: ' . $data['type'] . '</li>';
             for ($i = 0; $i < count($mediaCat) && $i < 3; ++$i)
                 echo '<li>Category ' . ($i+1) . ': ' . $mediaCat[$i]['tagCategorie'] . '</li>';
+            if (count($mediaCat) > 3)
+                echo '<li>(' . (count($mediaCat)-3) . ' more categories ...)</li>';
             echo '<li>Episodes: ' . $ep . '</li>
                   <li>Release date: ' . $data['dateSortie'] . '</li>
                   <li>Duration: ' . $data['duree'] . '</li>
@@ -71,14 +74,27 @@ if (!file_exists("../../img/covers/" . $data['image'])) $data['image'] = "blank.
 
                 echo '</select>';
 
-                // Sets the nb of watched episodes
+                // Sets the nb of watched episodes and list selection
                 echo '<script>
                         function changeNbEp() {
                             document.getElementById(\'epNbId\').max = document.getElementById(\'s\' + document.getElementById(\'listId\').value).value;
                         }
+                        function listSet() {
+                            let item = document.getElementById(\'listSelect\').value;
+                            let nbEp = document.getElementById(\'epNbId\');
+                            if (item === \'2\') {
+                                nbEp.value = document.getElementById(\'s\' + document.getElementById(\'listId\').value).value;
+                                nbEp.disabled = true;
+                            } else if (item === \'0\') {
+                                nbEp.value = 0;
+                                nbEp.disabled = true;
+                            } else {
+                                nbEp.disabled = false;
+                            }
+                        }
                         </script>';
 
-                echo '<select class="w3-select" name="list_data">';
+                echo '<select id="listSelect" onchange="listSet()" class="w3-select" name="list_data">';
                 // Displays the lists
                 if ($data['type'] == "Movie") {
                     echo '<option value="0">Plan to watch</option>
@@ -95,7 +111,7 @@ if (!file_exists("../../img/covers/" . $data['image'])) $data['image'] = "blank.
                     for ($j = 1; $j <= $data['nbSaisons']; ++$j) {
                         echo '<param id="s' . $j-1 . '" value=' . $db->getMediaSeason($_GET['id'], $j)[0]['nbEpisodes'] . '>';
                     }
-                    echo '<li><input onchange="changeNbEp()" value="0" id="epNbId" type="number" style="width: 100%" name="list_episodes" min="0" max="0"></li>';
+                    echo '<li><input onchange="changeNbEp()" disabled value="0" id="epNbId" type="number" style="width: 100%" name="list_episodes" min="0" max="0"></li>';
                 }
 
                 echo '
@@ -145,7 +161,7 @@ if (!file_exists("../../img/covers/" . $data['image'])) $data['image'] = "blank.
                         <ul class="w3-ul w3-hoverable">
                             <?php
                             // Gets voice actors
-                            $voiceActors = $db->getDubbers($_GET['id']);
+                            $voiceActors = $db->getMediaDubbers($_GET['id']);
 
                             foreach ($voiceActors as $actor) {
                                 if (empty($actor['photoProfil']) || !file_exists("../../img/profiles/" . $actor['photoProfil']))
@@ -156,7 +172,8 @@ if (!file_exists("../../img/covers/" . $data['image'])) $data['image'] = "blank.
                                                  class="w3-bar-item"
                                                  style="width:85px">
                                             <div class="w3-bar-item">
-                                                <span class="w3-large">' . $actor['nom'] . ', ' . $actor['prenom'] . '</span>
+                                                <span class="w3-large">' . $actor['nom'] . ', ' . $actor['prenom'] . '</span><br>
+                                                <span class="w3-large">ID : ' . $actor['id'] . '</span>
                                             </div>
                                         </li>';
                             }

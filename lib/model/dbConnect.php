@@ -148,7 +148,7 @@ class dbConnect {
         return $this->executeSqlRequest("SELECT AVG(note) AS 'moyenne' FROM utilisateur_media_note WHERE idMedia = " . $mediaId . ";", true);
     }
 
-    public function getDubbers($mediaId) {
+    public function getMediaDubbers($mediaId) {
         return $this->executeSqlRequest("SELECT id, nom, prenom, dateNaissance, sexe, photoProfil
                                                   FROM vDoubleur
                                                       INNER JOIN Doubleur_Media
