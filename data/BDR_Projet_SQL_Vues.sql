@@ -8,7 +8,6 @@ AS
         titre,
         Media.description as 'description',
         duree,
-        Media_Categorie.tagCategorie as 'categorie',
         Media.image as 'image',
         StudioAnimation.nom as 'nomStudio',
         Film.dateSortie as 'dateSortie',
@@ -32,7 +31,6 @@ AS
         titre,
         Media.description as 'description',
         duree,
-        Media_Categorie.tagCategorie as 'categorie',
         Media.image as 'image',
         StudioAnimation.nom as 'nomStudio',
         (SELECT dateSortie FROM Saison WHERE idSerie = Media.id ORDER BY num LIMIT 1) as 'dateSortie',
@@ -50,7 +48,7 @@ AS
 DROP VIEW IF EXISTS vUtilisateur;
 CREATE VIEW vUtilisateur
 AS
-    SELECT *, EXISTS (SELECT * FROM moderateur WHERE idPersonne = moderateur.idPersonne)AS 'moderateur'
+    SELECT *, EXISTS (SELECT * FROM moderateur WHERE Personne.id = moderateur.idPersonne) AS 'moderateur'
     FROM Personne
         INNER JOIN Utilisateur 
             ON Utilisateur.idPersonne = Personne.id;

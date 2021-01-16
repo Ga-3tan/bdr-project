@@ -17,6 +17,7 @@
                 class="fa fa-search"></i></a>
         <a href="../backend/sign_out.php" class="w3-bar-item w3-button w3-padding-large w3-right"><i class="fa fa-sign-out"></i></a>
         <a href="user.php" class="w3-bar-item w3-button w3-padding-large w3-right"><i class="fa fa-user"></i></a>
+        <p class="w3-right" style="padding-right: 30px;"><?php echo $_SESSION['USER_USERNAME'] . " | ID : " . $_SESSION['USER_ID'] ?></p>
         <div class="w3-dropdown-hover">
             <button class="w3-padding-large w3-button" title="More">ANIME <i class="fa fa-caret-down"></i></button>
             <div class="w3-dropdown-content w3-bar-block w3-card-4">

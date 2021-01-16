@@ -5,11 +5,12 @@ include '../../../lib/model/dbConnect.php';
 
 $db = new dbConnect();
 
-if(isset($_GET['id'])) {
-    $finishedList = $db->getListMedia($_GET['id'], 'Finished');
-    $watchingList = $db->getListMedia($_GET['id'], 'Watching');
-    $droppedList = $db->getListMedia($_GET['id'], 'Dropped');
-    $planToWatch = $db->getListMedia($_GET['id'], 'Plan to watch');
+if(isset($_SESSION['USER_ID'])) {
+    echo "<script>console.log('Fetch data from DB.');</script>";
+    $finishedList = $db->getListMedia($_SESSION['USER_ID'], 'Finished');
+    $watchingList = $db->getListMedia($_SESSION['USER_ID'], 'Watching');
+    $droppedList = $db->getListMedia($_SESSION['USER_ID'], 'Dropped');
+    $planToWatch = $db->getListMedia($_SESSION['USER_ID'], 'Plan to watch');
 }
 
 function echoList ($list, $db) {

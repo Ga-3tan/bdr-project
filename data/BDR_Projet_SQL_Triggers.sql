@@ -70,18 +70,26 @@ END;
 $$
 DELIMITER ;
 
--- Ajout d'une list : nombre d'episodes vus, soit entre 0 et le nb d'episodes de la saison
--- Verifcation de l'ajout dans les listes d'un série qui n'est pas encore sortie
+-- lors de l'ajout d'une list / replace
 DROP TRIGGER IF EXISTS before_utilisateur_saison_insert;
 DELIMITER $$
 CREATE TRIGGER before_utilisateur_saison_insert
-    BEFORE INSERT ON utilisateur_saison
+    BEFORE INSERT ON Utilisateur_Saison
     FOR EACH ROW
 BEGIN
     DECLARE saisonNbEpisodes INT;
     SELECT nbEpisodes INTO saisonNbEpisodes FROM Saison WHERE NEW.idMedia = Saison.idSerie AND NEW.numSaison = Saison.num;
-    IF NEW.nbEpisodesVus > saisonNbEpisodes THEN
-        SET @s = '[table:utilisateur_saison] - [nbEpisodesVus] column is not valid';
+    IF NEW.nbEpisodesVus > saisonNbEpisodes THEN                                         -- on ne peut pas avoir vu plus d'episode que le max d'episode de la saison
+        SET @s = '[table:utilisateur_saison] - [nbEpisodesVus] cannot watch more episodes than the maximum';
+        SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = @s;
+    ELSEIF NEW.nbEpisodesVus > 0 AND NEW.nom = 'Plan to watch' THEN                     -- si un episode a été vu, il ne peut pas être dans plan to watch
+        SET @s = '[table:utilisateur_saison] - [nom] The season cannot be inside Plan to watch if one episodes has been watched';
+        SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = @s;
+    ELSEIF NEW.nbEpisodesVus < saisonNbEpisodes AND NEW.nom = 'Finished' THEN             -- la saison peut pas être dans finished si on a pas vu tous les episodes
+        SET @s = '[table:utilisateur_saison] - [nom] The season cannot be inside Finished if all episodes arent watched';
+        SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = @s;
+    ELSEIF NEW.nbEpisodesVus = saisonNbEpisodes AND NEW.nom != 'Finished' THEN             -- la saison ne peut pas être ailleurs que dans Finished si on a vu tous les episodes
+        SET @s = '[table:utilisateur_saison] - [nom] The season must be inside Finished if all episodes are watched';
         SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = @s;
     ELSEIF NEW.nom != 'Plan to watch' AND NOW() < (SELECT dateSortie FROM Saison WHERE Saison.idSerie = NEW.idMedia AND saison.num = NEW.numSaison) THEN
         SET @t = '[table:utilisateur_saison] - [nom] The season is not out yet, cannot put it in this list';

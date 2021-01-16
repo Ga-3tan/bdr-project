@@ -84,8 +84,7 @@ function validateRegistration() {
     return isFormValid;
 }
 
-function displayError(itemWrongDiv)
-{
+function displayError(itemWrongDiv) {
     // Colors the wrong field
     itemWrongDiv.style.border = "solid 1px red";
 

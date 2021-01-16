@@ -28,4 +28,5 @@ if (isset($_POST['comment_send'])) {
     $db->addMediaToList($_SESSION['USER_USERNAME'], $_GET['id'], $_POST['list_season'], $_POST['list_data'], $watchedEp);
     header('Location: ../frontend/anime.php?id=' . $_GET['id']);
     die();
+
 }
