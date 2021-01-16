@@ -14,7 +14,11 @@ $studioData   = $db->getAllStudios();
 <div class="search-page">
     <div class="search-wrap">
         <div class="search">
-            <input type="text" class="searchTerm" placeholder="What are you looking for?" name="name">
+            <?php
+            $selected = '';
+            if (isset($_GET['name'])) $selected = $_GET['name'];
+            ?>
+            <input type="text" class="searchTerm" placeholder="What are you looking for?" value="<?php echo $selected; ?>" name="name">
             <button type="submit" class="searchButton" value="Search" name="send">
                 <i class="fa fa-search"></i>
             </button>
@@ -22,25 +26,38 @@ $studioData   = $db->getAllStudios();
 
         <div class="w3-container w3-margin-top">
             <div class="w3-panel w3-black"><b>Search options</b></div>
-            <select class="w3-select w3-third" name="cat">
-                <option value="0" selected>All categories</option>
+            <select class="w3-select" name="cat">
+                <option value="" selected>All categories</option>
                 <?php
-                foreach ($categoryData as $c)
-                    echo '<option value="' . $c['tag'] . '">' . $c['tag'] . '</option>';
+                foreach ($categoryData as $c) {
+                    $selected = '';
+                    if (isset($_GET['cat']) && $_GET['cat'] == $c['tag']) $selected = 'selected';
+                    echo '<option ' . $selected . ' value="' . $c['tag'] . '">' . $c['tag'] . '</option>';
+                }
+
                 ?>
             </select>
 
-            <select class="w3-select w3-third" name="stu">
+            <select class="w3-select" name="stu">
                 <option value="" selected>All studios</option>
                 <?php
-                foreach ($studioData as $s)
-                    echo '<option value="' . $s['nom'] . '">' . $s['nom'] . '</option>';
+                foreach ($studioData as $s) {
+                    $selected = '';
+                    if (isset($_GET['stu']) && $_GET['stu'] == $s['nom']) $selected = 'selected';
+                    echo '<option ' . $selected . ' value="' . $s['nom'] . '">' . $s['nom'] . '</option>';
+                }
                 ?>
             </select>
 
-            <select class="w3-select w3-third" name="ord">
-                <option value="titre" selected>Order by name</option>
-                <option value="score">Order by score</option>
+            <select class="w3-select" name="type">
+                <option value="all" <?php echo isset($_GET['type']) && $_GET['type'] == 'all' ? 'selected' : ''; ?>>All types</option>
+                <option value="serie" <?php echo isset($_GET['type']) && $_GET['type'] == 'serie' ? 'selected' : '';?>>Series only</option>
+                <option value="movie" <?php echo isset($_GET['type']) && $_GET['type'] == 'movie' ? 'selected' : '';?>>Movies only</option>
+            </select>
+
+            <select class="w3-select" name="ord">
+                <option value="titre" <?php echo isset($_GET['ord']) && $_GET['ord'] == 'titre' ? 'selected' : ''; ?>>Order by name</option>
+                <option value="score" <?php echo isset($_GET['ord']) && $_GET['ord'] == 'score' ? 'selected' : ''; ?>>Order by score</option>
             </select>
         </div>
         <div class="w3-panel w3-black"><b>Results</b></div>
@@ -54,7 +71,7 @@ $studioData   = $db->getAllStudios();
             <?php
             // Gets the search results
             if (isset($_GET['name'])) {
-                $results = $db->searchMedia($_GET['name'], $_GET['cat'], $_GET['stu'], $_GET['ord']);
+                $results = $db->searchMedia($_GET['name'], $_GET['cat'], $_GET['stu'], $_GET['ord'], $_GET['type']);
 
                 foreach ($results as $res) {
                     echo '<li class="w3-bar w3-animate-opacity" style="padding: 0;">
