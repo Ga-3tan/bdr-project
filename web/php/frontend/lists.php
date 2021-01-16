@@ -25,25 +25,16 @@ function echoList ($list, $db) {
                              style="padding: 0; width: 100px" alt="">
                         <div class="w3-bar-item">
                             <span class="w3-large">' . $item['media'] . '</span>
+                            <br>';
+                        if ($item['categorie'] == 'serie')
+                            echo '<span class="w3-large"><i>(Season ' . $item['saison'] . ')</i></span><br>';
+                      echo '<span>' . ($item['categorie'] == 'serie' ? 'Serie' : 'Movie') . '</span>
                             <br>
-                            <span>' . $item['categorie'] . '</span>
+                            <span>Score: <b>' . $avgNote. '</b></span>
                             <br>
-                            <span>Score: ' . $avgNote. '</span>
+                            <span>ID: ' . $item['idMedia'] . '</span>
                         </div>
                     </a>
-                    <div class="w3-dropdown-hover w3-right">
-                        <button class="w3-padding-small w3-button" title="More">
-                            <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                            <ul class="w3-ul w3-hoverable">
-                                <li>Watching</li>
-                                <li>Plan to watch</li>
-                                <li>Finished</li>
-                                <li>Dropped</li>
-                            </ul>
-                        </div>
-                    </div>
                 </li>';
         }
     }

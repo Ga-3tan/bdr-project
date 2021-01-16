@@ -170,11 +170,11 @@ class dbConnect {
     }
 
     public function getListMedia($userId, $liste) {
-        return $this->executeSqlRequest('SELECT media, liste, image, idMedia, \'film\' AS \'categorie\'
+        return $this->executeSqlRequest('SELECT *
                                                     FROM vUtilisateur_Lists_Film
                                                     WHERE id = ' . $userId . ' AND liste = \'' . $liste . '\' 
-                                                    UNION 
-                                                    SELECT media, liste, image, idMedia, \'serie\' AS \'categorie\'
+                                                    UNION ALL
+                                                    SELECT *
                                                     FROM vUtilisateur_Lists_Serie
                                                     WHERE id = ' . $userId . ' AND liste = \'' . $liste . '\';', true);
     }
