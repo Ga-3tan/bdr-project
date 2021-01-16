@@ -59,10 +59,10 @@ if (!file_exists("../../img/covers/" . $data['image'])) $data['image'] = "blank.
             // Displays the add to list options if there are seasons
             if ($data['nbSaisons'] != 0) {
                 echo '<div class="w3-row" style="margin-top: 10px">
-                        <div class="w3-col" style="width: 150px; padding-right: 10px">
+                        <div class="w3-col" style="width: 250px; padding-right: 10px">
                             <ul class="w3-ul w3-border w3-round">
                                 <li class="w3-center"><b>Add to list</b></li>
-                                <ul class="w3-ul w3-hoverable">';
+                                <ul class="w3-ul">';
 
                 echo '<form class="w3-container" action="../backend/media_interact.php?id=' . $_GET['id'] . '" method="post">';
                 // Displays season dropdown
@@ -111,11 +111,11 @@ if (!file_exists("../../img/covers/" . $data['image'])) $data['image'] = "blank.
                     for ($j = 1; $j <= $data['nbSaisons']; ++$j) {
                         echo '<param id="s' . $j-1 . '" value=' . $db->getMediaSeason($_GET['id'], $j)[0]['nbEpisodes'] . '>';
                     }
-                    echo '<li><input onchange="changeNbEp()" disabled value="0" id="epNbId" type="number" style="width: 100%" name="list_episodes" min="0" max="0"></li>';
+                    echo '<input onchange="changeNbEp()" disabled value="0" id="epNbId" type="number" class="w3-input" style="width: 100%" name="list_episodes" min="0" max="0">';
                 }
 
                 echo '
-                      <li><button class="w3-btn" type="submit" value="Send" name="list_send">Send</button></li>
+                     <li><button class="w3-button w3-black" type="submit" value="Send" style="width: 100%" name="list_send">Send</button></li>
                         </form>
                         </ul>
                     </ul>
@@ -138,18 +138,18 @@ if (!file_exists("../../img/covers/" . $data['image'])) $data['image'] = "blank.
                         <form class="w3-container" action="../backend/media_interact.php?id=<?php echo $_GET['id'] ?>" method="post">
                             <select class="w3-select" name="note_data">
                                 <option value="" disabled selected>your note</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
+                                <option value="1" <?php echo $usrNote == 1 ? 'selected' : '';?>>1</option>
+                                <option value="2" <?php echo $usrNote == 2 ? 'selected' : '';?>>2</option>
+                                <option value="3" <?php echo $usrNote == 3 ? 'selected' : '';?>>3</option>
+                                <option value="4" <?php echo $usrNote == 4 ? 'selected' : '';?>>4</option>
+                                <option value="5" <?php echo $usrNote == 5 ? 'selected' : '';?>>5</option>
+                                <option value="6" <?php echo $usrNote == 6 ? 'selected' : '';?>>6</option>
+                                <option value="7" <?php echo $usrNote == 7 ? 'selected' : '';?>>7</option>
+                                <option value="8" <?php echo $usrNote == 8 ? 'selected' : '';?>>8</option>
+                                <option value="9" <?php echo $usrNote == 9 ? 'selected' : '';?>>9</option>
+                                <option value="10" <?php echo $usrNote == 10 ? 'selected' : '';?>>10</option>
                             </select>
-                        <li><button class="w3-btn" type="submit" value="Send" name="note_send">Send</button></li>
+                        <li><button class="w3-button w3-black" type="submit" value="Send" style="width: 100%" name="note_send">Send</button></li>
                         </form>
                         </li>
                     </ul>

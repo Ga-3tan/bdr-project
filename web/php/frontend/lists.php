@@ -27,7 +27,8 @@ function echoList ($list, $db) {
                             <span class="w3-large">' . $item['media'] . '</span>
                             <br>';
                         if ($item['categorie'] == 'serie')
-                            echo '<span class="w3-large"><i>(Season ' . $item['saison'] . ')</i></span><br>';
+                            echo '<span class="w3-large"><i>(Season ' . $item['saison'] . ')</i></span>
+                                  <span>Ep. watched:<b> ' . $item['nbEpisodesVus'] . '</b></span><br>';
                       echo '<span>' . ($item['categorie'] == 'serie' ? 'Serie' : 'Movie') . '</span>
                             <br>
                             <span>Score: <b>' . $avgNote. '</b></span>
@@ -39,7 +40,6 @@ function echoList ($list, $db) {
         }
     }
 }
-
 ?>
 <div class="list-page">
 <div class="list-wrap">

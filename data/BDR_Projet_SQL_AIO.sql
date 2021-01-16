@@ -1838,7 +1838,7 @@ SELECT DISTINCT
     'film' AS 'categorie',
     User_Film.idMedia,
     Media.image,
-    NULL AS 'Nombre episodes vus'
+    NULL AS 'nbEpisodesVus'
 FROM Utilisateur_Film AS User_Film
          INNER JOIN Personne AS Pers ON Pers.id = User_Film.idPersonne
          INNER JOIN Media ON Media.id = User_Film.idMedia;
@@ -1857,7 +1857,7 @@ SELECT DISTINCT
     'serie' AS 'categorie',
     User_Sa.idMedia,
     Media.image,
-    User_Sa.nbEpisodesVus AS 'Nombre episodes vus'
+    User_Sa.nbEpisodesVus AS 'nbEpisodesVus'
 FROM Utilisateur_Saison AS User_Sa
          INNER JOIN Personne AS Pers ON Pers.id = User_Sa.idPersonne
          INNER JOIN Saison ON Saison.num = User_Sa.numSaison

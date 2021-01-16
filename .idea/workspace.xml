@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Fixed navbar style">
+    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Added search by category and fixes to the search page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/dbConnect.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/dbConnect.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/php/frontend/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_AIO.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_AIO.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_Vues.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Vues.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/php/frontend/anime.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/anime.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/php/frontend/lists.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/lists.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +76,7 @@
       <workItem from="1610480907937" duration="116000" />
       <workItem from="1610553813327" duration="19048000" />
       <workItem from="1610698086433" duration="50892000" />
-      <workItem from="1610815352781" duration="12218000" />
+      <workItem from="1610815352781" duration="13973000" />
     </task>
     <task id="LOCAL-00001" summary="Changed project structure and added data files">
       <created>1610374272706</created>
@@ -258,7 +260,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610827234310</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Added search by category and fixes to the search page">
+      <created>1610829184147</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1610829184147</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,7 +287,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Updated files" />
     <MESSAGE value="Added new files and fixes dependencies" />
     <MESSAGE value="Added header and session verif includes" />
     <MESSAGE value="Added registration verification" />
@@ -303,6 +311,7 @@
     <MESSAGE value="Added seasons in lists and small changes in the views" />
     <MESSAGE value="Finished basic search functionalities" />
     <MESSAGE value="Fixed navbar style" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed navbar style" />
+    <MESSAGE value="Added search by category and fixes to the search page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added search by category and fixes to the search page" />
   </component>
 </project>
