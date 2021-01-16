@@ -70,7 +70,11 @@ $studioData   = $db->getAllStudios();
         <ul class="w3-ul w3-hoverable w3-border">
             <?php
             // Gets the search results
-            if (isset($_GET['name'])) {
+            if (isset($_GET['name']) &&
+                isset($_GET['cat']) &&
+                isset($_GET['stu']) &&
+                isset($_GET['ord']) &&
+                isset($_GET['type'])) {
                 $results = $db->searchMedia($_GET['name'], $_GET['cat'], $_GET['stu'], $_GET['ord'], $_GET['type']);
 
                 foreach ($results as $res) {

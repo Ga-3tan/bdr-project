@@ -10,13 +10,13 @@
 <body>
 <div class="w3-top">
     <div class="w3-bar w3-black">
-        <a href="search.php?name=&send=Search&cat=0&stu=&ord=titre" class="w3-padding-large w3-hover-red w3-hide-small w3-left"><i
+        <a href="search.php?name=&send=Search&cat=&stu=&type=all&ord=titre" class="w3-padding-large w3-hover-red w3-hide-small w3-left"><i
                 class="fa fa-search"></i></a>
         <a href="../backend/sign_out.php" class="w3-bar-item w3-button w3-padding-large w3-right"><i class="fa fa-sign-out"></i></a>
         <a href="user.php" class="w3-bar-item w3-button w3-padding-large w3-right"><i class="fa fa-user"></i></a>
         <a class="w3-right w3-bar-item w3-padding-large"><?php echo $_SESSION['USER_USERNAME'] . " | ID : " . $_SESSION['USER_ID'] ?></a>
         <a href="lists.php" class="w3-bar-item w3-button w3-padding-large">MY LISTS</a>
-        <a href="search.php?name=&send=Search&cat=0&stu=&ord=score" class="w3-bar-item w3-button w3-padding-large">TOP ANIME</a>
-        <a href="search.php?name=&send=Search&cat=0&stu=&ord=titre" class="w3-bar-item w3-button w3-padding-large">SEARCH ANIME</a>
+        <a href="search.php?name=&send=Search&cat=&stu=&type=all&ord=score" class="w3-bar-item w3-button w3-padding-large">TOP ANIME</a>
+        <a href="search.php?name=&send=Search&cat=&stu=&type=all&ord=titre" class="w3-bar-item w3-button w3-padding-large">SEARCH ANIME</a>
     </div>
 </div>

@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Added search by category and fixes to the search page">
+    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_AIO.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_AIO.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_Vues.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Vues.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/php/frontend/anime.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/anime.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/php/frontend/lists.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/lists.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/php/frontend/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/php/includes/header_nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/includes/header_nav.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +74,7 @@
       <workItem from="1610480907937" duration="116000" />
       <workItem from="1610553813327" duration="19048000" />
       <workItem from="1610698086433" duration="50892000" />
-      <workItem from="1610815352781" duration="13973000" />
+      <workItem from="1610815352781" duration="14201000" />
     </task>
     <task id="LOCAL-00001" summary="Changed project structure and added data files">
       <created>1610374272706</created>
@@ -267,7 +265,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610829184147</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Fixes">
+      <created>1610830947958</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1610830947958</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,7 +299,6 @@
     <MESSAGE value="Finished login and registration.&#10;It is now possible to create an account and login with it." />
     <MESSAGE value="Users can add notes&#10;Users can add comments&#10;The anime page displays general data of medias" />
     <MESSAGE value="Fixed notes&#10;Fixed add to list&#10;Fixed db seasons&#10;Fixed login prblem" />
-    <MESSAGE value="Fixes" />
     <MESSAGE value="Added triggers file" />
     <MESSAGE value="Changed views" />
     <MESSAGE value="Added lists views and requests" />
@@ -312,6 +316,7 @@
     <MESSAGE value="Finished basic search functionalities" />
     <MESSAGE value="Fixed navbar style" />
     <MESSAGE value="Added search by category and fixes to the search page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added search by category and fixes to the search page" />
+    <MESSAGE value="Fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes" />
   </component>
 </project>
