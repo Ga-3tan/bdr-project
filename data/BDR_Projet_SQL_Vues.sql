@@ -70,10 +70,12 @@ CREATE VIEW vUtilisateur_Lists_Film
 AS
 SELECT DISTINCT
     Pers.id AS 'id',
-        Pers.nom,
+    Pers.nom,
     Pers.prenom,
     User_film.nom AS 'liste',
-    Media.titre AS 'film'
+    Media.titre AS 'media',
+    User_film.Media,
+    Media.image
 FROM Utilisateur_film AS User_film
          INNER JOIN Personne AS Pers ON Pers.id = User_film.idPersonne
          INNER JOIN Media ON Media.id = User_film.idMedia;
@@ -84,11 +86,13 @@ CREATE VIEW vUtilisateur_Lists_Serie
 AS
 SELECT DISTINCT
     Pers.id AS 'id',
-        Pers.nom,
+    Pers.nom,
     Pers.prenom,
     User_sa.nom AS 'liste',
     Saison.num AS 'saison',
-    Media.titre AS 'serie',
+    Media.titre AS 'media',
+    User_Sa.idMedia,
+    Media.image,
     User_sa.nbEpisodesVus AS 'Nombre episodes vus'
 FROM Utilisateur_saison AS User_Sa
          INNER JOIN Personne AS Pers ON Pers.id = User_Sa.idPersonne

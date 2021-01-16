@@ -21,6 +21,8 @@ if (empty($data)) {
 }
 $data = $data[0];
 
+echo '<h1>Bonjour</h1>';
+
 if (!file_exists("../../img/covers/" . $data['image'])) $data['image'] = "blank.jpg";
 ?>
 <div style="width: 90%; min-width: 1000px; margin: 100px;">

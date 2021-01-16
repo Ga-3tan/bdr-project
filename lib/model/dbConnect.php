@@ -129,10 +129,21 @@ class dbConnect {
                                                   WHERE idMedia = " . $mediaId . ";", true);
     }
 
-    public function addComment($username, $mediaId, $comment) {
-        $usrId = $this->getUserId($username);
-        $this->executeSqlRequest("INSERT INTO Utilisateur_Media_Commentaire VALUES (" . $usrId . ", " . $mediaId . ", NOW(), '" . addslashes($comment) . "');", false);
+     public function addComment($username, $mediaId, $comment) {
+         $usrId = $this->getUserId($username);
+         $this->executeSqlRequest("INSERT INTO Utilisateur_Media_Commentaire VALUES (" . $usrId . ", " . $mediaId . ", NOW(), '" . addslashes($comment) . "');", false);
     }
+
+    public function getListMedia($userId, $liste) {
+        return $this->executeSqlRequest('SELECT media, liste, image, idMedia, \'film\' AS \'categorie\'
+                                                    FROM vUtilisateur_Lists_Film
+                                                    WHERE id = ' . $userId . ' AND liste = \'' . $liste . '\' 
+                                                    UNION 
+                                                    SELECT media, liste, image, idMedia, \'serie\' AS \'categorie\'
+                                                    FROM vUtilisateur_Lists_Serie
+                                                    WHERE id = ' . $userId . ' AND liste = \'' . $liste . '\';', true);
+    }
+
 
     public function addNote($username, $mediaId, $note) {
         $usrId = $this->getUserId($username);

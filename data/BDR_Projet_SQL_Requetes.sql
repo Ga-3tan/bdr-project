@@ -115,3 +115,11 @@ WHERE id = <userid>;
 SELECT *
 FROM vUtilisateur_Lists_Serie
 WHERE id = <userid>;
+
+SELECT vuf.media, vuf.liste, vuf.image
+FROM vUtilisateur_Lists_Film AS vuf
+WHERE id = 41
+UNION
+SELECT vus.media, vus.liste, vus.image
+FROM vUtilisateur_Lists_Serie AS vus
+WHERE id = 41;
