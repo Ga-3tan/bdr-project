@@ -40,7 +40,7 @@ if (!file_exists("../../img/covers/" . $data['image'])) $data['image'] = "blank.
             if (count($mediaCat) > 3)
                 echo '<li>(' . (count($mediaCat)-3) . ' more categories ...)</li>';
             echo '<li>Episodes: ' . $ep . '</li>
-                  <li>Release date: ' . $data['dateSortie'] . '</li>
+                  <li>Release date: ' . date_format(date_create($data['dateSortie']), 'd M Y'). '</li>
                   <li>Duration: ' . $data['duree'] . '</li>
                   <li>Seasons: ' . $sea . '</li>';
             ?>
@@ -111,7 +111,7 @@ if (!file_exists("../../img/covers/" . $data['image'])) $data['image'] = "blank.
                     for ($j = 1; $j <= $data['nbSaisons']; ++$j) {
                         echo '<param id="s' . $j-1 . '" value=' . $db->getMediaSeason($_GET['id'], $j)[0]['nbEpisodes'] . '>';
                     }
-                    echo '<input onchange="changeNbEp()" disabled value="0" id="epNbId" type="number" class="w3-input" style="width: 100%" name="list_episodes" min="0" max="0">';
+                    echo '<label>Nb. of episodes watched</label><input onchange="changeNbEp()" disabled value="0" id="epNbId" type="number" class="w3-input" style="width: 100%" name="list_episodes" min="0" max="0">';
                 }
 
                 echo '
