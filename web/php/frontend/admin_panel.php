@@ -21,10 +21,10 @@ $studioData   = $db->getAllStudios();
     <ul class="w3-ul w3-large">
         <?php
         if (isset($_SESSION["INSERT_FAIL"])) {
-            echo '<li><h2 style="color: red;">ERROR : ' . $_SESSION["INSERT_FAIL"] . '</h2></li>';
+            echo '<div class="w3-panel w3-red w3-animate-opacity"><h3>' . $_SESSION["INSERT_FAIL"] . '</h3></div>';
             unset($_SESSION["INSERT_FAIL"]);
         } else if (isset($_SESSION["INSERT_SUCCESS"])) {
-            echo '<li><h2 style="color: green;">SUCCESS : ' . $_SESSION["INSERT_SUCCESS"] . '</h2></li>';
+            echo '<div class="w3-panel w3-green w3-animate-opacity"><h3>' . $_SESSION["INSERT_SUCCESS"] . '</h3></div>';
             unset($_SESSION["INSERT_SUCCESS"]);
         }
         ?>

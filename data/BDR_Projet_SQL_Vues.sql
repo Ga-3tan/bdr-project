@@ -12,14 +12,13 @@ AS
         StudioAnimation.nom as 'nomStudio',
         Film.dateSortie as 'dateSortie',
         1 as 'nbSaisons',
-        1 as 'nbEpisodes'
+        1 as 'nbEpisodes',
+        (SELECT AVG(note) FROM utilisateur_media_note WHERE utilisateur_media_note.idMedia = Media.id) as 'score'
     FROM Media
         INNER JOIN Film
             ON Film.idMedia = Media.id
         INNER JOIN StudioAnimation
-            ON StudioAnimation.id = Media.idStudioAnimation
-        INNER JOIN Media_Categorie
-                   ON Film.idMedia = Media_Categorie.idMedia;
+            ON StudioAnimation.id = Media.idStudioAnimation;
 
 -- Vue contenant les medias de type Série
 DROP VIEW IF EXISTS vSerie;
@@ -35,14 +34,13 @@ AS
         StudioAnimation.nom as 'nomStudio',
         (SELECT dateSortie FROM Saison WHERE idSerie = Media.id ORDER BY num LIMIT 1) as 'dateSortie',
         (SELECT COUNT(num) FROM Saison WHERE idSerie = Media.id) as 'nbSaisons',
-        (SELECT SUM(nbEpisodes) FROM Saison WHERE idSerie = Media.id) as 'nbEpisodes'
+        (SELECT SUM(nbEpisodes) FROM Saison WHERE idSerie = Media.id) as 'nbEpisodes',
+        (SELECT AVG(note) FROM utilisateur_media_note WHERE utilisateur_media_note.idMedia = Media.id) as 'score'
     FROM Media
         INNER JOIN Serie
             ON Serie.idMedia = Media.id
         INNER JOIN StudioAnimation
-            ON StudioAnimation.id = Media.idStudioAnimation
-        INNER JOIN Media_Categorie
-            ON Serie.idMedia = Media_Categorie.idMedia;
+            ON StudioAnimation.id = Media.idStudioAnimation;
 
 -- Vue contenant les utilisateurs de la plateforme
 DROP VIEW IF EXISTS vUtilisateur;

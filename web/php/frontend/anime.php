@@ -127,8 +127,8 @@ if (!file_exists("../../img/covers/" . $data['image'])) $data['image'] = "blank.
                     <ul class="w3-ul w3-border w3-round">
                         <?php
                         // Gets the average note and the user note
-                        $avg = $db->getAvgNote($_GET['id']);
-                        $avgNote = empty($avg) ? '-' : $avg[0]['moyenne'];
+                        $avg = $data['score'];
+                        $avgNote = empty($avg) ? '-' : $avg;
                         $note = $db->getUserNote($_SESSION['USER_USERNAME'], $_GET['id']);
                         $usrNote = empty($note) || $note[0] == null ? '-' : $note[0]['note'];
 

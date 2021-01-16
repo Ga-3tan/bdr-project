@@ -304,12 +304,6 @@ CREATE TABLE IF NOT EXISTS Doubleur_Media (
                                                       ON UPDATE NO ACTION)
     ENGINE = InnoDB;
 
-
-
-USE bdr_projet;
-
-USE bdr_projet;
-
 -- CATEGORIES
 INSERT INTO Categorie (Tag) VALUES ('Action'),
                                    ('Adventure'),
@@ -525,11 +519,11 @@ INSERT INTO Media (titre, description, duree, image, idStudioAnimation) VALUES (
                                                                                ('Hunter x Hunter (2011)', 'Hunter x Hunter is set in a world where Hunters exist to perform all manner of dangerous tasks like capturing criminals and bravely searching for lost treasures in uncharted territories. Twelve-year-o...', 24, '33657.jpg', 127),
                                                                                ('Angel Beats!', 'Otonashi awakens only to learn he is dead. A rifle-toting girl named Yuri explains that they are in the afterlife, and Otonashi realizes the only thing he can remember about himself is his name. Yuri...', 24, '22061.jpg', 139),
                                                                                ('Code Geass: Hangyaku no Lelouch', 'In the year 2010, the Holy Empire of Britannia is establishing itself as a dominant military nation, starting with the conquest of Japan. Renamed to Area 11 after its swift defeat, Japan has seen sign...', 24, '50331.jpg', 63),
-                                                                               ('Boku no Hero Academia 2nd Season', 'At UA Academy, not even a violent attack can disrupt their most prestigious event: the school sports festival. Renowned across Japan, this festival is an opportunity for aspiring heroes to showcase th...', 24, '85221.jpg', 37),
+                                                                               ('Boku no Hero Academia 2', 'At UA Academy, not even a violent attack can disrupt their most prestigious event: the school sports festival. Renowned across Japan, this festival is an opportunity for aspiring heroes to showcase th...', 24, '85221.jpg', 37),
                                                                                ('Toradora!', '"Ryuuji Takasu is a gentle high school student with a love for housework but in contrast to his kind nature, he has an intimidating face that often gets him labeled as a delinquent. On the other hand..."', 24, '22128.jpg', 95),
                                                                                ('Mirai Nikki', 'Lonely high school student, Yukiteru Amano, spends his days writing a diary on his cellphone, while conversing with his two seemingly imaginary friends Deus Ex Machina, who is the god of time and spac...', 24, '33465.jpg', 98),
                                                                                ('Noragami', 'In times of need, if you look in the right place, you just may see a strange telephone number scrawled in red. If you call this number, you will hear a young man introduce himself as the Yato God. Yat...', 24, '77809.jpg', 101),
-                                                                               ('Shingeki no Kyojin Season 2', 'For centuries, humanity has been hunted by giant, mysterious predators known as the Titans. Three mighty walls—Wall Maria, Rose, and Sheena—provided peace and protection for humanity for over a hundre...', 24, '84177.jpg', 94),
+                                                                               ('Shingeki no Kyojin 2', 'For centuries, humanity has been hunted by giant, mysterious predators known as the Titans. Three mighty walls—Wall Maria, Rose, and Sheena—provided peace and protection for humanity for over a hundre...', 24, '84177.jpg', 94),
                                                                                ('Naruto: Shippuuden', 'It has been two and a half years since Naruto Uzumaki left Konohagakure, the Hidden Leaf Village, for intense training following events which fueled his desire to be stronger. Now Akatsuki, the myster...', 24, '17407.jpg', 21),
                                                                                ('Naruto: Shippuuden', 'It has been two and a half years since Naruto Uzumaki left Konohagakure, the Hidden Leaf Village, for intense training following events which fueled his desire to be stronger. Now Akatsuki, the myster...', 24, '17407.jpg', 21),
                                                                                ('Re:Zero kara Hajimeru Isekai Seikatsu', 'When Subaru Natsuki leaves the convenience store, the last thing he expects is to be wrenched from his everyday life and dropped into a fantasy world. Things aren\'t looking good for the bewildered tee...', 24, '79410.jpg', 99),
@@ -543,7 +537,7 @@ INSERT INTO Media (titre, description, duree, image, idStudioAnimation) VALUES (
                                                                                ('Fairy Tail', 'In the mystical land of Fiore, magic exists as an essential part of everyday life. Countless magic guilds lie at the core of all magical activity, and serve as venues for like-minded mages to band tog...', 24, '18179.jpg', 67),
                                                                                ('One Piece', '"Gol D. Roger was known as the ""Pirate King,"" the strongest and most infamous being to have sailed the Grand Line. The capture and execution of Roger by the World Government brought a change throughout..."', 24, '73245.jpg', 26),
                                                                                ('Kimetsu no Yaiba', 'Ever since the death of his father, the burden of supporting the family has fallen upon Tanjirou Kamado\'s shoulders. Though living impoverished on a remote mountain, the Kamado family are able to enjo...', 24, '99889.jpg', 7),
-                                                                               ('Boku no Hero Academia 3rd Season', 'As summer arrives for the students at UA Academy, each of these superheroes-in-training puts in their best efforts to become renowned heroes. They head off to a forest training camp run by UA\'s pro he...', 24, '92084.jpg', 5),
+                                                                               ('Boku no Hero Academia 3', 'As summer arrives for the students at UA Academy, each of these superheroes-in-training puts in their best efforts to become renowned heroes. They head off to a forest training camp run by UA\'s pro he...', 24, '92084.jpg', 5),
                                                                                ('Bleach', 'Ichigo Kurosaki is an ordinary high schooler—until his family is attacked by a Hollow, a corrupt spirit that seeks to devour human souls. It is then that he meets a Soul Reaper named Rukia Kuchiki, wh...', 24, '40451.jpg', 41),
                                                                                ('Kill la Kill', 'After the murder of her father, Ryuuko Matoi has been wandering the land in search of his killer. Following her only lead—the missing half of his invention, the Scissor Blade—she arrives at the presti...', 24, '75514.jpg', 114),
                                                                                ('Code Geass: Hangyaku no Lelouch R2', 'One year has passed since the Black Rebellion, a failed uprising against the Holy Britannian Empire led by the masked vigilante Zero, who is now missing. At a loss without their revolutionary leader,...', 24, '9391.jpg', 2),
@@ -567,7 +561,7 @@ INSERT INTO Media (titre, description, duree, image, idStudioAnimation) VALUES (
                                                                                ('Haikyuu!!', '"Inspired after watching a volleyball ace nicknamed ""Little Giant"" in action, small-statured Shouyou Hinata revives the volleyball club at his middle school. The newly-formed team even makes it to a to..."', 24, '76014.jpg', 71),
                                                                                ('Highschool of the Dead', 'It happened suddenly: The dead began to rise and Japan was thrown into total chaos. As these monsters begin terrorizing a high school, Takashi Kimuro is forced to kill his best friend when he gets bit...', 24, '78311.jpg', 52),
                                                                                ('Durarara!!', '"In Tokyo\'s downtown district of Ikebukuro, amidst many strange rumors and warnings of anonymous gangs and dangerous occupants, one urban legend stands out above the rest—the existence of a headless ""B..."', 24, '71772.jpg', 1),
-                                                                               ('Shingeki no Kyojin Season 3', '"Still threatened by the ""Titans"" that rob them of their freedom, mankind remains caged inside the two remaining walls. Efforts to eradicate these monsters continue however, threats arise not only fro..."', 24, '92110.jpg', 93),
+                                                                               ('Shingeki no Kyojin 3', '"Still threatened by the ""Titans"" that rob them of their freedom, mankind remains caged inside the two remaining walls. Efforts to eradicate these monsters continue however, threats arise not only fro..."', 24, '92110.jpg', 93),
                                                                                ('Clannad', 'Tomoya Okazaki is a delinquent who finds life dull and believes he\'ll never amount to anything. Along with his friend Youhei Sunohara, he skips school and plans to waste his high school days away. One...', 24, '95033.jpg', 142),
                                                                                ('Fate/Zero', 'With the promise of granting any wish, the omnipotent Holy Grail triggered three wars in the past, each too cruel and fierce to leave a victor. In spite of that, the wealthy Einzbern family is confide...', 24, '73249.jpg', 13),
                                                                                ('DanMAchi', 'Life in the bustling city of Orario is never dull, especially for Bell Cranel, a naïve young man who hopes to become the greatest adventurer in the land. After a chance encounter with the lonely godde...', 24, '70187.jpg', 82),
@@ -583,11 +577,11 @@ INSERT INTO Media (titre, description, duree, image, idStudioAnimation) VALUES (
                                                                                ('Kono Subarashii Sekai ni Shukufuku wo! 2', 'When Kazuma Satou died, he was given two choices: pass on to heaven or be revived in a fantasy world. After choosing the new world, the goddess Aqua tasked him with defeating the Demon King, and let h...', 24, '83188.jpg', 58),
                                                                                ('Hamachi', 'Hachiman Hikigaya is an apathetic high school student with narcissistic and semi-nihilistic tendencies. He firmly believes that joyful youth is nothing but a farce, and everyone who says otherwise is...', 24, '49459.jpg', 15),
                                                                                ('Guilty Crown', '"Japan, 2039. Ten years after the outbreak of the ""Apocalypse Virus,"" an event solemnly regarded as ""Lost Christmas,"" the once proud nation has fallen under the rule of the GHQ, an independent military..."', 24, '33713.jpg', 73),
-                                                                               ('One Punch Man 2nd Season', 'In the wake of defeating Boros and his mighty army, Saitama has returned to his unremarkable everyday life in Z-City. However, unbeknownst to him, the number of monsters appearing is still continuousl...', 24, '99571.jpg', 98),
+                                                                               ('One Punch Man 2', 'In the wake of defeating Boros and his mighty army, Saitama has returned to his unremarkable everyday life in Z-City. However, unbeknownst to him, the number of monsters appearing is still continuousl...', 24, '99571.jpg', 98),
                                                                                ('Deadman Wonderland', 'It looked like it would be a normal day for Ganta Igarashi and his classmates—they were preparing to go on a class field trip to a certain prison amusement park called Deadman Wonderland, where the co...', 24, '75299.jpg', 47),
                                                                                ('Chuunibyou demo Koi ga Shitai!', 'Everybody has had that stage in their life where they have thought themselves to be special, different from the masses of ordinary humans. They might go as far as seeing themselves capable of wielding...', 24, '46931.jpg', 46),
                                                                                ('Darling in the FranXX', 'In the distant future, humanity has been driven to near-extinction by giant beasts known as Klaxosaurs, forcing the surviving humans to take refuge in massive fortress cities called Plantations. Child...', 24, '90408.jpg', 147),
-                                                                               ('Shingeki no Kyojin Season 3 Part 2', '"Seeking to restore humanity’s diminishing hope, the Survey Corps embark on a mission to retake Wall Maria, where the battle against the merciless ""Titans"" takes the stage once again. Returning to the..."', 24, '100633.jpg', 147),
+                                                                               ('Shingeki no Kyojin 3 Part 2', '"Seeking to restore humanity’s diminishing hope, the Survey Corps embark on a mission to retake Wall Maria, where the battle against the merciless ""Titans"" takes the stage once again. Returning to the..."', 24, '100633.jpg', 147),
                                                                                ('JoJo no Kimyou na Bouken (TV)', 'In 1868, Dario Brando saves the life of an English nobleman, George Joestar. By taking in Dario\'s son Dio when the boy becomes fatherless, George hopes to repay the debt he owes to his savior. However...', 24, '40409.jpg', 137),
                                                                                ('Hyouka', 'Energy-conservative high school student Houtarou Oreki ends up with more than he bargained for when he signs up for the Classics Club at his sister\'s behest—especially when he realizes how deep-rooted...', 24, '50521.jpg', 1),
                                                                                ('Clannad: After Story', 'Clannad: After Story, the sequel to the critically acclaimed slice-of-life series Clannad, begins after Tomoya Okazaki and Nagisa Furukawa graduate from high school. Together, they experience the emot...', 24, '24647.jpg', 123),
@@ -598,9 +592,9 @@ INSERT INTO Media (titre, description, duree, image, idStudioAnimation) VALUES (
                                                                                ('Owari no Seraph', 'With the appearance of a mysterious virus that kills everyone above the age of 13, mankind becomes enslaved by previously hidden, power-hungry vampires who emerge in order to subjugate society with th...', 24, '73474.jpg', 67),
                                                                                ('Log Horizon', 'In the blink of an eye, thirty thousand bewildered Japanese gamers are whisked from their everyday lives into the world of the popular MMORPG, Elder Tale, after the game\'s latest update—unable to log...', 24, '84004.jpg', 143),
                                                                                ('Kuroshitsuji', '"Young Ciel Phantomhive is known as ""the Queen\'s Guard Dog,"" taking care of the many unsettling events that occur in Victorian England for Her Majesty. Aided by Sebastian Michaelis, his loyal butler wi..."', 24, '27013.jpg', 89),
-                                                                               ('Boku no Hero Academia 4th Season', '"After successfully passing his Provisional Hero License exam, Izuku ""Deku"" Midoriya seeks out an extracurricular internship with a professional hero agency. At the recommendation of his mentor All Mig..."', 24, '107914.jpg', 48),
+                                                                               ('Boku no Hero Academia 4', '"After successfully passing his Provisional Hero License exam, Izuku ""Deku"" Midoriya seeks out an extracurricular internship with a professional hero agency. At the recommendation of his mentor All Mig..."', 24, '107914.jpg', 48),
                                                                                ('Tate no Yuusha no Nariagari', 'The Four Cardinal Heroes are a group of ordinary men from modern-day Japan summoned to the kingdom of Melromarc to become its saviors. Melromarc is a country plagued by the Waves of Catastrophe that h...', 24, '101365.jpg', 75),
-                                                                               ('Ansatsu Kyoushitsu 2nd Season', 'The students return as school is back in session for the second semester. Following their exploits on the island during summer vacation, Class 3-E continues to sharpen their blades with their sights s...', 24, '77966.jpg', 154),
+                                                                               ('Ansatsu Kyoushitsu 2', 'The students return as school is back in session for the second semester. Following their exploits on the island during summer vacation, Class 3-E continues to sharpen their blades with their sights s...', 24, '77966.jpg', 154),
                                                                                ('Dr. Stone', 'After five years of harboring unspoken feelings, high-schooler Taiju Ooki is finally ready to confess his love to Yuzuriha Ogawa. Just when Taiju begins his confession however, a blinding green light...', 24, '102576.jpg', 46),
                                                                                ('Mononoke Hime', 'When an Emishi village is attacked by a fierce demon boar, the young prince Ashitaka puts his life at stake to defend his tribe. With its dying breath, the beast curses the prince\'s arm, granting him...', 120, '75919.jpg', 148),
                                                                                ('Kaichou wa Maid-sama!', '"Being the first female student council president isn\'t easy, especially when your school just transitioned from an all boys high school to a co-ed one. Aptly nicknamed ""Demon President"" by the boys fo..."', 24, '25254.jpg', 2),
@@ -609,7 +603,7 @@ INSERT INTO Media (titre, description, duree, image, idStudioAnimation) VALUES (
                                                                                ('Kyoukai no Kanata', '"Mirai Kuriyama is the sole survivor of a clan of Spirit World warriors with the power to employ their blood as weapons. As such, Mirai is tasked with hunting down and killing ""youmu""—creatures said to..."', 24, '85468.jpg', 21),
                                                                                ('Made in Abyss', 'The Abyss—a gaping chasm stretching down into the depths of the earth, filled with mysterious creatures and relics from a time long past. How did it come to be? What lies at the bottom? Countless brav...', 24, '86733.jpg', 2),
                                                                                ('Howl no Ugoku Shiro', 'That jumbled piece of architecture, that cacophony of hissing steam and creaking joints, with smoke billowing from it as it moves on its own... That castle is home to the magnificent wizard Howl, infa...', 120, '75810.jpg', 62),
-                                                                               ('Haikyuu!! Second Season', 'Following their participation at the Inter-High, the Karasuno High School volleyball team attempts to refocus their efforts, aiming to conquer the Spring tournament instead. When they receive an invit...', 24, '76662.jpg', 83),
+                                                                               ('Haikyuu!! 2', 'Following their participation at the Inter-High, the Karasuno High School volleyball team attempts to refocus their efforts, aiming to conquer the Spring tournament instead. When they receive an invit...', 24, '76662.jpg', 83),
                                                                                ('Zankyou no Terror', '"Painted in red, the word ""VON"" is all that is left behind after a terrorist attack on a nuclear facility in Japan. The government is shattered by their inability to act, and the police are left franti..."', 24, '64447.jpg', 94),
                                                                                ('Ouran Koukou Host Club', 'Haruhi Fujioka is a bright scholarship candidate with no rank or title to speak of—a rare species at Ouran Academy, an elite school for students of high pedigree. When she opens the door to Music Room...', 24, '71992.jpg', 73);
 
@@ -733,7 +727,6 @@ INSERT INTO Serie VALUES (1),
                          (7),
                          (8),
                          (9),
-                         (11),
                          (12),
                          (13),
                          (14),
@@ -750,7 +743,6 @@ INSERT INTO Serie VALUES (1),
                          (25),
                          (26),
                          (28),
-                         (29),
                          (30),
                          (31),
                          (32),
@@ -759,7 +751,6 @@ INSERT INTO Serie VALUES (1),
                          (35),
                          (36),
                          (38),
-                         (39),
                          (40),
                          (41),
                          (42),
@@ -811,12 +802,10 @@ INSERT INTO Serie VALUES (1),
                          (88),
                          (89),
                          (91),
-                         (92),
                          (93),
                          (94),
                          (95),
                          (97),
-                         (98),
                          (99),
                          (100),
                          (101);
@@ -904,10 +893,6 @@ INSERT INTO Saison (idSerie, num, nbEpisodes, dateSortie) VALUES (1, 1, 53, '201
                                                                  (26, 3, 36, '2004-06-12'),
                                                                  (28, 1, 62, '1979-06-09'),
                                                                  (28, 2, 13, '2012-10-19'),
-                                                                 (29, 1, 49, '2005-09-13'),
-                                                                 (29, 2, 40, '2010-06-02'),
-                                                                 (29, 3, 16, '2017-05-30'),
-                                                                 (29, 4, 62, '2018-02-19'),
                                                                  (30, 1, 32, '2010-04-19'),
                                                                  (30, 2, 18, '2016-03-29'),
                                                                  (30, 3, 40, '2017-08-05'),
@@ -938,11 +923,6 @@ INSERT INTO Saison (idSerie, num, nbEpisodes, dateSortie) VALUES (1, 1, 53, '201
                                                                  (36, 4, 60, '2020-09-04'),
                                                                  (38, 1, 34, '2004-09-04'),
                                                                  (38, 2, 25, '2008-03-20'),
-                                                                 (39, 1, 20, '1993-03-29'),
-                                                                 (39, 2, 26, '1996-10-23'),
-                                                                 (39, 3, 25, '1999-03-23'),
-                                                                 (39, 4, 17, '2011-05-27'),
-                                                                 (39, 5, 13, '2011-07-29'),
                                                                  (40, 1, 21, '1970-06-01'),
                                                                  (40, 2, 18, '1981-07-24'),
                                                                  (41, 1, 52, '1996-10-14'),
@@ -1129,11 +1109,6 @@ INSERT INTO Saison (idSerie, num, nbEpisodes, dateSortie) VALUES (1, 1, 53, '201
                                                                  (97, 3, 34, '2007-07-03'),
                                                                  (97, 4, 53, '2015-02-27'),
                                                                  (97, 5, 8, '2018-11-26'),
-                                                                 (98, 1, 18, '1986-09-16'),
-                                                                 (98, 2, 51, '2006-08-02'),
-                                                                 (98, 3, 13, '2017-04-23'),
-                                                                 (98, 4, 51, '2019-06-22'),
-                                                                 (98, 5, 39, '2020-07-04'),
                                                                  (99, 1, 40, '1989-05-04'),
                                                                  (99, 2, 28, '1998-03-21');
 
@@ -1783,10 +1758,9 @@ VALUES
 (43, 2, 5, 'Finished', '2020-04-06', 17),
 (43, 1, 2, 'Plan to watch', '2020-04-06', 0),
 (44, 2, 6, 'Watching', '2020-04-06', 5),
+(41, 3, 35, 'Watching', '2020-04-06', 9),
+(41, 5, 95, 'Watching', '2020-04-06', 8),
 (48, 3, 5, 'Watching', '2020-04-06', 10);
-
-
-
 
 -- Vue contenant les medias de type film
 DROP VIEW IF EXISTS vFilm;
@@ -1802,14 +1776,13 @@ SELECT
     StudioAnimation.nom as 'nomStudio',
     Film.dateSortie as 'dateSortie',
     1 as 'nbSaisons',
-    1 as 'nbEpisodes'
+    1 as 'nbEpisodes',
+    (SELECT AVG(note) FROM utilisateur_media_note WHERE utilisateur_media_note.idMedia = Media.id) as 'score'
 FROM Media
          INNER JOIN Film
                     ON Film.idMedia = Media.id
          INNER JOIN StudioAnimation
-                    ON StudioAnimation.id = Media.idStudioAnimation
-         INNER JOIN Media_Categorie
-                    ON Film.idMedia = Media_Categorie.idMedia;
+                    ON StudioAnimation.id = Media.idStudioAnimation;
 
 -- Vue contenant les medias de type Série
 DROP VIEW IF EXISTS vSerie;
@@ -1825,14 +1798,13 @@ SELECT
     StudioAnimation.nom as 'nomStudio',
     (SELECT dateSortie FROM Saison WHERE idSerie = Media.id ORDER BY num LIMIT 1) as 'dateSortie',
     (SELECT COUNT(num) FROM Saison WHERE idSerie = Media.id) as 'nbSaisons',
-    (SELECT SUM(nbEpisodes) FROM Saison WHERE idSerie = Media.id) as 'nbEpisodes'
+    (SELECT SUM(nbEpisodes) FROM Saison WHERE idSerie = Media.id) as 'nbEpisodes',
+    (SELECT AVG(note) FROM utilisateur_media_note WHERE utilisateur_media_note.idMedia = Media.id) as 'score'
 FROM Media
          INNER JOIN Serie
                     ON Serie.idMedia = Media.id
          INNER JOIN StudioAnimation
-                    ON StudioAnimation.id = Media.idStudioAnimation
-         INNER JOIN Media_Categorie
-                    ON Serie.idMedia = Media_Categorie.idMedia;
+                    ON StudioAnimation.id = Media.idStudioAnimation;
 
 -- Vue contenant les utilisateurs de la plateforme
 DROP VIEW IF EXISTS vUtilisateur;
@@ -1860,11 +1832,16 @@ SELECT DISTINCT
     Pers.id AS 'id',
     Pers.nom,
     Pers.prenom,
-    User_film.nom AS 'liste',
-    Media.titre AS 'film'
-FROM Utilisateur_film AS User_film
-         INNER JOIN Personne AS Pers ON Pers.id = User_film.idPersonne
-         INNER JOIN Media ON Media.id = User_film.idMedia;
+    User_Film.nom AS 'liste',
+    NULL AS 'saison',
+    Media.titre AS 'media',
+    'film' AS 'categorie',
+    User_Film.idMedia,
+    Media.image,
+    NULL AS 'Nombre episodes vus'
+FROM Utilisateur_Film AS User_Film
+         INNER JOIN Personne AS Pers ON Pers.id = User_Film.idPersonne
+         INNER JOIN Media ON Media.id = User_Film.idMedia;
 
 -- Vue pour la liste des séries et leurs saisons apparaissant dans les listes des utilisateurs
 DROP VIEW IF EXISTS vUtilisateur_Lists_Serie;
@@ -1874,15 +1851,17 @@ SELECT DISTINCT
     Pers.id AS 'id',
     Pers.nom,
     Pers.prenom,
-    User_sa.nom AS 'liste',
+    User_Sa.nom AS 'liste',
     Saison.num AS 'saison',
-    Media.titre AS 'serie',
-    User_sa.nbEpisodesVus AS 'Nombre episodes vus'
-FROM Utilisateur_saison AS User_Sa
+    Media.titre AS 'media',
+    'serie' AS 'categorie',
+    User_Sa.idMedia,
+    Media.image,
+    User_Sa.nbEpisodesVus AS 'Nombre episodes vus'
+FROM Utilisateur_Saison AS User_Sa
          INNER JOIN Personne AS Pers ON Pers.id = User_Sa.idPersonne
          INNER JOIN Saison ON Saison.num = User_Sa.numSaison
          INNER JOIN Media ON Media.id = User_Sa.idMedia;
-
 
 -- Valide la note d'un media
 DROP TRIGGER IF EXISTS before_utilisateur_media_note_insert;
@@ -1984,8 +1963,6 @@ BEGIN
 END;
 $$
 DELIMITER ;
-
-
 
 -- Ajout d'un nouvel utilisateur
 DROP PROCEDURE IF EXISTS ajouter_utilisateur;

@@ -18,7 +18,7 @@ function echoList ($list, $db) {
         foreach ($list as $item) {
             $avg = $db->getAvgNote($item['idMedia']);
             $avgNote = (empty($avg)) ? 0 : round($avg[0]['moyenne']);
-            echo '<li class="w3-bar" style="padding: 0;">
+            echo '<li class="w3-bar w3-animate-top" style="padding: 0;">
                     <a href="anime.php?id=' . $item['idMedia'] . '" class="list-elem">
                         <img src="../../img/covers/' . $item['image'] . '"
                              class="w3-bar-item"

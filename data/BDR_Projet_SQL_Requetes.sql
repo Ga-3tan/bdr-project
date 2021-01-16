@@ -104,6 +104,15 @@ CALL ajouter_doubleur('<nom>', '<prenom>', '<dateNaissance>', '<sexe>', '<photoP
 -- Ajouter un doubleur sur un media
 INSERT INTO Doubleur_Media VALUES (<idDoubleur>, <idMedia>);
 
+-- Recuperer les listes d'un utilisateur
+SELECT *
+FROM vUtilisateur_Lists_Film
+WHERE id = <idPersonne> AND liste = <nomListe>
+UNION ALL
+SELECT *
+FROM vUtilisateur_Lists_Serie
+WHERE id = <idPersonne> AND liste = <nomListe>;
+
 -----------------------------NON UTILISE----------------------------------
 
 

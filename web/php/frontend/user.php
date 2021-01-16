@@ -15,10 +15,10 @@ if (!file_exists("../../img/profiles/" . $userData['photoProfil']) || $userData[
 <div style="margin: 100px;">
     <?php
     if (isset($_SESSION["UPDATE_FAIL"])) {
-        echo '<h3 style="color: red;">ERROR : ' . $_SESSION["UPDATE_FAIL"] . '</h3>';
+        echo '<div class="w3-panel w3-red w3-animate-opacity"><h3>' . $_SESSION["UPDATE_FAIL"] . '</h3></div>';
         unset($_SESSION["UPDATE_FAIL"]);
     } else if (isset($_SESSION["UPDATE_SUCCESS"])) {
-        echo '<h3 style="color: green;">SUCCESS : ' . $_SESSION["UPDATE_SUCCESS"] . '</h3>';
+        echo '<div class="w3-panel w3-green w3-animate-opacity"><h3>' . $_SESSION["UPDATE_SUCCESS"] . '</h3></div>';
         unset($_SESSION["UPDATE_SUCCESS"]);
     }
     ?>

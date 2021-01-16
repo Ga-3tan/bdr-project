@@ -135,8 +135,22 @@ class dbConnect {
 
     public function getMediaData($mediaId) {
         return $this->executeSqlRequest("SELECT * FROM vFilm WHERE id = " . $mediaId . "
-                                                  UNION
+                                                  UNION ALL
                                                   SELECT * FROM vSerie WHERE id = " . $mediaId . ";", true);
+    }
+
+    public function searchMedia($name, $category, $studio, $order) {
+        if ($order != 'titre' && $order != 'score')
+            $order = 'titre';
+        if ($order == 'score') $order = 'score DESC';
+
+        return $this->executeSqlRequest("SELECT * FROM (
+                                                      SELECT * FROM vFilm 
+                                                            WHERE titre LIKE '%" . $name . "%' AND nomStudio LIKE '%" . $studio . "%'
+                                                      UNION ALL
+                                                      SELECT * FROM vSerie 
+                                                            WHERE titre LIKE '%" . $name . "%' AND nomStudio LIKE '%" . $studio . "%'
+                                                  ) res ORDER BY " . $order . " LIMIT 50;", true);
     }
 
     public function getUserNote($username, $mediaId) {
