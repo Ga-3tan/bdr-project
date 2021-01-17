@@ -34,6 +34,7 @@ if (!file_exists("../../img/covers/" . $data['image'])) $data['image'] = "blank.
             $sea =  $data['nbSaisons'] == 0 ? '-' : $data['nbSaisons'];
 
             echo '<li>Media ID: ' . $data['id'] . '</li>';
+            echo '<li>Studio: ' . $data['nomStudio'] . '</li>';
             echo '<li>Type: ' . $data['type'] . '</li>';
             for ($i = 0; $i < count($mediaCat) && $i < 3; ++$i)
                 echo '<li>Category ' . ($i+1) . ': ' . $mediaCat[$i]['tagCategorie'] . '</li>';
