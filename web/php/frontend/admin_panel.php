@@ -17,7 +17,20 @@ $categoryData = $db->getAllCategories();
 $studioData   = $db->getAllStudios();
 ?>
 <div style="margin: 100px;">
-    <!--ADD MEDIA-->
+
+    <!-- DISPLAY SCRIPT -->
+    <script>
+        function displayOptions(id) {
+            let x = document.getElementById(id);
+            if (x.className.indexOf("w3-show") === -1) {
+                x.className += " w3-show";
+            } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+    </script>
+
+    <!--DISPLAY MESSAGES-->
     <ul class="w3-ul w3-large">
         <?php
         if (isset($_SESSION["INSERT_FAIL"])) {
@@ -28,39 +41,42 @@ $studioData   = $db->getAllStudios();
             unset($_SESSION["INSERT_SUCCESS"]);
         }
         ?>
-        <li style="background-color: black"></li><form action="../backend/content_insert.php" method="post" enctype="multipart/form-data">
 
-        <li>
+        <!--ADD MEDIA-->
+        <div onclick="displayOptions('add_media')" class="w3-container w3-black w3-btn w3-button w3-block w3-left-align">
             <h3>Add media</h3>
+        </div>
 
-            <label for="title">Title:</label>
+        <form id="add_media" class="w3-animate-opacity w3-container w3-hide" action="../backend/content_insert.php" method="post" enctype="multipart/form-data">
+        <li>
+            <label for="title">Title</label>
             <br>
-            <input type="text"
+            <input type="text" class="w3-input"
                    id="title" name="media_title" maxlength="45" required>
         </li>
         <li>
-            <label for="description">Description:</label>
+            <label for="description">Description</label>
             <br>
-            <input type="text"
+            <input type="text" class="w3-input"
                    id="description" name="media_description" maxlength="2000" required>
         </li>
         <li>
-            <label for="duration">Duration:</label>
+            <label for="duration">Duration</label>
             <br>
-            <input type="number"
+            <input type="number" class="w3-input"
                    min="0" max="500" id="duration" name="media_duration" required>
         </li>
         <li>
-            <label for="mediaPicture">Picture:</label>
+            <label for="mediaPicture">Picture</label>
             <br>
-            <input type="file"
+            <input type="file" class="w3-input"
                    id="mediaPicture" name="media_picture"
                    accept="image/png, image/jpeg" required>
         </li>
         <li>
-            <label for="studio">Studio:
+            <label for="studio">Studio
                 <br>
-                <select class="w3-select" id="studio" name="media_studio" style="width: 500px">
+                <select class="w3-select w3-input" id="studio" name="media_studio">
                     <?php
                     foreach ($studioData as $s)
                         echo '<option value="' . $s['id'] . '">' . $s['nom'] . '</option>';
@@ -76,13 +92,14 @@ $studioData   = $db->getAllStudios();
             <label>Serie</label>
         </li>
         <li>
-            <label for="mediaPicture">Release date (Only for movie):</label>
+            <label for="mediaPicture">Release date (Only for movie)</label>
             <br>
-            <input type="date" id="start" name="media_release"
+            <input type="date" id="start" name="media_release" class="w3-input"
                    min="1900-01-01" max="2999-12-31" value="2000-01-01" required>
         </li>
         <li>
-            <div style="height: 300px; width: 600px; overflow: scroll">
+            <label for="mediaPicture">Categories</label>
+            <div class="w3-border" style="height: 300px; width: 100%; overflow: scroll">
                 <?php
                 foreach ($categoryData as $c) {
                     echo '<div>
@@ -96,83 +113,93 @@ $studioData   = $db->getAllStudios();
         <li>
             <button class="w3-button w3-black" type="submit" value="Send" name="media_send">CREATE NEW MEDIA</button>
         </li>
-
-        </form><li style="background-color: black"></li>
+        </form>
 
         <!--ADD SEASON TO MEDIA-->
-        <form action="../backend/content_insert.php" method="post">
-        <li>
+        <div onclick="displayOptions('add_season')" class="w3-container w3-black w3-btn w3-button w3-block w3-left-align">
             <h3>Add season</h3>
+        </div>
 
-            <label for="mediaID">Media ID:</label>
-            <input type="number" value=""
+        <form id="add_season" class="w3-animate-opacity w3-container w3-hide" action="../backend/content_insert.php" method="post">
+        <li>
+
+            <label for="mediaID">Media ID</label>
+            <input type="number" value="" class="w3-input"
                    id="mediaID" name="season_media_id"
                    min="0" required>
             <label for="season">Season n°</label>
-            <input type="number" value="1" min="1"
+            <input type="number" value="1" min="1" class="w3-input"
                    id="season" name="season_num"
                    min="0" required>
-            <label for="episode">Nb of episode (1 for film):</label>
-            <input type="number" value="1" min="1"
+            <label for="episode">Nb of episode (1 for film)</label>
+            <input type="number" value="1" min="1" class="w3-input"
                    id="episode" name="season_nbep" required>
             <label for="dateSeason">Release date</label>
-            <input type="date" name="season_release"
+            <input type="date" name="season_release" class="w3-input"
                    id="dateSeason"  min="1900-01-01" max="2999-12-31"
                    value="2000-01-01" required>
         </li>
         <li>
             <button class="w3-button w3-black" type="submit" value="Send" name="season_send">CREATE NEW SEASON TO A SERIE</button>
 
-        <li style="background-color: black"></li></form>
+        </form>
 
         <!--ADD CATEGORY -->
-        <form action="../backend/content_insert.php" method="post">
-            <li>
-                <h3>Add new category</h3>
+        <div onclick="displayOptions('add_category')" class="w3-container w3-black w3-btn w3-button w3-block w3-left-align">
+            <h3>Add new category</h3>
+        </div>
 
-                <label for="categoryName">Category name:</label>
-                <input type="text" id="categoryName"maxlength="50"
+        <form id="add_category" class="w3-animate-opacity w3-container w3-hide" action="../backend/content_insert.php" method="post">
+            <li>
+                <label for="categoryName">Category name</label>
+                <input type="text" id="categoryName"maxlength="50" class="w3-input"
                        name="category_name" required>
             </li>
             <li>
                 <button class="w3-button w3-black" type="submit" value="Send" name="category_send">CREATE NEW CATEGORY</button>
             </li>
-            <li style="background-color: black"></li></form>
+        </form>
 
         <!--SET MODERATOR-->
-        <form action="../backend/content_insert.php" method="post">
-        <li>
+        <div onclick="displayOptions('add_moderator')" class="w3-container w3-black w3-btn w3-button w3-block w3-left-align">
             <h3>Set Moderator</h3>
+        </div>
 
-            <label for="username">Username:</label>
-            <input type="text" id="username"
+        <form id="add_moderator" class="w3-animate-opacity w3-container w3-hide" action="../backend/content_insert.php" method="post">
+        <li>
+            <label for="username">Username</label>
+            <input type="text" id="username" class="w3-input"
                    name="moderator_username" required>
         </li>
         <li>
             <button class="w3-button w3-black" type="submit" value="Send" name="moderator_send">CREATE NEW MODERATOR</button>
         </li>
-        <li style="background-color: black"></li></form>
+        </form>
 
         <!--ADD VOICE ACTOR-->
-        <form action="../backend/content_insert.php" method="post" enctype="multipart/form-data">
-        <li>
+        <div onclick="displayOptions('add_dubber')" class="w3-container w3-black w3-btn w3-button w3-block w3-left-align">
             <h3>Add Voice actor</h3>
-            <label for="dubberFirstname">First name:</label><br>
-            <input type="text" value=""
+        </div>
+
+        <form id="add_dubber" class="w3-animate-opacity w3-container w3-hide" action="../backend/content_insert.php" method="post" enctype="multipart/form-data">
+        <li>
+
+            <label for="dubberFirstname">First name</label><br>
+            <input type="text" value="" class="w3-input"
                    id="dubberFirstname" name="dubber_firstname" required>
         </li>
         <li>
-            <label for="dubberLastname">Last name:</label><br>
-            <input type="text" value=""
+            <label for="dubberLastname">Last name</label><br>
+            <input type="text" value="" class="w3-input"
                    id="dubberLastname" name="dubber_lastname" required>
         </li>
         <li>
-            <label for="dubberBirthdate">Birth date:</label><br>
-            <input type="date" value=""
+            <label for="dubberBirthdate">Birth date</label><br>
+            <input type="date" value="" class="w3-input"
                    id="personFirstName" name="dubber_birthdate" required>
         </li>
         <li>
-            <label for="dubberGender">Gender:</label><br>
+            <label for="dubberGender">Gender</label><br>
             <input class="w3-radio" type="radio" name="dubber_gender" value="homme" checked>
             <label>Male</label>
 
@@ -183,61 +210,65 @@ $studioData   = $db->getAllStudios();
             <label>Other</label>
         </li>
         <li>
-            <label for="dubberPhoto">Profile photo:</label><br>
-            <input type="file" value="" accept="image/png, image/jpeg"
+            <label for="dubberPhoto">Profile photo</label><br>
+            <input type="file" value="" accept="image/png, image/jpeg" class="w3-input"
                    id="personFirstName" name="dubber_photo" required>
         </li>
         <li>
             <button class="w3-button w3-black" type="submit" value="Send" name="dubber_send">CREATE NEW VOICE ACTOR</button>
-        </li>
+        </li></form>
 
-        <li style="background-color: black"></li>
-        </form>
         <!--ADD ROLE TO VOICE ACTOR-->
-        <form action="../backend/content_insert.php" method="post">
-        <li>
+        <div onclick="displayOptions('add_role')" class="w3-container w3-black w3-btn w3-button w3-block w3-left-align">
             <h3>Add Voice actor role</h3>
-            <label for="person_roleID">Person ID:</label>
-            <input type="number" min="0"
+        </div>
+
+        <form id="add_role" class="w3-animate-opacity w3-container w3-hide" action="../backend/content_insert.php" method="post">
+        <li>
+
+            <label for="person_roleID">Person ID</label>
+            <input type="number" min="0" class="w3-input"
                    id="person_roleID" name="role_dubber" required>
-            <label for="media_roleID">Media ID:</label>
-            <input type="number" min="0"
+            <label for="media_roleID">Media ID</label>
+            <input type="number" min="0" class="w3-input"
                    id="media_roleID" name="role_media" required>
         </li>
         <li>
             <button class="w3-button w3-black" type="submit" value="Send" name="role_send">CREATE NEW ROLE</button>
         </li>
 
-        <li style="background-color: black"></li>
         </form>
 
         <!--ADD ANIMATION STUDIO-->
-        <form action="../backend/content_insert.php" method="post" enctype="multipart/form-data">
-        <li>
+        <div onclick="displayOptions('add_studio')" class="w3-container w3-black w3-btn w3-button w3-block w3-left-align">
             <h3>Add animation studio</h3>
-            <label for="studio_name">name:</label>
+        </div>
+
+        <form id="add_studio" class="w3-animate-opacity w3-container w3-hide" action="../backend/content_insert.php" method="post" enctype="multipart/form-data">
+        <li>
+
+            <label for="studio_name">Name</label>
             <br>
-            <input type="text" maxlength="100"
+            <input type="text" maxlength="100" class="w3-input"
                    id="studio_name" name="studio_name" required>
         </li>
         <li>
-            <label for="studio_description">Description:</label>
+            <label for="studio_description">Description</label>
             <br>
-            <input type="text"
+            <input type="text" class="w3-input"
                    id="studio_description" name="studio_description" required>
         </li>
         <li>
-            <label for="studio_picture">Picture:</label>
+            <label for="studio_picture">Picture</label>
             <br>
-            <input type="file"
+            <input type="file" class="w3-input"
                    id="studio_picture" name="studio_picture"
                    accept="image/png, image/jpeg" required>
         </li>
         <li>
             <button class="w3-button w3-black" type="submit" value="Send" name="studio_send">CREATE NEW STUDIO</button>
         </li>
-
-        <li style="background-color: black"></li>
+        </form>
     </ul>
 </div>
 

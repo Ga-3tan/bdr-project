@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Fixed links">
-      <change afterPath="$PROJECT_DIR$/web/img/website/icon.png" afterDir="false" />
+    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Added details">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/php/frontend/anime.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/anime.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/php/includes/header_nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/includes/header_nav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/php/frontend/admin_panel.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/admin_panel.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +74,7 @@
       <workItem from="1610553813327" duration="19048000" />
       <workItem from="1610698086433" duration="50892000" />
       <workItem from="1610815352781" duration="14654000" />
-      <workItem from="1610840326072" duration="564000" />
+      <workItem from="1610840326072" duration="2889000" />
     </task>
     <task id="LOCAL-00001" summary="Changed project structure and added data files">
       <created>1610374272706</created>
@@ -281,7 +279,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610831183683</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Added details">
+      <created>1610840904390</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1610840904390</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,7 +306,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added header and session verif includes" />
     <MESSAGE value="Added registration verification" />
     <MESSAGE value="Added login and regsitration js and php verifications" />
     <MESSAGE value="Finished login and registration.&#10;It is now possible to create an account and login with it." />
@@ -326,6 +330,7 @@
     <MESSAGE value="Added search by category and fixes to the search page" />
     <MESSAGE value="Fixes" />
     <MESSAGE value="Fixed links" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed links" />
+    <MESSAGE value="Added details" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added details" />
   </component>
 </project>
