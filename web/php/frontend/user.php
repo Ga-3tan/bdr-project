@@ -1,4 +1,16 @@
 <?php
+/*
+ -------------------------------------------------------------------------------------
+ Projet BDR
+ File        : user.php
+ Author(s)   : Zwick Gaétan, Ngueukam Djeuda Wilfried Karel, Maziero Marco
+ Date        : 11.01.2021
+ Goal        : Contains all the user data and a form to update it
+
+ Comment(s) : -
+ ------------------------------------------------------------------------------------
+*/
+
 include '../includes/session_check.php';
 include '../includes/header_nav.php';
 include "../../../lib/model/dbConnect.php";

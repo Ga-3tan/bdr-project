@@ -1,4 +1,16 @@
 <?php
+/*
+ -------------------------------------------------------------------------------------
+ Projet BDR
+ File        : welcome.php
+ Author(s)   : Zwick Gaétan, Ngueukam Djeuda Wilfried Karel, Maziero Marco
+ Date        : 11.01.2021
+ Goal        : Main login / registration page
+
+ Comment(s) : -
+ ------------------------------------------------------------------------------------
+*/
+
 session_start();
 
 if (isset($_SESSION['USER_LOGGED'])) {

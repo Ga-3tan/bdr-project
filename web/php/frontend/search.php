@@ -1,4 +1,16 @@
 <?php
+/*
+ -------------------------------------------------------------------------------------
+ Projet BDR
+ File        : search.php
+ Author(s)   : Zwick Gaétan, Ngueukam Djeuda Wilfried Karel, Maziero Marco
+ Date        : 11.01.2021
+ Goal        : This is the serach page, where the medias can be found
+
+ Comment(s) : -
+ ------------------------------------------------------------------------------------
+*/
+
 include '../includes/session_check.php';
 include '../includes/header_nav.php';
 include "../../../lib/model/dbConnect.php";

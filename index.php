@@ -1,4 +1,16 @@
 <?php
+/*
+ -----------------------------------------------------------------------------------
+ Projet BDR
+ File        : index.php
+ Author(s)   : Zwick Gaétan, Ngueukam Djeuda Wilfried Karel, Maziero Marco
+ Date        : 11.01.2021
+ Goal        : Entry point into the website
+
+ Comment(s) : -
+ -----------------------------------------------------------------------------------
+ */
+
 // Initiates the session
 session_start();
 

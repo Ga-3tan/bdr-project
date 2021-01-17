@@ -1,10 +1,15 @@
 <?php
-/**
- * ETML
- * Author  : Marco Maziero (mazieroma)
- * Date    : 24.03.15
- * Summary : Contains the database connection class used to work with the project database.
- */
+/*
+ -------------------------------------------------------------------------------------
+ Projet BDR
+ File        : dbConnect.php
+ Author(s)   : Zwick Gaétan, Ngueukam Djeuda Wilfried Karel, Maziero Marco
+ Date        : 11.01.2021
+ Goal        : Contains the class used to communicate with the database
+
+ Comment(s) : -
+ ------------------------------------------------------------------------------------
+*/
 
 /**
  * Class dbConnect
@@ -17,12 +22,12 @@ class dbConnect {
     const DB_USER     = 'root';       // User name
     const DB_PASSWORD = '';           // Database connection password
 
-    // connection declaration
+    // Connection attribute
     private $dbCurrentConnexion; // This will contain the current connection
 
     /**
      * Class constructor
-     * This initializes a connection the the specified database.
+     * This initializes a connection to the specified database
      */
     public function __construct() {
         // Tries to initialize the connection to the database
@@ -57,18 +62,44 @@ class dbConnect {
         else return null;
     }
 
+    /**
+     * Retrieves the user id
+     * @param $username string :: The username
+     * @return mixed :: The array containing the user id
+     */
     public function getUserId($username) {
         return $data = $this->executeSqlRequest("SELECT idPersonne FROM Utilisateur WHERE pseudo = '" . $username . "';", true)[0]['idPersonne'];
     }
 
+    /**
+     * Retrieves all the user data
+     * @param $username string :: The username
+     * @return array|null :: The user data (null if the given user doesn't exist)
+     */
     public function getUserData($username) {
         return $data = $this->executeSqlRequest("SELECT * FROM vUtilisateur WHERE pseudo = '" . $username . "';", true);
     }
 
+    /**
+     * Retrieves a person info
+     * @param $personId int :: The id
+     * @return array|null :: The person data
+     */
     public function getPerson($personId) {
         return $this->executeSqlRequest("SELECT * FROM Personne WHERE id = " . $personId . ";", true);
     }
 
+    /**
+     *  Creates a new user in the database with the defined SQL procedure
+     * @param $firstname string :: User first name
+     * @param $lastname string :: User last name
+     * @param $birthDate string :: User birth date, format 'YYYY-MM-DD'
+     * @param $gender string :: User gender, must be {'homme', 'femme', 'autre'}
+     * @param $profilePic string :: User profile picture link
+     * @param $email string :: User email address
+     * @param $username string :: Username
+     * @param $password string :: The password, will be hashed before insert into the db
+     */
     public function createUser($firstname, $lastname, $birthDate, $gender, $profilePic, $email, $username, $password) {
         // Hash password
         $hashedPwd = password_hash($password,  PASSWORD_DEFAULT);
@@ -85,6 +116,17 @@ class dbConnect {
                                            $hashedPwd . "');", false);
     }
 
+    /**
+     * Updates the user data
+     * @param $id int :: User id
+     * @param $firstname string :: User first name
+     * @param $lastname string :: User last name
+     * @param $birthDate string :: User birth date, format 'YYYY-MM-DD'
+     * @param $gender string :: User gender, must be {'homme', 'femme', 'autre'}
+     * @param $profilePic string :: User profile picture link
+     * @param $email string :: User email address
+     * @param $username string :: Username
+     */
     public function updateUser($id, $firstname, $lastname, $birthDate, $gender, $profilePic, $email, $username) {
         // Updates the person table
         $this->executeSqlRequest("UPDATE Personne SET 
@@ -102,6 +144,14 @@ class dbConnect {
                                            WHERE idPersonne = " . $id . ";", false);
     }
 
+    /**
+     * Creates a new media dubber
+     * @param $firstname string :: Dubber first name
+     * @param $lastname string :: Dubber last name
+     * @param $birthDate string :: Dubber birth date, format 'YYYY-MM-DD'
+     * @param $gender string :: Dubber gender, must be {'homme', 'femme', 'autre'}
+     * @param $profilePic string :: Dubber profile picture link
+     */
     public function createDubber($firstname, $lastname, $birthDate, $gender, $profilePic) {
         $this->executeSqlRequest("CALL ajouter_doubleur('" .
             addslashes($firstname) . "', '" .
@@ -111,6 +161,12 @@ class dbConnect {
             addslashes($profilePic) . "');", false);
     }
 
+    /**
+     * Returns a boolean telling weather a username exists in the db or not and if the passwod matches
+     * @param $username string :: Username
+     * @param $password string :: Userpassword (will be hashed for comparaison with value in db)
+     * @return bool :: The result, true if the user exists and the password matches
+     */
     public function verifyUser($username, $password) {
         // Gets all the users and their passwords
         $data = $this->executeSqlRequest("SELECT password FROM Utilisateur WHERE pseudo = '" . $username . "';", true);
@@ -122,6 +178,11 @@ class dbConnect {
         return false;
     }
 
+    /**
+     * Tells if a username is already taken
+     * @param $username string :: Username
+     * @return bool :: True if the username is taken
+     */
     public function isUsernameTaken($username) {
 
         // Gets all the users and their passwords
@@ -133,12 +194,26 @@ class dbConnect {
         return false;
     }
 
+    /**
+     * Retrieves the data from a given media
+     * @param $mediaId int :: The media id
+     * @return array|null :: The data (null if the media does not exist)
+     */
     public function getMediaData($mediaId) {
         return $this->executeSqlRequest("SELECT * FROM vFilm WHERE id = " . $mediaId . "
                                                   UNION ALL
                                                   SELECT * FROM vSerie WHERE id = " . $mediaId . ";", true);
     }
 
+    /**
+     * Gets a list of medias corresponding to certain criteria
+     * @param $name string :: The media title
+     * @param $category string :: The media category
+     * @param $studio string :: The media animation studio
+     * @param $order string :: The order of results, must be {'titre', 'score'}
+     * @param $type string :: The wanted type of media, must be {'movie', 'serie', 'all'}
+     * @return array|null :: Array containing all the macthing medias
+     */
     public function searchMedia($name, $category, $studio, $order, $type) {
         if ($order != 'titre' && $order != 'score')
             $order = 'titre';
@@ -176,15 +251,31 @@ class dbConnect {
         }
     }
 
+    /**
+     * Gets the note a user gave to a media
+     * @param $username string :: The username
+     * @param $mediaId int :: The media id
+     * @return array|null :: The given note (null if the media / user doesn't exist)
+     */
     public function getUserNote($username, $mediaId) {
         $usrId = $this->getUserId($username);
         return $this->executeSqlRequest("SELECT note, dateNote FROM utilisateur_media_note WHERE idPersonne = " . $usrId . " AND idMedia = " . $mediaId . ";", true);
     }
 
+    /**
+     * Gets the average score of one media
+     * @param $mediaId int :: The media id
+     * @return array|null :: The score
+     */
     public function getAvgNote($mediaId) {
         return $this->executeSqlRequest("SELECT AVG(note) AS 'moyenne' FROM utilisateur_media_note WHERE idMedia = " . $mediaId . ";", true);
     }
 
+    /**
+     * Gets all the dubbers of one given media
+     * @param $mediaId int :: The media id
+     * @return array|null :: Array containing the dubbers data
+     */
     public function getMediaDubbers($mediaId) {
         return $this->executeSqlRequest("SELECT id, nom, prenom, dateNaissance, sexe, photoProfil
                                                   FROM vDoubleur
@@ -193,6 +284,11 @@ class dbConnect {
                                                   WHERE Doubleur_Media.idMedia = " . $mediaId . ";", true);
     }
 
+    /**
+     * Gets all the comments of one given media
+     * @param $mediaId int :: The media id
+     * @return array|null :: Array containing the comments data
+     */
     public function getComments($mediaId) {
         return $this->executeSqlRequest("SELECT pseudo, commentaire, dateAjout
                                                   FROM vUtilisateur 
@@ -201,11 +297,23 @@ class dbConnect {
                                                   WHERE idMedia = " . $mediaId . ";", true);
     }
 
+    /**
+     * Creates a new comment and attaches it to a media
+     * @param $username string :: The username
+     * @param $mediaId int :: The media id
+     * @param $comment string :: The comment text
+     */
      public function addComment($username, $mediaId, $comment) {
          $usrId = $this->getUserId($username);
          $this->executeSqlRequest("INSERT INTO Utilisateur_Media_Commentaire VALUES (" . $usrId . ", " . $mediaId . ", NOW(), '" . addslashes($comment) . "');", false);
     }
 
+    /**
+     * Retrieves a list of a given user
+     * @param $userId int :: The user id
+     * @param $liste string :: The list name, must be {'Plan to watch', 'Watching', 'Finished', 'Dropped'}
+     * @return array|null :: All the medias in the user list
+     */
     public function getListMedia($userId, $liste) {
         return $this->executeSqlRequest('SELECT *
                                                     FROM vUtilisateur_Lists_Film
@@ -216,12 +324,25 @@ class dbConnect {
                                                     WHERE id = ' . $userId . ' AND liste = \'' . $liste . '\';', true);
     }
 
-
+    /**
+     * Adds a note to a media
+     * @param $username string :: The username
+     * @param $mediaId int :: The media id
+     * @param $note int :: The given note
+     */
     public function addNote($username, $mediaId, $note) {
         $usrId = $this->getUserId($username);
         $this->executeSqlRequest("REPLACE INTO Utilisateur_Media_Note VALUES (" . $usrId . ", " . $mediaId . ", " . $note . ", NOW());", false);
     }
 
+    /**
+     * Adds a media to a user list
+     * @param $username string :: The username
+     * @param $mediaId int :: The media id
+     * @param $seasonId int :: The season id (if its a serie)
+     * @param $listId int :: The list id, must be {0, 1, 2, 3}
+     * @param $nbWatchedEp int :: Number of watched episodes
+     */
     public function addMediaToList($username, $mediaId, $seasonId, $listId, $nbWatchedEp) {
         $usrId = $this->getUserId($username);
         $list = "";
@@ -230,6 +351,7 @@ class dbConnect {
         if ($mediaData[0]['nbSaisons'] == 0) return;
         if ($mediaData[0]['type'] == "Movie") $isMovie = true;
 
+        // Gets the list name depending on id
         switch ($listId) {
             case 0:
                 $list = "Plan to watch";
@@ -255,18 +377,42 @@ class dbConnect {
         }
     }
 
+    /**
+     * Retrieves a media season
+     * @param $mediaId int :: The media id
+     * @param $seasonId int :: The season id
+     * @return array|null :: The season data
+     */
     public function getMediaSeason($mediaId, $seasonId) {
         return $this->executeSqlRequest("SELECT * FROM Saison WHERE idSerie = " . $mediaId . " AND num = " . $seasonId . ";", true);
     }
 
+    /**
+     * Gets all the registered media categories
+     * @return array|null :: Array with the categories names
+     */
     public function getAllCategories() {
         return $this->executeSqlRequest("SELECT * FROM Categorie ORDER BY tag;", true);
     }
 
+    /**
+     * Gets all the registered animation studios
+     * @return array|null :: Array with the studios data
+     */
     public function getAllStudios() {
         return $this->executeSqlRequest("SELECT * FROM StudioAnimation ORDER BY nom;", true);
     }
 
+    /**
+     * Creates a new movie in the database with the defined SQL procedure
+     * @param $title string :: The new name
+     * @param $description string :: The new description
+     * @param $duration int :: Duration
+     * @param $picture string :: Cover picture link
+     * @param $studioId int :: Animation studio id
+     * @param $releaseDate string :: The release date, format 'YYYY-MM-DD'
+     * @param $categories string[] :: All the categories
+     */
     public function createMovie($title, $description, $duration, $picture, $studioId, $releaseDate, $categories) {
         $newId = $this->executeSqlRequest("CALL ajouter_film('" .
                                                     addslashes($title) . "', '" .
@@ -279,6 +425,15 @@ class dbConnect {
         $this->addCategoryToMedia($newId[0]['newId'], $categories);
     }
 
+    /**
+     * Creates a new serie in the database with the defined SQL procedure
+     * @param $title string :: The new name
+     * @param $description string :: The new description
+     * @param $duration int :: Duration
+     * @param $picture string :: Cover picture link
+     * @param $studioId int :: Animation studio id
+     * @param $categories string[] :: All the categories
+     */
     public function createSerie($title, $description, $duration, $picture, $studioId, $categories) {
         $newId = $this->executeSqlRequest("CALL ajouter_serie('" .
                                                     addslashes($title) . "', '" .
@@ -290,32 +445,68 @@ class dbConnect {
         $this->addCategoryToMedia($newId[0]['newId'], $categories);
     }
 
+    /**
+     * Adds a category to a media
+     * @param $mediaId int :: Media id
+     * @param $categories string :: The category to bind
+     */
     public function addCategoryToMedia($mediaId, $categories) {
         foreach ($categories as $c)
             $this->executeSqlRequest("INSERT INTO Media_Categorie VALUES ('" . $c . "', " . $mediaId . ");", false);
     }
 
+    /**
+     * Retrieves all the categories bound to a given media
+     * @param $mediaId int :: Media id
+     * @return array|null :: Array containing all the categories names
+     */
     public function getMediaCategories($mediaId) {
         return $this->executeSqlRequest("SELECT tagCategorie FROM Media_Categorie WHERE idMedia =" . $mediaId . ";", true);
     }
 
+    /**
+     * Creates a new season
+     * @param $mediaId int :: Media id
+     * @param $seasonNum int :: Season number
+     * @param $nbEpisodes int :: Number of episodes in the season
+     * @param $releaseDate string :: Season release date, format 'YYYY-MM-DD'
+     */
     public function createSeason($mediaId, $seasonNum, $nbEpisodes, $releaseDate) {
         $this->executeSqlRequest("INSERT INTO Saison VALUES (" . $seasonNum . ", " . $mediaId . ", " . $nbEpisodes . ", '" . $releaseDate . "');", false);
     }
 
+    /**
+     * Creates a new category
+     * @param $tag string :: Category name
+     */
     public function createCategory($tag) {
         $this->executeSqlRequest("INSERT INTO Categorie VALUES ('" . addslashes($tag) . "');", false);
     }
 
+    /**
+     * Sets a existing user moderator
+     * @param $username string :: The user name
+     */
     public function setModerator($username) {
         $usrId = $this->getUserId($username);
         $this->executeSqlRequest("INSERT INTO Moderateur VALUES (" . $usrId . ");", false);
     }
 
+    /**
+     * Binds a dubber to a media
+     * @param $dubberId int :: Dubber id
+     * @param $mediaId int :: Media id
+     */
     public function addDubberToMedia($dubberId, $mediaId) {
         $this->executeSqlRequest("INSERT INTO Doubleur_Media VALUES (" . $dubberId . ", " . $mediaId . ");", false);
     }
 
+    /**
+     * Creates a new animation studio
+     * @param $name string :: Studio name
+     * @param $description string :: Studio description
+     * @param $logo string :: Studio logo image link
+     */
     public function createStudio($name, $description, $logo) {
         $this->executeSqlRequest("INSERT INTO StudioAnimation VALUES (NULL, '" .
                                                                               addslashes($name) . "', '" .

@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Fixed header in welcome page">
+    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Fixes in anime page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_Requetes.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Requetes.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/model/dbConnect.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/dbConnect.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/css/main_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/main_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/php/frontend/admin_panel.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/admin_panel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/php/frontend/anime.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/anime.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/php/frontend/lists.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/lists.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/php/frontend/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/php/frontend/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/php/frontend/welcome.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/welcome.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +85,8 @@
       <workItem from="1610815352781" duration="14654000" />
       <workItem from="1610840326072" duration="3556000" />
       <workItem from="1610875913275" duration="1126000" />
-      <workItem from="1610878802077" duration="88000" />
+      <workItem from="1610878802077" duration="327000" />
+      <workItem from="1610901437396" duration="3874000" />
     </task>
     <task id="LOCAL-00001" summary="Changed project structure and added data files">
       <created>1610374272706</created>
@@ -337,7 +347,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610877047536</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Fixes in anime page">
+      <created>1610878902129</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1610878902129</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -357,7 +374,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added lists views and requests" />
     <MESSAGE value="Updates requests" />
     <MESSAGE value="Fixed inser file problems" />
     <MESSAGE value="Fixed insert file problems" />
@@ -382,6 +398,7 @@
     <MESSAGE value="Added studio in anime page" />
     <MESSAGE value="Fixed account type in user page" />
     <MESSAGE value="Fixed header in welcome page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed header in welcome page" />
+    <MESSAGE value="Fixes in anime page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes in anime page" />
   </component>
 </project>

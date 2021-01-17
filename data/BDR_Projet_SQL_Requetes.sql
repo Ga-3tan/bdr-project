@@ -1,8 +1,17 @@
 -- Recuperes les informations d'une personne
-SELECT * FROM Personne WHERE id = <idPersonne>;
+SELECT *
+FROM Personne
+WHERE id = <idPersonne>;
 
 -- Recuperer l'id de l'utilisateur en fonction de son pseudo
-SELECT idPersonne FROM Utilisateur WHERE pseudo = '<pseudo>';
+SELECT idPersonne
+FROM Utilisateur
+WHERE pseudo = '<pseudo>';
+
+-- Recuperer lles infomrations d'un utilisateur
+SELECT *
+FROM vUtilisateur
+WHERE pseudo = '<pseudo>';
 
 -- Creer un nouvel utilisateur dans la base de donnees
 CALL ajouter_utilisateur('<nom>', '<prenom>', '<dateNaissance>', '<sexe>', '<photoProfil>', '<email>', '<pseudo>', '<password>');
@@ -22,10 +31,14 @@ UPDATE Utilisateur SET
 WHERE idPersonne = <idPersonne>;
 
 -- Verification de l'utilisateur
-SELECT password FROM Utilisateur WHERE pseudo = '<pseudo>';
+SELECT password
+FROM Utilisateur
+WHERE pseudo = '<pseudo>';
 
 -- Comparaison de pseudos
-SELECT pseudo FROM Utilisateur WHERE pseudo = '<pseudo>';
+SELECT pseudo
+FROM Utilisateur
+WHERE pseudo = '<pseudo>';
 
 -- Recuperation des donnes d'un media
 SELECT * FROM vFilm WHERE id = <idMedia>
@@ -64,33 +77,45 @@ INSERT INTO Utilisateur_Media_Commentaire
 REPLACE INTO Utilisateur_Media_Note
     VALUES (<idUtilisateur>, <idMedia>, <note>, NOW());
 
--- Ajout d'un media dans une liste
+-- Ajout d'un flm dans une liste
 REPLACE INTO Utilisateur_Film
     VALUES (<idUtilisateur>, <idMedia>, '<liste>', NOW());
 
+-- Ajout d'une serie dans une liste
 REPLACE INTO Utilisateur_Saison
     VALUES (<idUtilisateur>, <idSaison>, <idMedia>, '<liste>', NOW(), <nbEpisodesVus>);
 
 -- Recuperation d'une saison d'un media
-SELECT * FROM Saison WHERE idSerie = <idSerie> AND num = <NoSaison>;
+SELECT *
+FROM Saison
+WHERE idSerie = <idSerie> AND num = <NoSaison>;
 
 -- Recuperation des categories
-SELECT * FROM Categorie ORDER BY tag;
+SELECT *
+FROM Categorie
+ORDER BY tag;
 
 -- Récupération des studios d'animation
-SELECT * FROM StudioAnimation ORDER BY nom;
+SELECT *
+FROM StudioAnimation
+ORDER BY nom;
 
 -- Ajouter une categorie a un media
-INSERT INTO Media_Categorie VALUES ('<tag categorie>', <idMedia>);
+INSERT INTO Media_Categorie
+    VALUES ('<tag categorie>', <idMedia>);
 
 -- Recuperer les categories d'un media
-SELECT tagCategorie FROM Media_Categorie WHERE idMedia = <idMedia>;
+SELECT tagCategorie
+FROM Media_Categorie
+WHERE idMedia = <idMedia>;
 
 -- Creer une nouvelle saison pour un media
-INSERT INTO Saison VALUES (<numSaison>, <idMedia>, <nbEpisodes>, '<dateSortie>');
+INSERT INTO Saison
+    VALUES (<numSaison>, <idMedia>, <nbEpisodes>, '<dateSortie>');
 
 -- Creer une nouvelle categorie
-INSERT INTO Categorie VALUES ('<tag>');
+INSERT INTO Categorie
+    VALUES ('<tag>');
 
 -- Creer un nouveau film
 CALL ajouter_film('<titre>', '<description>', <duree>, '<image>', <idStudio>, '<dateSortie>', @newId);
@@ -101,76 +126,59 @@ CALL ajouter_serie('<titre>', '<description>', <duree>, '<image>', <idStudio>, @
 -- Creer un nouveau doubleur
 CALL ajouter_doubleur('<nom>', '<prenom>', '<dateNaissance>', '<sexe>', '<photoProfil>');
 
+-- Creer un nouveau studio d'animation
+INSERT INTO StudioAnimation
+    VALUES (NULL, '<nom>', '<description>', '<imageLogo>');
+
 -- Ajouter un doubleur sur un media
-INSERT INTO Doubleur_Media VALUES (<idDoubleur>, <idMedia>);
+INSERT INTO Doubleur_Media
+    VALUES (<idDoubleur>, <idMedia>);
+
+-- Ajouter un nouveau moderateur
+INSERT INTO Moderateur VALUES ("<idUtilisateur>");
 
 -- Recuperer les listes d'un utilisateur
 SELECT *
 FROM vUtilisateur_Lists_Film
-WHERE id = <idPersonne> AND liste = <nomListe>
+    WHERE id = <idPersonne> AND liste = <nomListe>
 UNION ALL
 SELECT *
-FROM vUtilisateur_Lists_Serie
+    FROM vUtilisateur_Lists_Serie
 WHERE id = <idPersonne> AND liste = <nomListe>;
 
------------------------------NON UTILISE----------------------------------
-
-
--- Sélectionner tous les médias produits par un studio
+-- Rechercher un film ou une serie
 SELECT *
-FROM Media
-   INNER JOIN StudioAnimation ON Media.idStudioAnimation = StudioAnimation.id
-WHERE Studio.nom = "<Nom Studio>";
+FROM (
+        SELECT * FROM vFilm
+            WHERE titre LIKE '%" . $name . "%' AND nomStudio LIKE '%" . $studio . "%'
+        UNION ALL
+        SELECT * FROM vSerie
+            WHERE titre LIKE '%" . $name . "%' AND nomStudio LIKE '%" . $studio . "%'
+    ) res
+    INNER JOIN Media_Categorie
+        ON id = idMedia
+        AND tagCategorie LIKE '%" . $category . "%'
+GROUP BY titre
+ORDER BY " . $order . " LIMIT 50;
 
--- Sélectionner la liste des films
-SELECT Media.*, Film.dateSortie
-FROM Media
-   INNER JOIN Film ON film.idMedia = Media.id
-
-
---Sélectionner la liste des Séries
+-- Rechercher uniquement une serie
 SELECT *
-FROM Media
-   INNER JOIN Serie ON Serie.idMedia = Media.id
+FROM vSerie
+    INNER JOIN Media_Categorie
+        ON id = idMedia
+        AND tagCategorie LIKE '%" . $category . "%'
+WHERE titre LIKE '%" . $name . "%'
+    AND nomStudio LIKE '%" . $studio . "%'
+GROUP BY titre
+ORDER BY " . $order . " LIMIT 50;
 
-
--- Sélectionner les listes des médias ayant une catégorie donnée
+-- Rechercher uniquement un film
 SELECT *
-FROM Media
-   INNER JOIN Media_Categorie ON Media.id = Media_Categorie.id
-   -- INNER JOIN Categorie ON Categorie.tag = Media_Categorie.tagCategorie
-WHERE Media_Categorie.tagCategorie = "<Nom Catégorie>"
-
-
--- Trouver tous les medias ayant un titre donné
-SELECT *
-FROM Media
-WHERE titre LIKE "%<Titre du media>%";
-
---moyenne des notes
-SELECT AVG(note) AS 'moyenne' FROM utilisateur_media_note WHERE idMedia = <id>;
-        
-
--- Sélectionner la liste des média ayant un doubleur donné
-SELECT *
-FROM Media
-   INNER JOIN vDoubleur ON Media.id = vDoubleur.id
-WHERE vDoubleur.nom = "<Nom doubleur>";
-
--- Liste de films qui appartiennent à un utilisateur
-SELECT *
-FROM vUtilisateur_Lists_Film
-WHERE id = <userid>;
-
--- Liste de séries qui appartiennent à un utilisateur
-SELECT *
-FROM vUtilisateur_Lists_Serie
-WHERE id = <userid>;
-
-SELECT vuf.media, vuf.liste, vuf.image
-FROM vUtilisateur_Lists_Film AS vuf
-WHERE id = 41
-UNION
-SELECT vus.media, vus.liste, vus.image
-FROM vUtilisateur_Lists_Serie AS vus
-WHERE id = 41;
+FROM vFilm
+    INNER JOIN Media_Categorie
+        ON id = idMedia
+        AND tagCategorie LIKE '%" . $category . "%'
+WHERE titre LIKE '%" . $name . "%'
+    AND nomStudio LIKE '%" . $studio . "%'
+GROUP BY titre
+ORDER BY " . $order . " LIMIT 50;
