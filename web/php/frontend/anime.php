@@ -187,8 +187,8 @@ if (!file_exists("../../img/covers/" . $data['image'])) $data['image'] = "blank.
                         <li>
                             <form class="w3-container" action="../backend/media_interact.php?id=<?php echo $_GET['id'] ?>" method="post">
                                 <label>Comments</label>
-                                <input class="w3-input w3-round" type="text" name="comment_data">
-                                <button class="w3-btn" type="submit" value="Login" name="comment_send">Send</button>
+                                <input class="w3-input w3-round" type="text" name="comment_data" required>
+                                <button class="w3-button w3-black w3-margin" type="submit" value="Login" name="comment_send">Send</button>
                             </form>
                         </li>
                         <ul class="w3-ul">
