@@ -23,7 +23,7 @@ $data = $data[0];
 $mediaCat = $db->getMediaCategories($_GET['id']);
 if (!file_exists("../../img/covers/" . $data['image'])) $data['image'] = "blank.jpg";
 ?>
-<div style="width: 90%; min-width: 1000px; margin: 100px;">
+<div class="w3-animate-opacity" style="width: 90%; min-width: 1000px; margin: 100px;">
     <div class="w3-col" style="width: 250px;">
         <img class="w3-border w3-padding w3-round" src="<?php echo '../../img/covers/' . $data['image'];?>"
              style="width: 100%;" alt="thumbnail">
