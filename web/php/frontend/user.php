@@ -58,7 +58,7 @@ if (!file_exists("../../img/profiles/" . $userData['photoProfil']) || $userData[
                                  value="<?php echo $userData['email']; ?>" required></span>
         </li>
         <li>
-            Account type<span><?php echo $userData['moderateur'] ? 'Moderateur' : 'Utilisateur'; ?></span>
+            Account type : [<span><?php echo $userData['moderateur'] ? 'Moderator' : 'User'; ?>]</span>
         </li>
         <li>
             <button class="w3-button w3-blue" type="submit" value="Send" name="update_send">Submit modifications</button>
