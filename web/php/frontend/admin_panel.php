@@ -131,7 +131,7 @@ $studioData   = $db->getAllStudios();
             <input type="number" value="1" min="1" class="w3-input"
                    id="season" name="season_num"
                    min="0" required>
-            <label for="episode">Nb of episode (1 for film)</label>
+            <label for="episode">Nb of episodes (1 for film)</label>
             <input type="number" value="1" min="1" class="w3-input"
                    id="episode" name="season_nbep" required>
             <label for="dateSeason">Release date</label>
