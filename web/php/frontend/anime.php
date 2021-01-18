@@ -121,9 +121,9 @@ if (!file_exists("../../img/covers/" . $data['image'])) $data['image'] = "blank.
                     echo '</select>';
 
                     // Displays the nb episodes per season
-                    for ($j = 1; $j <= $data['nbSaisons']; ++$j) {
-                        echo '<param id="s' . $j-1 . '" value=' . $db->getMediaSeason($_GET['id'], $j)[0]['nbEpisodes'] . '>';
-                    }
+                    for ($j = 1; $j <= intval($data['nbSaisons']); ++$j)
+                        echo '<param id="s' . $j-1 . '" value=' . intval($db->getMediaSeason($_GET['id'], $j)[0]['nbEpisodes']) . '>';
+
                     echo '<label>Nb. of episodes watched</label><input onchange="changeNbEp()" disabled value="0" id="epNbId" type="number" class="w3-input" style="width: 100%" name="list_episodes" min="0" max="0">';
                 }
 
