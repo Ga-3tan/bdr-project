@@ -4,6 +4,13 @@
 -- MySQL Workbench Forward Engineering
 
 -- -----------------------------------------------------
+-- Auteurs : Zwick Gaétan, Maziero Marco, Ngueukam Karel
+-- Description : Script de création du schéma, création
+--      des triggers, des vues, des procédures
+--      stockées et insertion de données préliminaires
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
 -- Schema BDR_Projet
 -- -----------------------------------------------------
 DROP SCHEMA IF EXISTS BDR_Projet ;

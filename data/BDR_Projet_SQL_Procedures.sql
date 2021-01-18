@@ -14,6 +14,7 @@ BEGIN
     INSERT INTO Personne VALUES (NULL, nom, prenom, dateNaissance, sexe, photoProfil);
     INSERT INTO Utilisateur VALUES (email, pseudo, password, LAST_INSERT_ID());
 END//
+DELIMITER ;
 
 -- Ajout d'un doubleur
 DROP PROCEDURE IF EXISTS ajouter_doubleur;
@@ -28,6 +29,7 @@ BEGIN
     REPLACE INTO Personne VALUES (NULL, nom, prenom, dateNaissance, sexe, photoProfil);
     REPLACE INTO Doubleur VALUES (LAST_INSERT_ID());
 END//
+DELIMITER ;
 
 -- Ajout d'un film
 DROP PROCEDURE IF EXISTS ajouter_film;
@@ -45,6 +47,7 @@ BEGIN
     INSERT INTO Film VALUES (dateSortie, newId);
     SELECT newId;
 END//
+DELIMITER ;
 
 -- Ajout d'une série
 DROP PROCEDURE IF EXISTS ajouter_serie;
@@ -61,3 +64,4 @@ BEGIN
     INSERT INTO Serie VALUES (newId);
     SELECT newId;
 END//
+DELIMITER ;
