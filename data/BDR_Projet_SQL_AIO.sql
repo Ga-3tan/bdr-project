@@ -4,13 +4,16 @@
 -- MySQL Workbench Forward Engineering
 
 -- -----------------------------------------------------
--- Schema BDR_Projet
+-- Auteurs : Zwick Gaétan, Maziero Marco, Ngueukam Karel
+-- Description : Script de création du schéma, création
+--      des triggers, des vues, des procédures
+--      stockées et insertion de données préliminaires
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS BDR_Projet ;
 
 -- -----------------------------------------------------
 -- Schema BDR_Projet
 -- -----------------------------------------------------
+DROP SCHEMA IF EXISTS BDR_Projet ;
 CREATE SCHEMA IF NOT EXISTS BDR_Projet DEFAULT CHARACTER SET utf8mb4 ;
 USE BDR_Projet ;
 
@@ -18,13 +21,13 @@ USE BDR_Projet ;
 -- Table Personne
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Personne (
-                                        id INT AUTO_INCREMENT,
-                                        nom VARCHAR(50) NOT NULL,
-                                        prenom VARCHAR(50) NOT NULL,
-                                        dateNaissance DATE NULL,
-                                        sexe ENUM('homme', 'femme', 'autre') NULL,
-                                        photoProfil VARCHAR(512) NULL,
-                                        CONSTRAINT PK_Personne PRIMARY KEY (id))
+    id INT AUTO_INCREMENT,
+    nom VARCHAR(50) NOT NULL,
+    prenom VARCHAR(50) NOT NULL,
+    dateNaissance DATE NULL,
+    sexe ENUM('homme', 'femme', 'autre') NULL,
+    photoProfil VARCHAR(512) NULL,
+    CONSTRAINT PK_Personne PRIMARY KEY (id))
     ENGINE = InnoDB;
 
 
@@ -32,13 +35,13 @@ CREATE TABLE IF NOT EXISTS Personne (
 -- Table Doubleur
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Doubleur (
-                                        idPersonne INT,
-                                        CONSTRAINT PK_Doubleur PRIMARY KEY (idPersonne),
-                                        CONSTRAINT FK_Doubleur_idPersonne
-                                            FOREIGN KEY (idPersonne)
-                                                REFERENCES Personne (id)
-                                                ON DELETE CASCADE
-                                                ON UPDATE CASCADE)
+    idPersonne INT,
+    CONSTRAINT PK_Doubleur PRIMARY KEY (idPersonne),
+    CONSTRAINT FK_Doubleur_idPersonne
+        FOREIGN KEY (idPersonne)
+            REFERENCES Personne (id)
+            ON DELETE CASCADE
+            ON UPDATE CASCADE)
     ENGINE = InnoDB;
 
 
@@ -46,18 +49,18 @@ CREATE TABLE IF NOT EXISTS Doubleur (
 -- Table Utilisateur
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Utilisateur (
-                                           email VARCHAR(256) NOT NULL,
-                                           pseudo VARCHAR(60) NOT NULL,
-                                           password VARCHAR(256) NOT NULL,
-                                           idPersonne INT,
-                                           UNIQUE INDEX UC_Utilisateur_email (email),
-                                           UNIQUE INDEX UC_Utilisateur_pseudo (pseudo),
-                                           CONSTRAINT PK_Utilisateur PRIMARY KEY (idPersonne),
-                                           CONSTRAINT FK_Utilisateur_idPersonne
-                                               FOREIGN KEY (idPersonne)
-                                                   REFERENCES Personne (id)
-                                                   ON DELETE CASCADE
-                                                   ON UPDATE CASCADE)
+    email VARCHAR(256) NOT NULL,
+    pseudo VARCHAR(60) NOT NULL,
+    password VARCHAR(256) NOT NULL,
+    idPersonne INT,
+    UNIQUE INDEX UC_Utilisateur_email (email),
+    UNIQUE INDEX UC_Utilisateur_pseudo (pseudo),
+    CONSTRAINT PK_Utilisateur PRIMARY KEY (idPersonne),
+    CONSTRAINT FK_Utilisateur_idPersonne
+       FOREIGN KEY (idPersonne)
+           REFERENCES Personne (id)
+           ON DELETE CASCADE
+           ON UPDATE CASCADE)
     ENGINE = InnoDB;
 
 
@@ -65,13 +68,13 @@ CREATE TABLE IF NOT EXISTS Utilisateur (
 -- Table Moderateur
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Moderateur (
-                                          idPersonne INT,
-                                          CONSTRAINT PK_Moderateur PRIMARY KEY (idPersonne),
-                                          CONSTRAINT FK_Moderateur_idPersonne
-                                              FOREIGN KEY (idPersonne)
-                                                  REFERENCES Utilisateur (idPersonne)
-                                                  ON DELETE CASCADE
-                                                  ON UPDATE CASCADE)
+    idPersonne INT,
+    CONSTRAINT PK_Moderateur PRIMARY KEY (idPersonne),
+    CONSTRAINT FK_Moderateur_idPersonne
+        FOREIGN KEY (idPersonne)
+          REFERENCES Utilisateur (idPersonne)
+          ON DELETE CASCADE
+          ON UPDATE CASCADE)
     ENGINE = InnoDB;
 
 
@@ -79,11 +82,11 @@ CREATE TABLE IF NOT EXISTS Moderateur (
 -- Table StudioAnimation
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS StudioAnimation (
-                                               id INT AUTO_INCREMENT,
-                                               nom VARCHAR(100) NOT NULL,
-                                               description TEXT NULL,
-                                               logo VARCHAR(512) NULL,
-                                               CONSTRAINT PK_StudioAnimation PRIMARY KEY (id))
+    id INT AUTO_INCREMENT,
+    nom VARCHAR(100) NOT NULL,
+    description TEXT NULL,
+    logo VARCHAR(512) NULL,
+    CONSTRAINT PK_StudioAnimation PRIMARY KEY (id))
     ENGINE = InnoDB;
 
 
@@ -91,19 +94,19 @@ CREATE TABLE IF NOT EXISTS StudioAnimation (
 -- Table Media
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Media (
-                                     id INT AUTO_INCREMENT,
-                                     titre VARCHAR(45) NOT NULL,
-                                     description TEXT NULL,
-                                     duree INT NULL,
-                                     image VARCHAR(512) NULL,
-                                     idStudioAnimation INT NOT NULL,
-                                     CONSTRAINT PK_Media PRIMARY KEY (id),
-                                     INDEX FK_Media_idStudioAnimation (idStudioAnimation),
-                                     CONSTRAINT FK_Media_idStudioAnimation
-                                         FOREIGN KEY (idStudioAnimation)
-                                             REFERENCES StudioAnimation (id)
-                                             ON DELETE RESTRICT
-                                             ON UPDATE CASCADE)
+    id INT AUTO_INCREMENT,
+    titre VARCHAR(45) NOT NULL,
+    description TEXT NULL,
+    duree INT NULL,
+    image VARCHAR(512) NULL,
+    idStudioAnimation INT NOT NULL,
+    CONSTRAINT PK_Media PRIMARY KEY (id),
+    INDEX FK_Media_idStudioAnimation (idStudioAnimation),
+    CONSTRAINT FK_Media_idStudioAnimation
+        FOREIGN KEY (idStudioAnimation)
+         REFERENCES StudioAnimation (id)
+         ON DELETE RESTRICT
+         ON UPDATE CASCADE)
     ENGINE = InnoDB;
 
 
@@ -111,8 +114,8 @@ CREATE TABLE IF NOT EXISTS Media (
 -- Table Categorie
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Categorie (
-                                         tag VARCHAR(50),
-                                         CONSTRAINT PK_Categorie PRIMARY KEY (tag))
+    tag VARCHAR(50),
+    CONSTRAINT PK_Categorie PRIMARY KEY (tag))
     ENGINE = InnoDB;
 
 
@@ -120,14 +123,14 @@ CREATE TABLE IF NOT EXISTS Categorie (
 -- Table Film
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Film (
-                                    dateSortie DATE NOT NULL,
-                                    idMedia INT,
-                                    CONSTRAINT PK_Film PRIMARY KEY (idMedia),
-                                    CONSTRAINT FK_Film_idMedia
-                                        FOREIGN KEY (idMedia)
-                                            REFERENCES Media (id)
-                                            ON DELETE CASCADE
-                                            ON UPDATE CASCADE)
+    dateSortie DATE NOT NULL,
+    idMedia INT,
+    CONSTRAINT PK_Film PRIMARY KEY (idMedia),
+    CONSTRAINT FK_Film_idMedia
+        FOREIGN KEY (idMedia)
+            REFERENCES Media (id)
+            ON DELETE CASCADE
+            ON UPDATE CASCADE)
     ENGINE = InnoDB;
 
 
@@ -135,13 +138,13 @@ CREATE TABLE IF NOT EXISTS Film (
 -- Table Serie
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Serie (
-                                     idMedia INT,
-                                     CONSTRAINT PK_Serie PRIMARY KEY (idMedia),
-                                     CONSTRAINT FK_Serie_idMedia
-                                         FOREIGN KEY (idMedia)
-                                             REFERENCES Media (id)
-                                             ON DELETE CASCADE
-                                             ON UPDATE CASCADE)
+    idMedia INT,
+    CONSTRAINT PK_Serie PRIMARY KEY (idMedia),
+    CONSTRAINT FK_Serie_idMedia
+        FOREIGN KEY (idMedia)
+         REFERENCES Media (id)
+         ON DELETE CASCADE
+         ON UPDATE CASCADE)
     ENGINE = InnoDB;
 
 
@@ -149,17 +152,17 @@ CREATE TABLE IF NOT EXISTS Serie (
 -- Table Saison
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Saison (
-                                      num INT,
-                                      idSerie INT,
-                                      nbEpisodes INT NULL,
-                                      dateSortie DATE NOT NULL,
-                                      CONSTRAINT PK_Saison PRIMARY KEY (num, idSerie),
-                                      INDEX FK_Saison_idMedia (idSerie),
-                                      CONSTRAINT FK_Saison_idMedia
-                                          FOREIGN KEY (idSerie)
-                                              REFERENCES Serie (idMedia)
-                                              ON DELETE CASCADE
-                                              ON UPDATE CASCADE)
+    num INT,
+    idSerie INT,
+    nbEpisodes INT NULL,
+    dateSortie DATE NOT NULL,
+    CONSTRAINT PK_Saison PRIMARY KEY (num, idSerie),
+    INDEX FK_Saison_idMedia (idSerie),
+    CONSTRAINT FK_Saison_idMedia
+      FOREIGN KEY (idSerie)
+          REFERENCES Serie (idMedia)
+          ON DELETE CASCADE
+          ON UPDATE CASCADE)
     ENGINE = InnoDB;
 
 
@@ -167,23 +170,23 @@ CREATE TABLE IF NOT EXISTS Saison (
 -- Table Utilisateur_Media_Commentaire
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Utilisateur_Media_Commentaire (
-                                                             idPersonne INT,
-                                                             idMedia INT,
-                                                             dateAjout DATETIME,
-                                                             commentaire TEXT NOT NULL,
-                                                             CONSTRAINT PK_UtilisateurMediaCommentaire PRIMARY KEY (idPersonne, idMedia, dateAjout),
-                                                             INDEX FK_UtilisateurMediaCommentaire_idMedia (idMedia),
-                                                             INDEX FK_UtilisateurMediaCommentaire_idPersonne (idPersonne),
-                                                             CONSTRAINT FK_UtilisateurMediaCommentaire_idPersonne
-                                                                 FOREIGN KEY (idPersonne)
-                                                                     REFERENCES Utilisateur (idPersonne)
-                                                                     ON DELETE CASCADE
-                                                                     ON UPDATE CASCADE,
-                                                             CONSTRAINT FK_UtilisateurMediaCommentaire_idMedia
-                                                                 FOREIGN KEY (idMedia)
-                                                                     REFERENCES Media (id)
-                                                                     ON DELETE CASCADE
-                                                                     ON UPDATE CASCADE)
+    idPersonne INT,
+    idMedia INT,
+    dateAjout DATETIME,
+    commentaire TEXT NOT NULL,
+    CONSTRAINT PK_UtilisateurMediaCommentaire PRIMARY KEY (idPersonne, idMedia, dateAjout),
+    INDEX FK_UtilisateurMediaCommentaire_idMedia (idMedia),
+    INDEX FK_UtilisateurMediaCommentaire_idPersonne (idPersonne),
+    CONSTRAINT FK_UtilisateurMediaCommentaire_idPersonne
+     FOREIGN KEY (idPersonne)
+         REFERENCES Utilisateur (idPersonne)
+         ON DELETE CASCADE
+         ON UPDATE CASCADE,
+    CONSTRAINT FK_UtilisateurMediaCommentaire_idMedia
+     FOREIGN KEY (idMedia)
+         REFERENCES Media (id)
+         ON DELETE CASCADE
+         ON UPDATE CASCADE)
     ENGINE = InnoDB;
 
 
@@ -191,23 +194,23 @@ CREATE TABLE IF NOT EXISTS Utilisateur_Media_Commentaire (
 -- Table Utilisateur_Media_Note
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Utilisateur_Media_Note (
-                                                      idPersonne INT,
-                                                      idMedia INT,
-                                                      note INT NOT NULL CHECK (note BETWEEN 1 AND 10),
-                                                      dateNote DATETIME NOT NULL,
-                                                      CONSTRAINT PK_UtilisateurMediaNote PRIMARY KEY (idPersonne, idMedia),
-                                                      INDEX FK_UtilisateurMediaNote_idMedia (idMedia),
-                                                      INDEX FK_UtilisateurMediaNote_idPersonne (idPersonne),
-                                                      CONSTRAINT FK_EtilisateurMediaNote_idPersonne
-                                                          FOREIGN KEY (idPersonne)
-                                                              REFERENCES Utilisateur (idPersonne)
-                                                              ON DELETE CASCADE
-                                                              ON UPDATE CASCADE,
-                                                      CONSTRAINT FK_UtilisateurMediaNote_idMedia
-                                                          FOREIGN KEY (idMedia)
-                                                              REFERENCES Media (id)
-                                                              ON DELETE CASCADE
-                                                              ON UPDATE CASCADE)
+    idPersonne INT,
+    idMedia INT,
+    note INT NOT NULL CHECK (note BETWEEN 1 AND 10),
+    dateNote DATETIME NOT NULL,
+    CONSTRAINT PK_UtilisateurMediaNote PRIMARY KEY (idPersonne, idMedia),
+    INDEX FK_UtilisateurMediaNote_idMedia (idMedia),
+    INDEX FK_UtilisateurMediaNote_idPersonne (idPersonne),
+    CONSTRAINT FK_EtilisateurMediaNote_idPersonne
+        FOREIGN KEY (idPersonne)
+          REFERENCES Utilisateur (idPersonne)
+          ON DELETE CASCADE
+          ON UPDATE CASCADE,
+    CONSTRAINT FK_UtilisateurMediaNote_idMedia
+        FOREIGN KEY (idMedia)
+          REFERENCES Media (id)
+          ON DELETE CASCADE
+          ON UPDATE CASCADE)
     ENGINE = InnoDB;
 
 
@@ -215,23 +218,23 @@ CREATE TABLE IF NOT EXISTS Utilisateur_Media_Note (
 -- Table Utilisateur_Film
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Utilisateur_Film (
-                                                idPersonne INT,
-                                                idMedia INT,
-                                                nom ENUM('Plan to watch', 'Finished') NOT NULL,
-                                                dateAjout DATETIME NOT NULL,
-                                                CONSTRAINT PK_UtilisateurFilm PRIMARY KEY (idPersonne, idMedia),
-                                                INDEX FK_UtilisateurFilm_idMedia (idMedia),
-                                                INDEX FK_UtilisateurFilm_idPersonne (idPersonne),
-                                                CONSTRAINT FK_UtilisateurFilm_idPersonne
-                                                    FOREIGN KEY (idPersonne)
-                                                        REFERENCES Utilisateur (idPersonne)
-                                                        ON DELETE CASCADE
-                                                        ON UPDATE CASCADE,
-                                                CONSTRAINT FK_UtilisateurFilm_idMedia
-                                                    FOREIGN KEY (idMedia)
-                                                        REFERENCES Film (idMedia)
-                                                        ON DELETE RESTRICT
-                                                        ON UPDATE CASCADE)
+    idPersonne INT,
+    idMedia INT,
+    nom ENUM('Plan to watch', 'Finished') NOT NULL,
+    dateAjout DATETIME NOT NULL,
+    CONSTRAINT PK_UtilisateurFilm PRIMARY KEY (idPersonne, idMedia),
+    INDEX FK_UtilisateurFilm_idMedia (idMedia),
+    INDEX FK_UtilisateurFilm_idPersonne (idPersonne),
+    CONSTRAINT FK_UtilisateurFilm_idPersonne
+        FOREIGN KEY (idPersonne)
+            REFERENCES Utilisateur (idPersonne)
+            ON DELETE CASCADE
+            ON UPDATE CASCADE,
+    CONSTRAINT FK_UtilisateurFilm_idMedia
+        FOREIGN KEY (idMedia)
+            REFERENCES Film (idMedia)
+            ON DELETE RESTRICT
+            ON UPDATE CASCADE)
     ENGINE = InnoDB;
 
 
@@ -239,25 +242,25 @@ CREATE TABLE IF NOT EXISTS Utilisateur_Film (
 -- Table Utilisateur_Saison
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Utilisateur_Saison (
-                                                  idPersonne INT,
-                                                  numSaison INT,
-                                                  idMedia INT,
-                                                  nom ENUM('Plan to watch', 'Watching', 'Finished', 'Dropped') NOT NULL,
-                                                  dateAjout DATETIME NOT NULL,
-                                                  nbEpisodesVus INT NOT NULL,
-                                                  CONSTRAINT PK_UtilisateurSaison PRIMARY KEY (idPersonne, numSaison, idMedia),
-                                                  INDEX FK_UtilisateurSaison_numSaison_idMedia (numSaison, idMedia),
-                                                  INDEX FK_UtilisateurSaison_idPersonne (idPersonne),
-                                                  CONSTRAINT FK_UtilisateurSaison_idPersonne
-                                                      FOREIGN KEY (idPersonne)
-                                                          REFERENCES Utilisateur (idPersonne)
-                                                          ON DELETE CASCADE
-                                                          ON UPDATE CASCADE,
-                                                  CONSTRAINT FK_UtilisateurSaison_numSaison_idMedia
-                                                      FOREIGN KEY (numSaison , idMedia)
-                                                          REFERENCES Saison (num , idSerie)
-                                                          ON DELETE RESTRICT
-                                                          ON UPDATE CASCADE)
+    idPersonne INT,
+    numSaison INT,
+    idMedia INT,
+    nom ENUM('Plan to watch', 'Watching', 'Finished', 'Dropped') NOT NULL,
+    dateAjout DATETIME NOT NULL,
+    nbEpisodesVus INT NOT NULL,
+    CONSTRAINT PK_UtilisateurSaison PRIMARY KEY (idPersonne, numSaison, idMedia),
+    INDEX FK_UtilisateurSaison_numSaison_idMedia (numSaison, idMedia),
+    INDEX FK_UtilisateurSaison_idPersonne (idPersonne),
+    CONSTRAINT FK_UtilisateurSaison_idPersonne
+        FOREIGN KEY (idPersonne)
+          REFERENCES Utilisateur (idPersonne)
+          ON DELETE CASCADE
+          ON UPDATE CASCADE,
+    CONSTRAINT FK_UtilisateurSaison_numSaison_idMedia
+        FOREIGN KEY (numSaison , idMedia)
+          REFERENCES Saison (num , idSerie)
+          ON DELETE RESTRICT
+          ON UPDATE CASCADE)
     ENGINE = InnoDB;
 
 
@@ -265,21 +268,21 @@ CREATE TABLE IF NOT EXISTS Utilisateur_Saison (
 -- Table Media_Categorie
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Media_Categorie (
-                                               tagCategorie VARCHAR(50),
-                                               idMedia INT,
-                                               CONSTRAINT PK_MediaCategorie PRIMARY KEY (tagCategorie, idMedia),
-                                               INDEX FK_MediaCategorie_idMedia (idMedia),
-                                               INDEX FK_MediaCategorie_tagCategorie (tagCategorie),
-                                               CONSTRAINT FK_MediaCategorie_tagCategorie
-                                                   FOREIGN KEY (tagCategorie)
-                                                       REFERENCES Categorie (tag)
-                                                       ON DELETE CASCADE
-                                                       ON UPDATE CASCADE,
-                                               CONSTRAINT FK_MediaCategorie_idMedia
-                                                   FOREIGN KEY (idMedia)
-                                                       REFERENCES Media (id)
-                                                       ON DELETE CASCADE
-                                                       ON UPDATE CASCADE)
+    tagCategorie VARCHAR(50),
+    idMedia INT,
+    CONSTRAINT PK_MediaCategorie PRIMARY KEY (tagCategorie, idMedia),
+    INDEX FK_MediaCategorie_idMedia (idMedia),
+    INDEX FK_MediaCategorie_tagCategorie (tagCategorie),
+    CONSTRAINT FK_MediaCategorie_tagCategorie
+       FOREIGN KEY (tagCategorie)
+           REFERENCES Categorie (tag)
+           ON DELETE CASCADE
+           ON UPDATE CASCADE,
+    CONSTRAINT FK_MediaCategorie_idMedia
+       FOREIGN KEY (idMedia)
+           REFERENCES Media (id)
+           ON DELETE CASCADE
+           ON UPDATE CASCADE)
     ENGINE = InnoDB;
 
 
@@ -287,22 +290,305 @@ CREATE TABLE IF NOT EXISTS Media_Categorie (
 -- Table Doubleur_Media
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Doubleur_Media (
-                                              idPersonne INT,
-                                              idMedia INT,
-                                              CONSTRAINT PK_DoubleurMedia PRIMARY KEY (idPersonne, idMedia),
-                                              INDEX FK_DoubleurMedia_idMedia (idMedia),
-                                              INDEX FK_DoubleurMedia_idDoubleur (idPersonne),
-                                              CONSTRAINT FK_DoubleurMedia_idPersonne
-                                                  FOREIGN KEY (idPersonne)
-                                                      REFERENCES Doubleur (idPersonne)
-                                                      ON DELETE NO ACTION
-                                                      ON UPDATE NO ACTION,
-                                              CONSTRAINT FK_DoubleurMedia_idMedia
-                                                  FOREIGN KEY (idMedia)
-                                                      REFERENCES Media (id)
-                                                      ON DELETE NO ACTION
-                                                      ON UPDATE NO ACTION)
+    idPersonne INT,
+    idMedia INT,
+    CONSTRAINT PK_DoubleurMedia PRIMARY KEY (idPersonne, idMedia),
+    INDEX FK_DoubleurMedia_idMedia (idMedia),
+    INDEX FK_DoubleurMedia_idDoubleur (idPersonne),
+    CONSTRAINT FK_DoubleurMedia_idPersonne
+        FOREIGN KEY (idPersonne)
+          REFERENCES Doubleur (idPersonne)
+          ON DELETE NO ACTION
+          ON UPDATE NO ACTION,
+    CONSTRAINT FK_DoubleurMedia_idMedia
+        FOREIGN KEY (idMedia)
+          REFERENCES Media (id)
+          ON DELETE NO ACTION
+          ON UPDATE NO ACTION)
     ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- LES DIFFÉRENTES VUES
+-- -----------------------------------------------------
+
+-- Vue contenant les medias de type film
+DROP VIEW IF EXISTS vFilm;
+CREATE VIEW vFilm
+AS
+SELECT
+    Media.id as 'id',
+    'Movie' as 'type',
+    titre,
+    Media.description as 'description',
+    duree,
+    Media.image as 'image',
+    StudioAnimation.nom as 'nomStudio',
+    Film.dateSortie as 'dateSortie',
+    1 as 'nbSaisons',
+    1 as 'nbEpisodes',
+    (SELECT AVG(note) FROM utilisateur_media_note WHERE utilisateur_media_note.idMedia = Media.id) as 'score'
+FROM Media
+         INNER JOIN Film
+                    ON Film.idMedia = Media.id
+         INNER JOIN StudioAnimation
+                    ON StudioAnimation.id = Media.idStudioAnimation;
+
+-- Vue contenant les medias de type Série
+DROP VIEW IF EXISTS vSerie;
+CREATE VIEW vSerie
+AS
+SELECT
+    Media.id as 'id',
+    'Serie' as 'type',
+    titre,
+    Media.description as 'description',
+    duree,
+    Media.image as 'image',
+    StudioAnimation.nom as 'nomStudio',
+    (SELECT dateSortie FROM Saison WHERE idSerie = Media.id ORDER BY num LIMIT 1) as 'dateSortie',
+    (SELECT COUNT(num) FROM Saison WHERE idSerie = Media.id) as 'nbSaisons',
+    (SELECT SUM(nbEpisodes) FROM Saison WHERE idSerie = Media.id) as 'nbEpisodes',
+    (SELECT AVG(note) FROM utilisateur_media_note WHERE utilisateur_media_note.idMedia = Media.id) as 'score'
+FROM Media
+         INNER JOIN Serie
+                    ON Serie.idMedia = Media.id
+         INNER JOIN StudioAnimation
+                    ON StudioAnimation.id = Media.idStudioAnimation;
+
+-- Vue contenant les utilisateurs de la plateforme
+DROP VIEW IF EXISTS vUtilisateur;
+CREATE VIEW vUtilisateur
+AS
+SELECT *, EXISTS (SELECT * FROM moderateur WHERE Personne.id = moderateur.idPersonne) AS 'moderateur'
+FROM Personne
+         INNER JOIN Utilisateur
+                    ON Utilisateur.idPersonne = Personne.id;
+
+-- Vue contenant les doubleurs
+DROP VIEW IF EXISTS vDoubleur;
+CREATE VIEW vDoubleur
+AS
+SELECT *
+FROM Personne
+         INNER JOIN Doubleur
+                    ON Doubleur.idPersonne = Personne.id;
+
+-- Vue pour la liste des films apparaissant dans les listes des utilisateurs
+DROP VIEW IF EXISTS vUtilisateur_Lists_Film;
+CREATE VIEW vUtilisateur_Lists_Film
+AS
+SELECT DISTINCT
+    Pers.id AS 'id',
+    Pers.nom,
+    Pers.prenom,
+    User_Film.nom AS 'liste',
+    NULL AS 'saison',
+    Media.titre AS 'media',
+    'film' AS 'categorie',
+    User_Film.idMedia,
+    Media.image,
+    NULL AS 'nbEpisodesVus'
+FROM Utilisateur_Film AS User_Film
+         INNER JOIN Personne AS Pers ON Pers.id = User_Film.idPersonne
+         INNER JOIN Media ON Media.id = User_Film.idMedia;
+
+-- Vue pour la liste des séries et leurs saisons apparaissant dans les listes des utilisateurs
+DROP VIEW IF EXISTS vUtilisateur_Lists_Serie;
+CREATE VIEW vUtilisateur_Lists_Serie
+AS
+SELECT DISTINCT
+    Pers.id AS 'id',
+    Pers.nom,
+    Pers.prenom,
+    User_Sa.nom AS 'liste',
+    Saison.num AS 'saison',
+    Media.titre AS 'media',
+    'serie' AS 'categorie',
+    User_Sa.idMedia,
+    Media.image,
+    User_Sa.nbEpisodesVus AS 'nbEpisodesVus'
+FROM Utilisateur_Saison AS User_Sa
+         INNER JOIN Personne AS Pers ON Pers.id = User_Sa.idPersonne
+         INNER JOIN Saison ON Saison.num = User_Sa.numSaison
+         INNER JOIN Media ON Media.id = User_Sa.idMedia;
+
+
+-- -----------------------------------------------------
+-- CRÉATION DES TRIGGERS
+-- -----------------------------------------------------
+
+-- Valide la note d'un media
+DROP TRIGGER IF EXISTS before_utilisateur_media_note_insert;
+DELIMITER $$
+CREATE TRIGGER before_utilisateur_media_note_insert
+    BEFORE INSERT
+    ON utilisateur_media_note
+    FOR EACH ROW
+BEGIN
+    IF NEW.note NOT BETWEEN 1 AND 10 THEN
+        SET @s = '[table:utilisateur_media_note] - [note] column is not valid (must be between 1 and 10)';
+        SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = @s;
+END IF;
+END;
+$$
+DELIMITER ;
+
+-- Evite un cas d'overlapping a l'insertion dans Film
+DROP TRIGGER IF EXISTS before_film_insert;
+DELIMITER $$
+CREATE TRIGGER before_film_insert
+    BEFORE INSERT
+    ON film
+    FOR EACH ROW
+BEGIN
+    IF EXISTS (SELECT * FROM Serie
+               WHERE Serie.idMedia = NEW.idMedia)
+    THEN
+        SET @s = '[table:film] - New film overlapping with existing serie';
+        SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = @s;
+END IF;
+END;
+$$
+DELIMITER ;
+
+-- Evite un cas d'overlapping a l'insertion dans Serie
+DROP TRIGGER IF EXISTS before_serie_insert;
+DELIMITER $$
+CREATE TRIGGER before_serie_insert
+    BEFORE INSERT
+    ON serie
+    FOR EACH ROW
+BEGIN
+    IF EXISTS (SELECT * FROM Film
+               WHERE Film.idMedia = NEW.idMedia)
+    THEN
+        SET @s = '[table:serie] - New serie overlapping with existing film';
+        SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = @s;
+END IF;
+END;
+$$
+DELIMITER ;
+
+-- Verification dates de sortie des saisons
+DROP TRIGGER IF EXISTS before_saison_insert;
+DELIMITER $$
+CREATE TRIGGER before_saison_insert
+    BEFORE INSERT
+    ON saison
+    FOR EACH ROW
+BEGIN
+    IF EXISTS (SELECT * FROM Saison
+               WHERE Saison.idSerie = NEW.idSerie
+                 AND Saison.num < NEW.num
+                 AND Saison.dateSortie > NEW.dateSortie)
+    THEN
+        SET @s = '[table:saison] - New season cant be released before the old ones';
+        SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = @s;
+END IF;
+END;
+$$
+DELIMITER ;
+
+-- lors de l'ajout d'une list / replace
+DROP TRIGGER IF EXISTS before_utilisateur_saison_insert;
+DELIMITER $$
+CREATE TRIGGER before_utilisateur_saison_insert
+    BEFORE INSERT ON Utilisateur_Saison
+    FOR EACH ROW
+BEGIN
+    DECLARE saisonNbEpisodes INT;
+    SELECT nbEpisodes INTO saisonNbEpisodes FROM Saison WHERE NEW.idMedia = Saison.idSerie AND NEW.numSaison = Saison.num;
+    IF NEW.nbEpisodesVus > saisonNbEpisodes THEN                                         -- on ne peut pas avoir vu plus d'episode que le max d'episode de la saison
+        SET @s = '[table:utilisateur_saison] - [nbEpisodesVus] cannot watch more episodes than the maximum';
+        SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = @s;
+    ELSEIF NEW.nbEpisodesVus > 0 AND NEW.nom = 'Plan to watch' THEN                     -- si un episode a été vu, il ne peut pas être dans plan to watch
+        SET @s = '[table:utilisateur_saison] - [nom] The season cannot be inside Plan to watch if one episodes has been watched';
+        SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = @s;
+    ELSEIF NEW.nbEpisodesVus < saisonNbEpisodes AND NEW.nom = 'Finished' THEN             -- la saison peut pas être dans finished si on a pas vu tous les episodes
+        SET @s = '[table:utilisateur_saison] - [nom] The season cannot be inside Finished if all episodes arent watched';
+        SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = @s;
+    ELSEIF NEW.nbEpisodesVus = saisonNbEpisodes AND NEW.nom != 'Finished' THEN             -- la saison ne peut pas être ailleurs que dans Finished si on a vu tous les episodes
+        SET @s = '[table:utilisateur_saison] - [nom] The season must be inside Finished if all episodes are watched';
+        SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = @s;
+    ELSEIF NEW.nom != 'Plan to watch' AND NOW() < (SELECT dateSortie FROM Saison WHERE Saison.idSerie = NEW.idMedia AND saison.num = NEW.numSaison) THEN
+        SET @t = '[table:utilisateur_saison] - [nom] The season is not out yet, cannot put it in this list';
+        SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = @t;
+END IF;
+END;
+$$
+DELIMITER ;
+
+-- -----------------------------------------------------
+-- PROÉDURES STOCKÉES
+-- -----------------------------------------------------
+
+-- Ajout d'un nouvel utilisateur
+DROP PROCEDURE IF EXISTS ajouter_utilisateur;
+DELIMITER //
+CREATE PROCEDURE ajouter_utilisateur (IN nom VARCHAR(50),
+                                      IN prenom VARCHAR(50),
+                                      IN dateNaissance DATE,
+                                      IN sexe ENUM('homme', 'femme', 'autre'),
+                                      IN photoProfil VARCHAR(512),
+                                      IN email VARCHAR(256),
+                                      IN pseudo VARCHAR(60),
+                                      IN password VARCHAR(256))
+
+BEGIN
+INSERT INTO Personne VALUES (NULL, nom, prenom, dateNaissance, sexe, photoProfil);
+INSERT INTO Utilisateur VALUES (email, pseudo, password, LAST_INSERT_ID());
+END//
+DELIMITER ;
+
+-- Ajout d'un doubleur
+DROP PROCEDURE IF EXISTS ajouter_doubleur;
+DELIMITER //
+CREATE PROCEDURE ajouter_doubleur (IN nom VARCHAR(50),
+                                   IN prenom VARCHAR(50),
+                                   IN dateNaissance DATE,
+                                   IN sexe ENUM('homme', 'femme', 'autre'),
+                                   IN photoProfil VARCHAR(512))
+
+BEGIN
+    REPLACE INTO Personne VALUES (NULL, nom, prenom, dateNaissance, sexe, photoProfil);
+    REPLACE INTO Doubleur VALUES (LAST_INSERT_ID());
+END//
+DELIMITER ;
+
+-- Ajout d'un film
+DROP PROCEDURE IF EXISTS ajouter_film;
+DELIMITER //
+CREATE PROCEDURE ajouter_film (IN titre VARCHAR(45),
+                               IN description TEXT,
+                               IN duree INT,
+                               IN image VARCHAR(512),
+                               IN idStudioAnimation INT,
+                               IN dateSortie DATE,
+                               OUT newId INT)
+BEGIN
+INSERT INTO Media VALUES (NULL, titre, description, duree, image, idStudioAnimation);
+SET newId = LAST_INSERT_ID();
+INSERT INTO Film VALUES (dateSortie, newId);
+SELECT newId;
+END//
+DELIMITER ;
+
+-- Ajout d'une série
+DROP PROCEDURE IF EXISTS ajouter_serie;
+DELIMITER //
+CREATE PROCEDURE ajouter_serie (IN titre VARCHAR(45),
+                                IN description TEXT,
+                                IN duree INT,
+                                IN image VARCHAR(512),
+                                IN idStudioAnimation INT,
+                                OUT newId INT)
+BEGIN
+INSERT INTO Media VALUES (NULL, titre, description, duree, image, idStudioAnimation);
+SET newId = LAST_INSERT_ID();
+INSERT INTO Serie VALUES (newId);
+SELECT newId;
+END//
+DELIMITER ;
 
 -- CATEGORIES
 INSERT INTO Categorie (Tag) VALUES ('Action'),
@@ -505,107 +791,108 @@ INSERT INTO StudioAnimation(nom, description, logo) VALUES ('3Hz', 'Studio descr
 
 
 -- MEDIAS
-INSERT INTO Media (titre, description, duree, image, idStudioAnimation) VALUES ('Death Note', 'A shinigami, as a god of death, can kill any person—provided they see their victim\'s face and write their victim\'s name in a notebook called a Death Note. One day, Ryuk, bored by the shinigami lifesty...', 24, '9453.jpg', 115),
-                                                                               ('Shingeki no Kyojin', 'Centuries ago, mankind was slaughtered to near extinction by monstrous humanoid creatures called titans, forcing humans to hide in fear behind enormous concentric walls. What makes these giants truly...', 24, '47347.jpg', 89),
-                                                                               ('Fullmetal Alchemist: Brotherhood', '"""In order for something to be obtained, something of equal value must be lost."" Alchemy is bound by this Law of Equivalent Exchange—something the young brothers Edward and Alphonse Elric only realize..."', 24, '96541.jpg', 1),
-                                                                               ('Sword Art Online', '"In the year 2022, virtual reality has progressed by leaps and bounds, and a massive online role-playing game called Sword Art Online (SAO) is launched. With the aid of ""NerveGear"" technology, players..."', 24, '39717.jpg', 29),
-                                                                               ('One Punch Man', 'The seemingly ordinary and unimpressive Saitama has a rather unique hobby: being a hero. In order to pursue his childhood dream, he trained relentlessly for three years—and lost all of his hair in the...', 24, '76049.jpg', 84),
-                                                                               ('Tokyo Ghoul', 'Tokyo has become a cruel and merciless city—a place where vicious creatures called “ghouls” exist alongside humans. The citizens of this once great metropolis live in constant fear of these bloodthirs...', 24, '64449.jpg', 74),
-                                                                               ('Boku no Hero Academia', '"The appearance of ""quirks,"" newly discovered super powers, has been steadily increasing over the years, with 80 percent of humanity possessing various abilities from manipulation of elements to shapes..."', 24, '78745.jpg', 67),
-                                                                               ('Naruto', 'Moments prior to Naruto Uzumaki\'s birth, a huge demon known as the Kyuubi, the Nine-Tailed Fox, attacked Konohagakure, the Hidden Leaf Village, and wreaked havoc. In order to put an end to the Kyuubi\'...', 24, '17405.jpg', 31),
-                                                                               ('"Stein\'s Gate"', '"The self-proclaimed mad scientist Rintarou Okabe rents out a room in a rickety old building in Akihabara, where he indulges himself in his hobby of inventing prospective ""future gadgets"" with fellow l..."', 24, '73199.jpg', 102),
-                                                                               ('No Game No Life', '"No Game No Life is a surreal comedy that follows Sora and Shiro, shut-in NEET siblings and the online gamer duo behind the legendary username ""Blank."" They view the real world as just another lousy ga..."', 24, '65187.jpg', 70),
-                                                                               ('Kimi no Na wa.', 'Mitsuha Miyamizu, a high school girl, yearns to live the life of a boy in the bustling city of Tokyo—a dream that stands in stark contrast to her present life in the countryside. Meanwhile in the city...', 120, '87048.jpg', 77),
-                                                                               ('Hunter x Hunter (2011)', 'Hunter x Hunter is set in a world where Hunters exist to perform all manner of dangerous tasks like capturing criminals and bravely searching for lost treasures in uncharted territories. Twelve-year-o...', 24, '33657.jpg', 127),
-                                                                               ('Angel Beats!', 'Otonashi awakens only to learn he is dead. A rifle-toting girl named Yuri explains that they are in the afterlife, and Otonashi realizes the only thing he can remember about himself is his name. Yuri...', 24, '22061.jpg', 139),
-                                                                               ('Code Geass: Hangyaku no Lelouch', 'In the year 2010, the Holy Empire of Britannia is establishing itself as a dominant military nation, starting with the conquest of Japan. Renamed to Area 11 after its swift defeat, Japan has seen sign...', 24, '50331.jpg', 63),
-                                                                               ('Boku no Hero Academia 2', 'At UA Academy, not even a violent attack can disrupt their most prestigious event: the school sports festival. Renowned across Japan, this festival is an opportunity for aspiring heroes to showcase th...', 24, '85221.jpg', 37),
-                                                                               ('Toradora!', '"Ryuuji Takasu is a gentle high school student with a love for housework but in contrast to his kind nature, he has an intimidating face that often gets him labeled as a delinquent. On the other hand..."', 24, '22128.jpg', 95),
-                                                                               ('Mirai Nikki', 'Lonely high school student, Yukiteru Amano, spends his days writing a diary on his cellphone, while conversing with his two seemingly imaginary friends Deus Ex Machina, who is the god of time and spac...', 24, '33465.jpg', 98),
-                                                                               ('Noragami', 'In times of need, if you look in the right place, you just may see a strange telephone number scrawled in red. If you call this number, you will hear a young man introduce himself as the Yato God. Yat...', 24, '77809.jpg', 101),
-                                                                               ('Shingeki no Kyojin 2', 'For centuries, humanity has been hunted by giant, mysterious predators known as the Titans. Three mighty walls—Wall Maria, Rose, and Sheena—provided peace and protection for humanity for over a hundre...', 24, '84177.jpg', 94),
-                                                                               ('Naruto: Shippuuden', 'It has been two and a half years since Naruto Uzumaki left Konohagakure, the Hidden Leaf Village, for intense training following events which fueled his desire to be stronger. Now Akatsuki, the myster...', 24, '17407.jpg', 21),
-                                                                               ('Naruto: Shippuuden', 'It has been two and a half years since Naruto Uzumaki left Konohagakure, the Hidden Leaf Village, for intense training following events which fueled his desire to be stronger. Now Akatsuki, the myster...', 24, '17407.jpg', 21),
-                                                                               ('Re:Zero kara Hajimeru Isekai Seikatsu', 'When Subaru Natsuki leaves the convenience store, the last thing he expects is to be wrenched from his everyday life and dropped into a fantasy world. Things aren\'t looking good for the bewildered tee...', 24, '79410.jpg', 99),
-                                                                               ('Sword Art Online II', 'A year after escaping Sword Art Online, Kazuto Kirigaya has been settling back into the real world. However, his peace is short-lived as a new incident occurs in a game called Gun Gale Online, where a...', 24, '65185.jpg', 104),
-                                                                               ('Shigatsu wa Kimi no Uso', 'Music accompanies the path of the human metronome, the prodigious pianist Kousei Arima. But after the passing of his mother, Saki Arima, Kousei falls into a downward spiral, rendering him unable to he...', 24, '67177.jpg', 19),
-                                                                               ('Ao no Exorcist', 'Humans and demons are two sides of the same coin, as are Assiah and Gehenna, their respective worlds. The only way to travel between the realms is by the means of possession, like in ghost stories. Ho...', 24, '75195.jpg', 93),
-                                                                               ('Akame ga Kill!', 'Night Raid is the covert assassination branch of the Revolutionary Army, an uprising assembled to overthrow Prime Minister Honest, whose avarice and greed for power has led him to take advantage of th...', 24, '95946.jpg', 147),
-                                                                               ('Nanatsu no Taizai', 'In a world similar to the European Middle Ages, the feared yet revered Holy Knights of Britannia use immensely powerful magic to protect the region of Britannia and its kingdoms. However, a small subs...', 24, '65409.jpg', 100),
-                                                                               ('Boku dake ga Inai Machi', 'When tragedy is about to strike, Satoru Fujinuma finds himself sent back several minutes before the accident occurs. The detached, 29-year-old manga artist has taken advantage of this powerful yet mys...', 24, '77957.jpg', 2),
-                                                                               ('Koe no Katachi', 'As a wild youth, elementary school student Shouya Ishida sought to beat boredom in the cruelest ways. When the deaf Shouko Nishimiya transfers into his class, Shouya and the rest of his class thoughtl...', 120, '96435.jpg', 103),
-                                                                               ('Fairy Tail', 'In the mystical land of Fiore, magic exists as an essential part of everyday life. Countless magic guilds lie at the core of all magical activity, and serve as venues for like-minded mages to band tog...', 24, '18179.jpg', 67),
-                                                                               ('One Piece', '"Gol D. Roger was known as the ""Pirate King,"" the strongest and most infamous being to have sailed the Grand Line. The capture and execution of Roger by the World Government brought a change throughout..."', 24, '73245.jpg', 26),
-                                                                               ('Kimetsu no Yaiba', 'Ever since the death of his father, the burden of supporting the family has fallen upon Tanjirou Kamado\'s shoulders. Though living impoverished on a remote mountain, the Kamado family are able to enjo...', 24, '99889.jpg', 7),
-                                                                               ('Boku no Hero Academia 3', 'As summer arrives for the students at UA Academy, each of these superheroes-in-training puts in their best efforts to become renowned heroes. They head off to a forest training camp run by UA\'s pro he...', 24, '92084.jpg', 5),
-                                                                               ('Bleach', 'Ichigo Kurosaki is an ordinary high schooler—until his family is attacked by a Hollow, a corrupt spirit that seeks to devour human souls. It is then that he meets a Soul Reaper named Rukia Kuchiki, wh...', 24, '40451.jpg', 41),
-                                                                               ('Kill la Kill', 'After the murder of her father, Ryuuko Matoi has been wandering the land in search of his killer. Following her only lead—the missing half of his invention, the Scissor Blade—she arrives at the presti...', 24, '75514.jpg', 114),
-                                                                               ('Code Geass: Hangyaku no Lelouch R2', 'One year has passed since the Black Rebellion, a failed uprising against the Holy Britannian Empire led by the masked vigilante Zero, who is now missing. At a loss without their revolutionary leader,...', 24, '9391.jpg', 2),
-                                                                               ('Kono Subarashii Sekai ni Shukufuku wo!', 'After dying a laughable and pathetic death on his way back from buying a game, high school student and recluse Kazuma Satou finds himself sitting before a beautiful but obnoxious goddess named Aqua. S...', 24, '77831.jpg', 38),
-                                                                               ('Cowboy Bebop', 'In the year 2071, humanity has colonized several of the planets and moons of the solar system leaving the now uninhabitable surface of planet Earth behind. The Inter Solar System Police attempts to ke...', 24, '19644.jpg', 153),
-                                                                               ('Sen to Chihiro no Kamikakushi', 'Stubborn, spoiled, and naïve, 10-year-old Chihiro Ogino is less than pleased when she and her parents discover an abandoned amusement park on the way to their new house. Cautiously venturing inside, s...', 120, '79597.jpg', 45),
-                                                                               ('Kiseijuu: Sei no Kakuritsu', 'All of a sudden, they arrived: parasitic aliens that descended upon Earth and quickly infiltrated humanity by burrowing into the brains of vulnerable targets. These insatiable beings acquire full cont...', 24, '73178.jpg', 65),
-                                                                               ('Soul Eater', '"Death City is home to the famous Death Weapon Meister Academy, a technical academy headed by the Shinigami—Lord Death himself. Its mission: to raise ""Death Scythes"" for the Shinigami to wield against..."', 24, '7804.jpg', 70),
-                                                                               ('Tengen Toppa Gurren Lagann', 'Simon and Kamina were born and raised in a deep, underground village, hidden from the fabled surface. Kamina is a free-spirited loose cannon bent on making a name for himself, while Simon is a timid y...', 24, '5123.jpg', 85),
-                                                                               ('Ansatsu Kyoushitsu', 'When a mysterious creature chops the moon down to a permanent crescent, the students of class 3-E of Kunugigaoka Middle School find themselves confronted with an enormous task: assassinate the creatur...', 24, '75639.jpg', 41),
-                                                                               ('Psycho-Pass', 'Justice, and the enforcement of it, has changed. In the 22nd century, Japan enforces the Sibyl System, an objective means of determining the threat level of each citizen by examining their mental stat...', 24, '43399.jpg', 2),
-                                                                               ('Mob Psycho 100', '"Eighth-grader Shigeo ""Mob"" Kageyama has tapped into his inner wellspring of psychic prowess at a young age. But the power quickly proves to be a liability when he realizes the potential danger in his..."', 24, '80356.jpg', 63),
-                                                                               ('Another', 'In 1972, a popular student in Yomiyama North Middle School\'s class 3-3 named Misaki passed away during the school year. Since then, the town of Yomiyama has been shrouded by a fearful atmosphere, from...', 24, '75509.jpg', 105),
-                                                                               ('Tokyo Ghoul √A', 'Ken Kaneki has finally come to accept the monstrous, flesh-craving part of himself that he has feared and despised for so long. After escaping captivity and torture, Kaneki joins Aogiri Tree—the very...', 24, '71777.jpg', 122),
-                                                                               ('Elfen Lied', '"Lucy is a special breed of human referred to as ""Diclonius,"" born with a short pair of horns and invisible telekinetic hands that lands her as a victim of inhumane scientific experimentation by the go..."', 24, '6883.jpg', 148),
-                                                                               ('Death Parade', 'After death, there is no heaven or hell, only a bar that stands between reincarnation and oblivion. There the attendant will, one after another, challenge pairs of the recently deceased to a random ga...', 24, '71553.jpg', 148),
-                                                                               ('Fullmetal Alchemist', 'Edward Elric, a young, brilliant alchemist, has lost much in his twelve-year life: when he and his brother Alphonse try to resurrect their dead mother through the forbidden act of human transmutation,...', 24, '75815.jpg', 112),
-                                                                               ('Shokugeki no Souma', 'Ever since he was a child, fifteen-year-old Souma Yukihira has helped his father by working as the sous chef in the restaurant his father runs and owns. Throughout the years, Souma developed a passion...', 24, '72943.jpg', 123),
-                                                                               ('Ano Hana', '"Jinta Yadomi is peacefully living as a recluse, spending his days away from school and playing video games at home instead. One hot summer day, his childhood friend, Meiko ""Menma"" Honma, appears and p..."', 24, '79697.jpg', 129),
-                                                                               ('Neon Genesis Evangelion', 'In the year 2015, the world stands on the brink of destruction. Humanity\'s last hope lies in the hands of Nerv, a special agency under the United Nations, and their Evangelions, giant machines capable...', 24, '108941.jpg', 125),
-                                                                               ('Haikyuu!!', '"Inspired after watching a volleyball ace nicknamed ""Little Giant"" in action, small-statured Shouyou Hinata revives the volleyball club at his middle school. The newly-formed team even makes it to a to..."', 24, '76014.jpg', 71),
-                                                                               ('Highschool of the Dead', 'It happened suddenly: The dead began to rise and Japan was thrown into total chaos. As these monsters begin terrorizing a high school, Takashi Kimuro is forced to kill his best friend when he gets bit...', 24, '78311.jpg', 52),
-                                                                               ('Durarara!!', '"In Tokyo\'s downtown district of Ikebukuro, amidst many strange rumors and warnings of anonymous gangs and dangerous occupants, one urban legend stands out above the rest—the existence of a headless ""B..."', 24, '71772.jpg', 1),
-                                                                               ('Shingeki no Kyojin 3', '"Still threatened by the ""Titans"" that rob them of their freedom, mankind remains caged inside the two remaining walls. Efforts to eradicate these monsters continue however, threats arise not only fro..."', 24, '92110.jpg', 93),
-                                                                               ('Clannad', 'Tomoya Okazaki is a delinquent who finds life dull and believes he\'ll never amount to anything. Along with his friend Youhei Sunohara, he skips school and plans to waste his high school days away. One...', 24, '95033.jpg', 142),
-                                                                               ('Fate/Zero', 'With the promise of granting any wish, the omnipotent Holy Grail triggered three wars in the past, each too cruel and fierce to leave a victor. In spite of that, the wealthy Einzbern family is confide...', 24, '73249.jpg', 13),
-                                                                               ('DanMAchi', 'Life in the bustling city of Orario is never dull, especially for Bell Cranel, a naïve young man who hopes to become the greatest adventurer in the land. After a chance encounter with the lonely godde...', 24, '70187.jpg', 82),
-                                                                               ('Bakemonogatari', 'Koyomi Araragi, a third-year high school student, manages to survive a vampire attack with the help of Meme Oshino, a strange man residing in an abandoned building. Though being saved from vampirism a...', 24, '75274.jpg', 2),
-                                                                               ('Hataraku Maou-sama!', 'Striking fear into the hearts of mortals, the Demon Lord Satan begins to conquer the land of Ente Isla with his vast demon armies. However, while embarking on this brutal quest to take over the contin...', 24, '50177.jpg', 77),
-                                                                               ('Noragami Aragoto', 'Yato and Yukine have finally mended their relationship as god and Regalia, and everyone has returned to their daily life. Yato remains a minor and unknown deity who continues taking odd jobs for five...', 24, '94850.jpg', 10),
-                                                                               ('Overlord', 'The final hour of the popular virtual reality game Yggdrasil has come. However, Momonga, a powerful wizard and master of the dark guild Ainz Ooal Gown, decides to spend his last few moments in the gam...', 24, '88019.jpg', 81),
-                                                                               ('Charlotte', 'While on the surface Yuu Otosaka appears to be just another charming and intelligent teenager, he has a secret—he has the ability to slip into people\'s minds and fully control their body for five seco...', 24, '74683.jpg', 123),
-                                                                               ('Yakusoku no Neverland', '"Surrounded by a forest and a gated entrance, the Grace Field House is inhabited by orphans happily living together as one big family, looked after by their ""Mama,"" Isabella. Although they are required..."', 24, '96929.jpg', 12),
-                                                                               ('Violet Evergarden', '"The Great War finally came to an end after four long years of conflict fractured in two, the continent of Telesis slowly began to flourish once again. Caught up in the bloodshed was Violet Evergarden..."', 24, '95088.jpg', 139),
-                                                                               ('High School DxD', 'High school student Issei Hyoudou is your run-of-the-mill pervert who does nothing productive with his life, peeping on women and dreaming of having his own harem one day. Things seem to be looking up...', 24, '32527.jpg', 13),
-                                                                               ('Mahou Shoujo Madoka★Magica', 'Madoka Kaname and Sayaka Miki are regular middle school girls with regular lives, but all that changes when they encounter Kyuubey, a cat-like magical familiar, and Homura Akemi, the new transfer stud...', 24, '55225.jpg', 91),
-                                                                               ('Kono Subarashii Sekai ni Shukufuku wo! 2', 'When Kazuma Satou died, he was given two choices: pass on to heaven or be revived in a fantasy world. After choosing the new world, the goddess Aqua tasked him with defeating the Demon King, and let h...', 24, '83188.jpg', 58),
-                                                                               ('Hamachi', 'Hachiman Hikigaya is an apathetic high school student with narcissistic and semi-nihilistic tendencies. He firmly believes that joyful youth is nothing but a farce, and everyone who says otherwise is...', 24, '49459.jpg', 15),
-                                                                               ('Guilty Crown', '"Japan, 2039. Ten years after the outbreak of the ""Apocalypse Virus,"" an event solemnly regarded as ""Lost Christmas,"" the once proud nation has fallen under the rule of the GHQ, an independent military..."', 24, '33713.jpg', 73),
-                                                                               ('One Punch Man 2', 'In the wake of defeating Boros and his mighty army, Saitama has returned to his unremarkable everyday life in Z-City. However, unbeknownst to him, the number of monsters appearing is still continuousl...', 24, '99571.jpg', 98),
-                                                                               ('Deadman Wonderland', 'It looked like it would be a normal day for Ganta Igarashi and his classmates—they were preparing to go on a class field trip to a certain prison amusement park called Deadman Wonderland, where the co...', 24, '75299.jpg', 47),
-                                                                               ('Chuunibyou demo Koi ga Shitai!', 'Everybody has had that stage in their life where they have thought themselves to be special, different from the masses of ordinary humans. They might go as far as seeing themselves capable of wielding...', 24, '46931.jpg', 46),
-                                                                               ('Darling in the FranXX', 'In the distant future, humanity has been driven to near-extinction by giant beasts known as Klaxosaurs, forcing the surviving humans to take refuge in massive fortress cities called Plantations. Child...', 24, '90408.jpg', 147),
-                                                                               ('Shingeki no Kyojin 3 Part 2', '"Seeking to restore humanity’s diminishing hope, the Survey Corps embark on a mission to retake Wall Maria, where the battle against the merciless ""Titans"" takes the stage once again. Returning to the..."', 24, '100633.jpg', 147),
-                                                                               ('JoJo no Kimyou na Bouken (TV)', 'In 1868, Dario Brando saves the life of an English nobleman, George Joestar. By taking in Dario\'s son Dio when the boy becomes fatherless, George hopes to repay the debt he owes to his savior. However...', 24, '40409.jpg', 137),
-                                                                               ('Hyouka', 'Energy-conservative high school student Houtarou Oreki ends up with more than he bargained for when he signs up for the Classics Club at his sister\'s behest—especially when he realizes how deep-rooted...', 24, '50521.jpg', 1),
-                                                                               ('Clannad: After Story', 'Clannad: After Story, the sequel to the critically acclaimed slice-of-life series Clannad, begins after Tomoya Okazaki and Nagisa Furukawa graduate from high school. Together, they experience the emot...', 24, '24647.jpg', 123),
-                                                                               ('Sakura-sou no Pet na Kanojo', 'When abandoned kittens and his good conscience force second year Sorata Kanda to move into Suimei High School’s infamous Sakura Hall, the satellite dorm and its eccentric, misfit residents turn his li...', 24, '43643.jpg', 154),
-                                                                               ('Samurai Champloo', 'Fuu Kasumi is a young and clumsy waitress who spends her days peacefully working in a small teahouse. That is, until she accidentally spills a drink all over one of her customers! With a group of samu...', 24, '29134.jpg', 78),
-                                                                               ('Aobuta', 'The rare and inexplicable Puberty Syndrome is thought of as a myth. It is a rare disease which only affects teenagers, and its symptoms are so supernatural that hardly anyone recognizes it as a legiti...', 24, '93586.jpg', 110),
-                                                                               ('Dragon Ball Z', 'Five years after winning the World Martial Arts tournament, Gokuu is now living a peaceful life with his wife and son. This changes, however, with the arrival of a mysterious enemy named Raditz who pr...', 24, '20936.jpg', 115),
-                                                                               ('Owari no Seraph', 'With the appearance of a mysterious virus that kills everyone above the age of 13, mankind becomes enslaved by previously hidden, power-hungry vampires who emerge in order to subjugate society with th...', 24, '73474.jpg', 67),
-                                                                               ('Log Horizon', 'In the blink of an eye, thirty thousand bewildered Japanese gamers are whisked from their everyday lives into the world of the popular MMORPG, Elder Tale, after the game\'s latest update—unable to log...', 24, '84004.jpg', 143),
-                                                                               ('Kuroshitsuji', '"Young Ciel Phantomhive is known as ""the Queen\'s Guard Dog,"" taking care of the many unsettling events that occur in Victorian England for Her Majesty. Aided by Sebastian Michaelis, his loyal butler wi..."', 24, '27013.jpg', 89),
-                                                                               ('Boku no Hero Academia 4', '"After successfully passing his Provisional Hero License exam, Izuku ""Deku"" Midoriya seeks out an extracurricular internship with a professional hero agency. At the recommendation of his mentor All Mig..."', 24, '107914.jpg', 48),
-                                                                               ('Tate no Yuusha no Nariagari', 'The Four Cardinal Heroes are a group of ordinary men from modern-day Japan summoned to the kingdom of Melromarc to become its saviors. Melromarc is a country plagued by the Waves of Catastrophe that h...', 24, '101365.jpg', 75),
-                                                                               ('Ansatsu Kyoushitsu 2', 'The students return as school is back in session for the second semester. Following their exploits on the island during summer vacation, Class 3-E continues to sharpen their blades with their sights s...', 24, '77966.jpg', 154),
-                                                                               ('Dr. Stone', 'After five years of harboring unspoken feelings, high-schooler Taiju Ooki is finally ready to confess his love to Yuzuriha Ogawa. Just when Taiju begins his confession however, a blinding green light...', 24, '102576.jpg', 46),
-                                                                               ('Mononoke Hime', 'When an Emishi village is attacked by a fierce demon boar, the young prince Ashitaka puts his life at stake to defend his tribe. With its dying breath, the beast curses the prince\'s arm, granting him...', 120, '75919.jpg', 148),
-                                                                               ('Kaichou wa Maid-sama!', '"Being the first female student council president isn\'t easy, especially when your school just transitioned from an all boys high school to a co-ed one. Aptly nicknamed ""Demon President"" by the boys fo..."', 24, '25254.jpg', 2),
-                                                                               ('Kaguya-sama', 'At the renowned Shuchiin Academy, Miyuki Shirogane and Kaguya Shinomiya are the student body\'s top representatives. Ranked the top student in the nation and respected by peers and mentors alike, Miyuk...', 24, '106551.jpg', 59),
-                                                                               ('Nisekoi', 'Raku Ichijou, a first-year student at Bonyari High School, is the sole heir to an intimidating yakuza family. Ten years ago, Raku made a promise to his childhood friend. Now, all he has to go on is a...', 24, '75587.jpg', 85),
-                                                                               ('Kyoukai no Kanata', '"Mirai Kuriyama is the sole survivor of a clan of Spirit World warriors with the power to employ their blood as weapons. As such, Mirai is tasked with hunting down and killing ""youmu""—creatures said to..."', 24, '85468.jpg', 21),
-                                                                               ('Made in Abyss', 'The Abyss—a gaping chasm stretching down into the depths of the earth, filled with mysterious creatures and relics from a time long past. How did it come to be? What lies at the bottom? Countless brav...', 24, '86733.jpg', 2),
-                                                                               ('Howl no Ugoku Shiro', 'That jumbled piece of architecture, that cacophony of hissing steam and creaking joints, with smoke billowing from it as it moves on its own... That castle is home to the magnificent wizard Howl, infa...', 120, '75810.jpg', 62),
-                                                                               ('Haikyuu!! 2', 'Following their participation at the Inter-High, the Karasuno High School volleyball team attempts to refocus their efforts, aiming to conquer the Spring tournament instead. When they receive an invit...', 24, '76662.jpg', 83),
-                                                                               ('Zankyou no Terror', '"Painted in red, the word ""VON"" is all that is left behind after a terrorist attack on a nuclear facility in Japan. The government is shattered by their inability to act, and the police are left franti..."', 24, '64447.jpg', 94),
-                                                                               ('Ouran Koukou Host Club', 'Haruhi Fujioka is a bright scholarship candidate with no rank or title to speak of—a rare species at Ouran Academy, an elite school for students of high pedigree. When she opens the door to Music Room...', 24, '71992.jpg', 73);
+INSERT INTO Media (titre, description, duree, image, idStudioAnimation)
+    VALUES ('Death Note', 'A shinigami, as a god of death, can kill any person—provided they see their victim\'s face and write their victim\'s name in a notebook called a Death Note. One day, Ryuk, bored by the shinigami lifesty...', 24, '9453.jpg', 115),
+           ('Shingeki no Kyojin', 'Centuries ago, mankind was slaughtered to near extinction by monstrous humanoid creatures called titans, forcing humans to hide in fear behind enormous concentric walls. What makes these giants truly...', 24, '47347.jpg', 89),
+           ('Fullmetal Alchemist: Brotherhood', '"""In order for something to be obtained, something of equal value must be lost."" Alchemy is bound by this Law of Equivalent Exchange—something the young brothers Edward and Alphonse Elric only realize..."', 24, '96541.jpg', 1),
+           ('Sword Art Online', '"In the year 2022, virtual reality has progressed by leaps and bounds, and a massive online role-playing game called Sword Art Online (SAO) is launched. With the aid of ""NerveGear"" technology, players..."', 24, '39717.jpg', 29),
+           ('One Punch Man', 'The seemingly ordinary and unimpressive Saitama has a rather unique hobby: being a hero. In order to pursue his childhood dream, he trained relentlessly for three years—and lost all of his hair in the...', 24, '76049.jpg', 84),
+           ('Tokyo Ghoul', 'Tokyo has become a cruel and merciless city—a place where vicious creatures called “ghouls” exist alongside humans. The citizens of this once great metropolis live in constant fear of these bloodthirs...', 24, '64449.jpg', 74),
+           ('Boku no Hero Academia', '"The appearance of ""quirks,"" newly discovered super powers, has been steadily increasing over the years, with 80 percent of humanity possessing various abilities from manipulation of elements to shapes..."', 24, '78745.jpg', 67),
+           ('Naruto', 'Moments prior to Naruto Uzumaki\'s birth, a huge demon known as the Kyuubi, the Nine-Tailed Fox, attacked Konohagakure, the Hidden Leaf Village, and wreaked havoc. In order to put an end to the Kyuubi\'...', 24, '17405.jpg', 31),
+           ('"Stein\'s Gate"', '"The self-proclaimed mad scientist Rintarou Okabe rents out a room in a rickety old building in Akihabara, where he indulges himself in his hobby of inventing prospective ""future gadgets"" with fellow l..."', 24, '73199.jpg', 102),
+           ('No Game No Life', '"No Game No Life is a surreal comedy that follows Sora and Shiro, shut-in NEET siblings and the online gamer duo behind the legendary username ""Blank."" They view the real world as just another lousy ga..."', 24, '65187.jpg', 70),
+           ('Kimi no Na wa.', 'Mitsuha Miyamizu, a high school girl, yearns to live the life of a boy in the bustling city of Tokyo—a dream that stands in stark contrast to her present life in the countryside. Meanwhile in the city...', 120, '87048.jpg', 77),
+           ('Hunter x Hunter (2011)', 'Hunter x Hunter is set in a world where Hunters exist to perform all manner of dangerous tasks like capturing criminals and bravely searching for lost treasures in uncharted territories. Twelve-year-o...', 24, '33657.jpg', 127),
+           ('Angel Beats!', 'Otonashi awakens only to learn he is dead. A rifle-toting girl named Yuri explains that they are in the afterlife, and Otonashi realizes the only thing he can remember about himself is his name. Yuri...', 24, '22061.jpg', 139),
+           ('Code Geass: Hangyaku no Lelouch', 'In the year 2010, the Holy Empire of Britannia is establishing itself as a dominant military nation, starting with the conquest of Japan. Renamed to Area 11 after its swift defeat, Japan has seen sign...', 24, '50331.jpg', 63),
+           ('Boku no Hero Academia 2', 'At UA Academy, not even a violent attack can disrupt their most prestigious event: the school sports festival. Renowned across Japan, this festival is an opportunity for aspiring heroes to showcase th...', 24, '85221.jpg', 37),
+           ('Toradora!', '"Ryuuji Takasu is a gentle high school student with a love for housework but in contrast to his kind nature, he has an intimidating face that often gets him labeled as a delinquent. On the other hand..."', 24, '22128.jpg', 95),
+           ('Mirai Nikki', 'Lonely high school student, Yukiteru Amano, spends his days writing a diary on his cellphone, while conversing with his two seemingly imaginary friends Deus Ex Machina, who is the god of time and spac...', 24, '33465.jpg', 98),
+           ('Noragami', 'In times of need, if you look in the right place, you just may see a strange telephone number scrawled in red. If you call this number, you will hear a young man introduce himself as the Yato God. Yat...', 24, '77809.jpg', 101),
+           ('Shingeki no Kyojin 2', 'For centuries, humanity has been hunted by giant, mysterious predators known as the Titans. Three mighty walls—Wall Maria, Rose, and Sheena—provided peace and protection for humanity for over a hundre...', 24, '84177.jpg', 94),
+           ('Naruto: Shippuuden', 'It has been two and a half years since Naruto Uzumaki left Konohagakure, the Hidden Leaf Village, for intense training following events which fueled his desire to be stronger. Now Akatsuki, the myster...', 24, '17407.jpg', 21),
+           ('Naruto: Shippuuden', 'It has been two and a half years since Naruto Uzumaki left Konohagakure, the Hidden Leaf Village, for intense training following events which fueled his desire to be stronger. Now Akatsuki, the myster...', 24, '17407.jpg', 21),
+           ('Re:Zero kara Hajimeru Isekai Seikatsu', 'When Subaru Natsuki leaves the convenience store, the last thing he expects is to be wrenched from his everyday life and dropped into a fantasy world. Things aren\'t looking good for the bewildered tee...', 24, '79410.jpg', 99),
+           ('Sword Art Online II', 'A year after escaping Sword Art Online, Kazuto Kirigaya has been settling back into the real world. However, his peace is short-lived as a new incident occurs in a game called Gun Gale Online, where a...', 24, '65185.jpg', 104),
+           ('Shigatsu wa Kimi no Uso', 'Music accompanies the path of the human metronome, the prodigious pianist Kousei Arima. But after the passing of his mother, Saki Arima, Kousei falls into a downward spiral, rendering him unable to he...', 24, '67177.jpg', 19),
+           ('Ao no Exorcist', 'Humans and demons are two sides of the same coin, as are Assiah and Gehenna, their respective worlds. The only way to travel between the realms is by the means of possession, like in ghost stories. Ho...', 24, '75195.jpg', 93),
+           ('Akame ga Kill!', 'Night Raid is the covert assassination branch of the Revolutionary Army, an uprising assembled to overthrow Prime Minister Honest, whose avarice and greed for power has led him to take advantage of th...', 24, '95946.jpg', 147),
+           ('Nanatsu no Taizai', 'In a world similar to the European Middle Ages, the feared yet revered Holy Knights of Britannia use immensely powerful magic to protect the region of Britannia and its kingdoms. However, a small subs...', 24, '65409.jpg', 100),
+           ('Boku dake ga Inai Machi', 'When tragedy is about to strike, Satoru Fujinuma finds himself sent back several minutes before the accident occurs. The detached, 29-year-old manga artist has taken advantage of this powerful yet mys...', 24, '77957.jpg', 2),
+           ('Koe no Katachi', 'As a wild youth, elementary school student Shouya Ishida sought to beat boredom in the cruelest ways. When the deaf Shouko Nishimiya transfers into his class, Shouya and the rest of his class thoughtl...', 120, '96435.jpg', 103),
+           ('Fairy Tail', 'In the mystical land of Fiore, magic exists as an essential part of everyday life. Countless magic guilds lie at the core of all magical activity, and serve as venues for like-minded mages to band tog...', 24, '18179.jpg', 67),
+           ('One Piece', '"Gol D. Roger was known as the ""Pirate King,"" the strongest and most infamous being to have sailed the Grand Line. The capture and execution of Roger by the World Government brought a change throughout..."', 24, '73245.jpg', 26),
+           ('Kimetsu no Yaiba', 'Ever since the death of his father, the burden of supporting the family has fallen upon Tanjirou Kamado\'s shoulders. Though living impoverished on a remote mountain, the Kamado family are able to enjo...', 24, '99889.jpg', 7),
+           ('Boku no Hero Academia 3', 'As summer arrives for the students at UA Academy, each of these superheroes-in-training puts in their best efforts to become renowned heroes. They head off to a forest training camp run by UA\'s pro he...', 24, '92084.jpg', 5),
+           ('Bleach', 'Ichigo Kurosaki is an ordinary high schooler—until his family is attacked by a Hollow, a corrupt spirit that seeks to devour human souls. It is then that he meets a Soul Reaper named Rukia Kuchiki, wh...', 24, '40451.jpg', 41),
+           ('Kill la Kill', 'After the murder of her father, Ryuuko Matoi has been wandering the land in search of his killer. Following her only lead—the missing half of his invention, the Scissor Blade—she arrives at the presti...', 24, '75514.jpg', 114),
+           ('Code Geass: Hangyaku no Lelouch R2', 'One year has passed since the Black Rebellion, a failed uprising against the Holy Britannian Empire led by the masked vigilante Zero, who is now missing. At a loss without their revolutionary leader,...', 24, '9391.jpg', 2),
+           ('Kono Subarashii Sekai ni Shukufuku wo!', 'After dying a laughable and pathetic death on his way back from buying a game, high school student and recluse Kazuma Satou finds himself sitting before a beautiful but obnoxious goddess named Aqua. S...', 24, '77831.jpg', 38),
+           ('Cowboy Bebop', 'In the year 2071, humanity has colonized several of the planets and moons of the solar system leaving the now uninhabitable surface of planet Earth behind. The Inter Solar System Police attempts to ke...', 24, '19644.jpg', 153),
+           ('Sen to Chihiro no Kamikakushi', 'Stubborn, spoiled, and naïve, 10-year-old Chihiro Ogino is less than pleased when she and her parents discover an abandoned amusement park on the way to their new house. Cautiously venturing inside, s...', 120, '79597.jpg', 45),
+           ('Kiseijuu: Sei no Kakuritsu', 'All of a sudden, they arrived: parasitic aliens that descended upon Earth and quickly infiltrated humanity by burrowing into the brains of vulnerable targets. These insatiable beings acquire full cont...', 24, '73178.jpg', 65),
+           ('Soul Eater', '"Death City is home to the famous Death Weapon Meister Academy, a technical academy headed by the Shinigami—Lord Death himself. Its mission: to raise ""Death Scythes"" for the Shinigami to wield against..."', 24, '7804.jpg', 70),
+           ('Tengen Toppa Gurren Lagann', 'Simon and Kamina were born and raised in a deep, underground village, hidden from the fabled surface. Kamina is a free-spirited loose cannon bent on making a name for himself, while Simon is a timid y...', 24, '5123.jpg', 85),
+           ('Ansatsu Kyoushitsu', 'When a mysterious creature chops the moon down to a permanent crescent, the students of class 3-E of Kunugigaoka Middle School find themselves confronted with an enormous task: assassinate the creatur...', 24, '75639.jpg', 41),
+           ('Psycho-Pass', 'Justice, and the enforcement of it, has changed. In the 22nd century, Japan enforces the Sibyl System, an objective means of determining the threat level of each citizen by examining their mental stat...', 24, '43399.jpg', 2),
+           ('Mob Psycho 100', '"Eighth-grader Shigeo ""Mob"" Kageyama has tapped into his inner wellspring of psychic prowess at a young age. But the power quickly proves to be a liability when he realizes the potential danger in his..."', 24, '80356.jpg', 63),
+           ('Another', 'In 1972, a popular student in Yomiyama North Middle School\'s class 3-3 named Misaki passed away during the school year. Since then, the town of Yomiyama has been shrouded by a fearful atmosphere, from...', 24, '75509.jpg', 105),
+           ('Tokyo Ghoul √A', 'Ken Kaneki has finally come to accept the monstrous, flesh-craving part of himself that he has feared and despised for so long. After escaping captivity and torture, Kaneki joins Aogiri Tree—the very...', 24, '71777.jpg', 122),
+           ('Elfen Lied', '"Lucy is a special breed of human referred to as ""Diclonius,"" born with a short pair of horns and invisible telekinetic hands that lands her as a victim of inhumane scientific experimentation by the go..."', 24, '6883.jpg', 148),
+           ('Death Parade', 'After death, there is no heaven or hell, only a bar that stands between reincarnation and oblivion. There the attendant will, one after another, challenge pairs of the recently deceased to a random ga...', 24, '71553.jpg', 148),
+           ('Fullmetal Alchemist', 'Edward Elric, a young, brilliant alchemist, has lost much in his twelve-year life: when he and his brother Alphonse try to resurrect their dead mother through the forbidden act of human transmutation,...', 24, '75815.jpg', 112),
+           ('Shokugeki no Souma', 'Ever since he was a child, fifteen-year-old Souma Yukihira has helped his father by working as the sous chef in the restaurant his father runs and owns. Throughout the years, Souma developed a passion...', 24, '72943.jpg', 123),
+           ('Ano Hana', '"Jinta Yadomi is peacefully living as a recluse, spending his days away from school and playing video games at home instead. One hot summer day, his childhood friend, Meiko ""Menma"" Honma, appears and p..."', 24, '79697.jpg', 129),
+           ('Neon Genesis Evangelion', 'In the year 2015, the world stands on the brink of destruction. Humanity\'s last hope lies in the hands of Nerv, a special agency under the United Nations, and their Evangelions, giant machines capable...', 24, '108941.jpg', 125),
+           ('Haikyuu!!', '"Inspired after watching a volleyball ace nicknamed ""Little Giant"" in action, small-statured Shouyou Hinata revives the volleyball club at his middle school. The newly-formed team even makes it to a to..."', 24, '76014.jpg', 71),
+           ('Highschool of the Dead', 'It happened suddenly: The dead began to rise and Japan was thrown into total chaos. As these monsters begin terrorizing a high school, Takashi Kimuro is forced to kill his best friend when he gets bit...', 24, '78311.jpg', 52),
+           ('Durarara!!', '"In Tokyo\'s downtown district of Ikebukuro, amidst many strange rumors and warnings of anonymous gangs and dangerous occupants, one urban legend stands out above the rest—the existence of a headless ""B..."', 24, '71772.jpg', 1),
+           ('Shingeki no Kyojin 3', '"Still threatened by the ""Titans"" that rob them of their freedom, mankind remains caged inside the two remaining walls. Efforts to eradicate these monsters continue however, threats arise not only fro..."', 24, '92110.jpg', 93),
+           ('Clannad', 'Tomoya Okazaki is a delinquent who finds life dull and believes he\'ll never amount to anything. Along with his friend Youhei Sunohara, he skips school and plans to waste his high school days away. One...', 24, '95033.jpg', 142),
+           ('Fate/Zero', 'With the promise of granting any wish, the omnipotent Holy Grail triggered three wars in the past, each too cruel and fierce to leave a victor. In spite of that, the wealthy Einzbern family is confide...', 24, '73249.jpg', 13),
+           ('DanMAchi', 'Life in the bustling city of Orario is never dull, especially for Bell Cranel, a naïve young man who hopes to become the greatest adventurer in the land. After a chance encounter with the lonely godde...', 24, '70187.jpg', 82),
+           ('Bakemonogatari', 'Koyomi Araragi, a third-year high school student, manages to survive a vampire attack with the help of Meme Oshino, a strange man residing in an abandoned building. Though being saved from vampirism a...', 24, '75274.jpg', 2),
+           ('Hataraku Maou-sama!', 'Striking fear into the hearts of mortals, the Demon Lord Satan begins to conquer the land of Ente Isla with his vast demon armies. However, while embarking on this brutal quest to take over the contin...', 24, '50177.jpg', 77),
+           ('Noragami Aragoto', 'Yato and Yukine have finally mended their relationship as god and Regalia, and everyone has returned to their daily life. Yato remains a minor and unknown deity who continues taking odd jobs for five...', 24, '94850.jpg', 10),
+           ('Overlord', 'The final hour of the popular virtual reality game Yggdrasil has come. However, Momonga, a powerful wizard and master of the dark guild Ainz Ooal Gown, decides to spend his last few moments in the gam...', 24, '88019.jpg', 81),
+           ('Charlotte', 'While on the surface Yuu Otosaka appears to be just another charming and intelligent teenager, he has a secret—he has the ability to slip into people\'s minds and fully control their body for five seco...', 24, '74683.jpg', 123),
+           ('Yakusoku no Neverland', '"Surrounded by a forest and a gated entrance, the Grace Field House is inhabited by orphans happily living together as one big family, looked after by their ""Mama,"" Isabella. Although they are required..."', 24, '96929.jpg', 12),
+           ('Violet Evergarden', '"The Great War finally came to an end after four long years of conflict fractured in two, the continent of Telesis slowly began to flourish once again. Caught up in the bloodshed was Violet Evergarden..."', 24, '95088.jpg', 139),
+           ('High School DxD', 'High school student Issei Hyoudou is your run-of-the-mill pervert who does nothing productive with his life, peeping on women and dreaming of having his own harem one day. Things seem to be looking up...', 24, '32527.jpg', 13),
+           ('Mahou Shoujo Madoka★Magica', 'Madoka Kaname and Sayaka Miki are regular middle school girls with regular lives, but all that changes when they encounter Kyuubey, a cat-like magical familiar, and Homura Akemi, the new transfer stud...', 24, '55225.jpg', 91),
+           ('Kono Subarashii Sekai ni Shukufuku wo! 2', 'When Kazuma Satou died, he was given two choices: pass on to heaven or be revived in a fantasy world. After choosing the new world, the goddess Aqua tasked him with defeating the Demon King, and let h...', 24, '83188.jpg', 58),
+           ('Hamachi', 'Hachiman Hikigaya is an apathetic high school student with narcissistic and semi-nihilistic tendencies. He firmly believes that joyful youth is nothing but a farce, and everyone who says otherwise is...', 24, '49459.jpg', 15),
+           ('Guilty Crown', '"Japan, 2039. Ten years after the outbreak of the ""Apocalypse Virus,"" an event solemnly regarded as ""Lost Christmas,"" the once proud nation has fallen under the rule of the GHQ, an independent military..."', 24, '33713.jpg', 73),
+           ('One Punch Man 2', 'In the wake of defeating Boros and his mighty army, Saitama has returned to his unremarkable everyday life in Z-City. However, unbeknownst to him, the number of monsters appearing is still continuousl...', 24, '99571.jpg', 98),
+           ('Deadman Wonderland', 'It looked like it would be a normal day for Ganta Igarashi and his classmates—they were preparing to go on a class field trip to a certain prison amusement park called Deadman Wonderland, where the co...', 24, '75299.jpg', 47),
+           ('Chuunibyou demo Koi ga Shitai!', 'Everybody has had that stage in their life where they have thought themselves to be special, different from the masses of ordinary humans. They might go as far as seeing themselves capable of wielding...', 24, '46931.jpg', 46),
+           ('Darling in the FranXX', 'In the distant future, humanity has been driven to near-extinction by giant beasts known as Klaxosaurs, forcing the surviving humans to take refuge in massive fortress cities called Plantations. Child...', 24, '90408.jpg', 147),
+           ('Shingeki no Kyojin 3 Part 2', '"Seeking to restore humanity’s diminishing hope, the Survey Corps embark on a mission to retake Wall Maria, where the battle against the merciless ""Titans"" takes the stage once again. Returning to the..."', 24, '100633.jpg', 147),
+           ('JoJo no Kimyou na Bouken (TV)', 'In 1868, Dario Brando saves the life of an English nobleman, George Joestar. By taking in Dario\'s son Dio when the boy becomes fatherless, George hopes to repay the debt he owes to his savior. However...', 24, '40409.jpg', 137),
+           ('Hyouka', 'Energy-conservative high school student Houtarou Oreki ends up with more than he bargained for when he signs up for the Classics Club at his sister\'s behest—especially when he realizes how deep-rooted...', 24, '50521.jpg', 1),
+           ('Clannad: After Story', 'Clannad: After Story, the sequel to the critically acclaimed slice-of-life series Clannad, begins after Tomoya Okazaki and Nagisa Furukawa graduate from high school. Together, they experience the emot...', 24, '24647.jpg', 123),
+           ('Sakura-sou no Pet na Kanojo', 'When abandoned kittens and his good conscience force second year Sorata Kanda to move into Suimei High School’s infamous Sakura Hall, the satellite dorm and its eccentric, misfit residents turn his li...', 24, '43643.jpg', 154),
+           ('Samurai Champloo', 'Fuu Kasumi is a young and clumsy waitress who spends her days peacefully working in a small teahouse. That is, until she accidentally spills a drink all over one of her customers! With a group of samu...', 24, '29134.jpg', 78),
+           ('Aobuta', 'The rare and inexplicable Puberty Syndrome is thought of as a myth. It is a rare disease which only affects teenagers, and its symptoms are so supernatural that hardly anyone recognizes it as a legiti...', 24, '93586.jpg', 110),
+           ('Dragon Ball Z', 'Five years after winning the World Martial Arts tournament, Gokuu is now living a peaceful life with his wife and son. This changes, however, with the arrival of a mysterious enemy named Raditz who pr...', 24, '20936.jpg', 115),
+           ('Owari no Seraph', 'With the appearance of a mysterious virus that kills everyone above the age of 13, mankind becomes enslaved by previously hidden, power-hungry vampires who emerge in order to subjugate society with th...', 24, '73474.jpg', 67),
+           ('Log Horizon', 'In the blink of an eye, thirty thousand bewildered Japanese gamers are whisked from their everyday lives into the world of the popular MMORPG, Elder Tale, after the game\'s latest update—unable to log...', 24, '84004.jpg', 143),
+           ('Kuroshitsuji', '"Young Ciel Phantomhive is known as ""the Queen\'s Guard Dog,"" taking care of the many unsettling events that occur in Victorian England for Her Majesty. Aided by Sebastian Michaelis, his loyal butler wi..."', 24, '27013.jpg', 89),
+           ('Boku no Hero Academia 4', '"After successfully passing his Provisional Hero License exam, Izuku ""Deku"" Midoriya seeks out an extracurricular internship with a professional hero agency. At the recommendation of his mentor All Mig..."', 24, '107914.jpg', 48),
+           ('Tate no Yuusha no Nariagari', 'The Four Cardinal Heroes are a group of ordinary men from modern-day Japan summoned to the kingdom of Melromarc to become its saviors. Melromarc is a country plagued by the Waves of Catastrophe that h...', 24, '101365.jpg', 75),
+           ('Ansatsu Kyoushitsu 2', 'The students return as school is back in session for the second semester. Following their exploits on the island during summer vacation, Class 3-E continues to sharpen their blades with their sights s...', 24, '77966.jpg', 154),
+           ('Dr. Stone', 'After five years of harboring unspoken feelings, high-schooler Taiju Ooki is finally ready to confess his love to Yuzuriha Ogawa. Just when Taiju begins his confession however, a blinding green light...', 24, '102576.jpg', 46),
+           ('Mononoke Hime', 'When an Emishi village is attacked by a fierce demon boar, the young prince Ashitaka puts his life at stake to defend his tribe. With its dying breath, the beast curses the prince\'s arm, granting him...', 120, '75919.jpg', 148),
+           ('Kaichou wa Maid-sama!', '"Being the first female student council president isn\'t easy, especially when your school just transitioned from an all boys high school to a co-ed one. Aptly nicknamed ""Demon President"" by the boys fo..."', 24, '25254.jpg', 2),
+           ('Kaguya-sama', 'At the renowned Shuchiin Academy, Miyuki Shirogane and Kaguya Shinomiya are the student body\'s top representatives. Ranked the top student in the nation and respected by peers and mentors alike, Miyuk...', 24, '106551.jpg', 59),
+           ('Nisekoi', 'Raku Ichijou, a first-year student at Bonyari High School, is the sole heir to an intimidating yakuza family. Ten years ago, Raku made a promise to his childhood friend. Now, all he has to go on is a...', 24, '75587.jpg', 85),
+           ('Kyoukai no Kanata', '"Mirai Kuriyama is the sole survivor of a clan of Spirit World warriors with the power to employ their blood as weapons. As such, Mirai is tasked with hunting down and killing ""youmu""—creatures said to..."', 24, '85468.jpg', 21),
+           ('Made in Abyss', 'The Abyss—a gaping chasm stretching down into the depths of the earth, filled with mysterious creatures and relics from a time long past. How did it come to be? What lies at the bottom? Countless brav...', 24, '86733.jpg', 2),
+           ('Howl no Ugoku Shiro', 'That jumbled piece of architecture, that cacophony of hissing steam and creaking joints, with smoke billowing from it as it moves on its own... That castle is home to the magnificent wizard Howl, infa...', 120, '75810.jpg', 62),
+           ('Haikyuu!! 2', 'Following their participation at the Inter-High, the Karasuno High School volleyball team attempts to refocus their efforts, aiming to conquer the Spring tournament instead. When they receive an invit...', 24, '76662.jpg', 83),
+           ('Zankyou no Terror', '"Painted in red, the word ""VON"" is all that is left behind after a terrorist attack on a nuclear facility in Japan. The government is shattered by their inability to act, and the police are left franti..."', 24, '64447.jpg', 94),
+           ('Ouran Koukou Host Club', 'Haruhi Fujioka is a bright scholarship candidate with no rank or title to speak of—a rare species at Ouran Academy, an elite school for students of high pedigree. When she opens the door to Music Room...', 24, '71992.jpg', 73);
 
 -- CATEGORIES DES MEDIAS
 INSERT INTO media_categorie VALUES ('Magic', 1),
@@ -1761,269 +2048,3 @@ VALUES
 (41, 3, 35, 'Watching', '2020-04-06', 9),
 (41, 5, 95, 'Watching', '2020-04-06', 8),
 (48, 3, 5, 'Watching', '2020-04-06', 10);
-
--- Vue contenant les medias de type film
-DROP VIEW IF EXISTS vFilm;
-CREATE VIEW vFilm
-AS
-SELECT
-    Media.id as 'id',
-    'Movie' as 'type',
-    titre,
-    Media.description as 'description',
-    duree,
-    Media.image as 'image',
-    StudioAnimation.nom as 'nomStudio',
-    Film.dateSortie as 'dateSortie',
-    1 as 'nbSaisons',
-    1 as 'nbEpisodes',
-    (SELECT AVG(note) FROM utilisateur_media_note WHERE utilisateur_media_note.idMedia = Media.id) as 'score'
-FROM Media
-         INNER JOIN Film
-                    ON Film.idMedia = Media.id
-         INNER JOIN StudioAnimation
-                    ON StudioAnimation.id = Media.idStudioAnimation;
-
--- Vue contenant les medias de type Série
-DROP VIEW IF EXISTS vSerie;
-CREATE VIEW vSerie
-AS
-SELECT
-    Media.id as 'id',
-    'Serie' as 'type',
-    titre,
-    Media.description as 'description',
-    duree,
-    Media.image as 'image',
-    StudioAnimation.nom as 'nomStudio',
-    (SELECT dateSortie FROM Saison WHERE idSerie = Media.id ORDER BY num LIMIT 1) as 'dateSortie',
-    (SELECT COUNT(num) FROM Saison WHERE idSerie = Media.id) as 'nbSaisons',
-    (SELECT SUM(nbEpisodes) FROM Saison WHERE idSerie = Media.id) as 'nbEpisodes',
-    (SELECT AVG(note) FROM utilisateur_media_note WHERE utilisateur_media_note.idMedia = Media.id) as 'score'
-FROM Media
-         INNER JOIN Serie
-                    ON Serie.idMedia = Media.id
-         INNER JOIN StudioAnimation
-                    ON StudioAnimation.id = Media.idStudioAnimation;
-
--- Vue contenant les utilisateurs de la plateforme
-DROP VIEW IF EXISTS vUtilisateur;
-CREATE VIEW vUtilisateur
-AS
-SELECT *, EXISTS (SELECT * FROM moderateur WHERE Personne.id = moderateur.idPersonne) AS 'moderateur'
-FROM Personne
-         INNER JOIN Utilisateur
-                    ON Utilisateur.idPersonne = Personne.id;
-
--- Vue contenant les doubleurs
-DROP VIEW IF EXISTS vDoubleur;
-CREATE VIEW vDoubleur
-AS
-SELECT *
-FROM Personne
-         INNER JOIN Doubleur
-                    ON Doubleur.idPersonne = Personne.id;
-
--- Vue pour la liste des films apparaissant dans les listes des utilisateurs
-DROP VIEW IF EXISTS vUtilisateur_Lists_Film;
-CREATE VIEW vUtilisateur_Lists_Film
-AS
-SELECT DISTINCT
-    Pers.id AS 'id',
-    Pers.nom,
-    Pers.prenom,
-    User_Film.nom AS 'liste',
-    NULL AS 'saison',
-    Media.titre AS 'media',
-    'film' AS 'categorie',
-    User_Film.idMedia,
-    Media.image,
-    NULL AS 'nbEpisodesVus'
-FROM Utilisateur_Film AS User_Film
-         INNER JOIN Personne AS Pers ON Pers.id = User_Film.idPersonne
-         INNER JOIN Media ON Media.id = User_Film.idMedia;
-
--- Vue pour la liste des séries et leurs saisons apparaissant dans les listes des utilisateurs
-DROP VIEW IF EXISTS vUtilisateur_Lists_Serie;
-CREATE VIEW vUtilisateur_Lists_Serie
-AS
-SELECT DISTINCT
-    Pers.id AS 'id',
-    Pers.nom,
-    Pers.prenom,
-    User_Sa.nom AS 'liste',
-    Saison.num AS 'saison',
-    Media.titre AS 'media',
-    'serie' AS 'categorie',
-    User_Sa.idMedia,
-    Media.image,
-    User_Sa.nbEpisodesVus AS 'nbEpisodesVus'
-FROM Utilisateur_Saison AS User_Sa
-         INNER JOIN Personne AS Pers ON Pers.id = User_Sa.idPersonne
-         INNER JOIN Saison ON Saison.num = User_Sa.numSaison
-         INNER JOIN Media ON Media.id = User_Sa.idMedia;
-
--- Valide la note d'un media
-DROP TRIGGER IF EXISTS before_utilisateur_media_note_insert;
-DELIMITER $$
-CREATE TRIGGER before_utilisateur_media_note_insert
-    BEFORE INSERT
-    ON utilisateur_media_note
-    FOR EACH ROW
-BEGIN
-    IF NEW.note NOT BETWEEN 1 AND 10 THEN
-        SET @s = '[table:utilisateur_media_note] - [note] column is not valid (must be between 1 and 10)';
-        SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = @s;
-    END IF;
-END;
-$$
-DELIMITER ;
-
--- Evite un cas d'overlapping a l'insertion dans Film
-DROP TRIGGER IF EXISTS before_film_insert;
-DELIMITER $$
-CREATE TRIGGER before_film_insert
-    BEFORE INSERT
-    ON film
-    FOR EACH ROW
-BEGIN
-    IF EXISTS (SELECT * FROM Serie
-               WHERE Serie.idMedia = NEW.idMedia)
-    THEN
-        SET @s = '[table:film] - New film overlapping with existing serie';
-        SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = @s;
-    END IF;
-END;
-$$
-DELIMITER ;
-
--- Evite un cas d'overlapping a l'insertion dans Serie
-DROP TRIGGER IF EXISTS before_serie_insert;
-DELIMITER $$
-CREATE TRIGGER before_serie_insert
-    BEFORE INSERT
-    ON serie
-    FOR EACH ROW
-BEGIN
-    IF EXISTS (SELECT * FROM Film
-               WHERE Film.idMedia = NEW.idMedia)
-    THEN
-        SET @s = '[table:serie] - New serie overlapping with existing film';
-        SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = @s;
-    END IF;
-END;
-$$
-DELIMITER ;
-
--- Verification dates de sortie des saisons
-DROP TRIGGER IF EXISTS before_saison_insert;
-DELIMITER $$
-CREATE TRIGGER before_saison_insert
-    BEFORE INSERT
-    ON saison
-    FOR EACH ROW
-BEGIN
-    IF EXISTS (SELECT * FROM Saison
-               WHERE Saison.idSerie = NEW.idSerie
-                 AND Saison.num < NEW.num
-                 AND Saison.dateSortie > NEW.dateSortie)
-    THEN
-        SET @s = '[table:saison] - New season cant be released before the old ones';
-        SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = @s;
-    END IF;
-END;
-$$
-DELIMITER ;
-
--- lors de l'ajout d'une list / replace
-DROP TRIGGER IF EXISTS before_utilisateur_saison_insert;
-DELIMITER $$
-CREATE TRIGGER before_utilisateur_saison_insert
-    BEFORE INSERT ON Utilisateur_Saison
-    FOR EACH ROW
-BEGIN
-    DECLARE saisonNbEpisodes INT;
-    SELECT nbEpisodes INTO saisonNbEpisodes FROM Saison WHERE NEW.idMedia = Saison.idSerie AND NEW.numSaison = Saison.num;
-    IF NEW.nbEpisodesVus > saisonNbEpisodes THEN                                         -- on ne peut pas avoir vu plus d'episode que le max d'episode de la saison
-        SET @s = '[table:utilisateur_saison] - [nbEpisodesVus] cannot watch more episodes than the maximum';
-        SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = @s;
-    ELSEIF NEW.nbEpisodesVus > 0 AND NEW.nom = 'Plan to watch' THEN                     -- si un episode a été vu, il ne peut pas être dans plan to watch
-        SET @s = '[table:utilisateur_saison] - [nom] The season cannot be inside Plan to watch if one episodes has been watched';
-        SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = @s;
-    ELSEIF NEW.nbEpisodesVus < saisonNbEpisodes AND NEW.nom = 'Finished' THEN             -- la saison peut pas être dans finished si on a pas vu tous les episodes
-        SET @s = '[table:utilisateur_saison] - [nom] The season cannot be inside Finished if all episodes arent watched';
-        SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = @s;
-    ELSEIF NEW.nbEpisodesVus = saisonNbEpisodes AND NEW.nom != 'Finished' THEN             -- la saison ne peut pas être ailleurs que dans Finished si on a vu tous les episodes
-        SET @s = '[table:utilisateur_saison] - [nom] The season must be inside Finished if all episodes are watched';
-        SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = @s;
-    ELSEIF NEW.nom != 'Plan to watch' AND NOW() < (SELECT dateSortie FROM Saison WHERE Saison.idSerie = NEW.idMedia AND saison.num = NEW.numSaison) THEN
-        SET @t = '[table:utilisateur_saison] - [nom] The season is not out yet, cannot put it in this list';
-        SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = @t;
-    END IF;
-END;
-$$
-DELIMITER ;
-
--- Ajout d'un nouvel utilisateur
-DROP PROCEDURE IF EXISTS ajouter_utilisateur;
-DELIMITER //
-CREATE PROCEDURE ajouter_utilisateur (IN nom VARCHAR(50),
-                                      IN prenom VARCHAR(50),
-                                      IN dateNaissance DATE,
-                                      IN sexe ENUM('homme', 'femme', 'autre'),
-                                      IN photoProfil VARCHAR(512),
-                                      IN email VARCHAR(256),
-                                      IN pseudo VARCHAR(60),
-                                      IN password VARCHAR(256))
-
-BEGIN
-    INSERT INTO Personne VALUES (NULL, nom, prenom, dateNaissance, sexe, photoProfil);
-    INSERT INTO Utilisateur VALUES (email, pseudo, password, LAST_INSERT_ID());
-END//
-
--- Ajout d'un doubleur
-DROP PROCEDURE IF EXISTS ajouter_doubleur;
-DELIMITER //
-CREATE PROCEDURE ajouter_doubleur (IN nom VARCHAR(50),
-                                   IN prenom VARCHAR(50),
-                                   IN dateNaissance DATE,
-                                   IN sexe ENUM('homme', 'femme', 'autre'),
-                                   IN photoProfil VARCHAR(512))
-
-BEGIN
-    REPLACE INTO Personne VALUES (NULL, nom, prenom, dateNaissance, sexe, photoProfil);
-    REPLACE INTO Doubleur VALUES (LAST_INSERT_ID());
-END//
-
--- Ajout d'un film
-DROP PROCEDURE IF EXISTS ajouter_film;
-DELIMITER //
-CREATE PROCEDURE ajouter_film (IN titre VARCHAR(45),
-                               IN description TEXT,
-                               IN duree INT,
-                               IN image VARCHAR(512),
-                               IN idStudioAnimation INT,
-                               IN dateSortie DATE,
-                               OUT newId INT)
-BEGIN
-    INSERT INTO Media VALUES (NULL, titre, description, duree, image, idStudioAnimation);
-    SET newId = LAST_INSERT_ID();
-    INSERT INTO Film VALUES (dateSortie, newId);
-    SELECT newId;
-END//
-
--- Ajout d'une série
-DROP PROCEDURE IF EXISTS ajouter_serie;
-DELIMITER //
-CREATE PROCEDURE ajouter_serie (IN titre VARCHAR(45),
-                                IN description TEXT,
-                                IN duree INT,
-                                IN image VARCHAR(512),
-                                IN idStudioAnimation INT,
-                                OUT newId INT)
-BEGIN
-    INSERT INTO Media VALUES (NULL, titre, description, duree, image, idStudioAnimation);
-    SET newId = LAST_INSERT_ID();
-    INSERT INTO Serie VALUES (newId);
-    SELECT newId;
-END//

@@ -18,7 +18,6 @@ include '../../../lib/model/dbConnect.php';
 $db = new dbConnect();
 
 if(isset($_SESSION['USER_ID'])) {
-    echo "<script>console.log('Fetch data from DB.');</script>";
     $finishedList = $db->getListMedia($_SESSION['USER_ID'], 'Finished');
     $watchingList = $db->getListMedia($_SESSION['USER_ID'], 'Watching');
     $droppedList = $db->getListMedia($_SESSION['USER_ID'], 'Dropped');
