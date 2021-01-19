@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Added modifs in individual sql files">
+    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Fix numeric value in anime.php">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/php/frontend/anime.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/anime.php" afterDir="false" />
     </list>
@@ -81,7 +81,8 @@
       <workItem from="1610875913275" duration="1126000" />
       <workItem from="1610878802077" duration="327000" />
       <workItem from="1610901437396" duration="5575000" />
-      <workItem from="1610967479435" duration="2162000" />
+      <workItem from="1610967479435" duration="2765000" />
+      <workItem from="1611069006170" duration="1152000" />
     </task>
     <task id="LOCAL-00001" summary="Changed project structure and added data files">
       <created>1610374272706</created>
@@ -363,7 +364,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610985166405</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Fix numeric value in anime.php">
+      <created>1610986235530</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1610986235530</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -383,7 +391,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fixed insert file problems" />
     <MESSAGE value="Fixed user password in insert" />
     <MESSAGE value="Added new triggers and procedures" />
     <MESSAGE value="Added media creation in control panel" />
@@ -408,6 +415,7 @@
     <MESSAGE value="Fixes in anime page" />
     <MESSAGE value="Added comments and verified SQL requests" />
     <MESSAGE value="Added modifs in individual sql files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added modifs in individual sql files" />
+    <MESSAGE value="Fix numeric value in anime.php" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix numeric value in anime.php" />
   </component>
 </project>
