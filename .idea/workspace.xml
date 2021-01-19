@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Fix numeric value in anime.php">
+    <list default="true" id="a06a2349-bb35-491f-a504-a3d08e2e54f9" name="Default Changelist" comment="Fix numeric value in anime.php (3)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/php/frontend/anime.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/php/frontend/anime.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_AIO.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_AIO.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/BDR_Projet_SQL_Insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/BDR_Projet_SQL_Insert.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +83,7 @@
       <workItem from="1610878802077" duration="327000" />
       <workItem from="1610901437396" duration="5575000" />
       <workItem from="1610967479435" duration="2765000" />
-      <workItem from="1611069006170" duration="2631000" />
+      <workItem from="1611069006170" duration="4157000" />
     </task>
     <task id="LOCAL-00001" summary="Changed project structure and added data files">
       <created>1610374272706</created>
@@ -385,7 +386,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611070864619</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Fix numeric value in anime.php (3)">
+      <created>1611072542702</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1611072542702</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -405,7 +413,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fixed user password in insert" />
     <MESSAGE value="Added new triggers and procedures" />
     <MESSAGE value="Added media creation in control panel" />
     <MESSAGE value="Lots of fixes&#10;Finished admin_panel.php&#10;Users can now customize their profile!&#10;Added an ALL-IN-ONE SQL file -&gt; BDR_Projet_SQL_AIO.sql" />
@@ -430,6 +437,7 @@
     <MESSAGE value="Added comments and verified SQL requests" />
     <MESSAGE value="Added modifs in individual sql files" />
     <MESSAGE value="Fix numeric value in anime.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix numeric value in anime.php" />
+    <MESSAGE value="Fix numeric value in anime.php (3)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix numeric value in anime.php (3)" />
   </component>
 </project>
