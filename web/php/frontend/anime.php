@@ -53,7 +53,7 @@ if (!file_exists("../../img/covers/" . $data['image'])) $data['image'] = "blank.
             if (count($mediaCat) > 3)
                 echo '<li>(' . (count($mediaCat)-3) . ' more categories ...)</li>';
             echo '<li>Episodes: ' . $ep . '</li>
-                  <li>Release date: ' . date_format(date_create($data['dateSortie']), 'd M Y'). '</li>
+                  <li>Release date: ' . date_format(date_create($data['dateSortie']), 'd M Y') . '</li>
                   <li>Duration: ' . $data['duree'] . '</li>
                   <li>Seasons: ' . $sea . '</li>';
             ?>
@@ -210,7 +210,7 @@ if (!file_exists("../../img/covers/" . $data['image'])) $data['image'] = "blank.
 
                             foreach ($comments as $c) {
                                 echo '<li>
-                                <div>' . $c['dateAjout'] . ', from : <a>' . $c['pseudo'] . '</a> </div>
+                                <div>' . date_format(date_create($c['dateAjout']), 'd M Y') . ', from : <a>' . $c['pseudo'] . '</a> </div>
                                 <div>' . $c['commentaire'] . '</div>
                             </li>';
                             }
