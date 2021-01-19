@@ -119,7 +119,7 @@ if (!file_exists("../../img/covers/" . $data['image'])) $data['image'] = "blank.
                           <option value="2">Finished</option>
                           <option value="3">Dropped</option>';
                     echo '</select>';
-echo phpinfo();
+
                     // Displays the nb episodes per season
                     for ($j = 1; $j <= intval($data['nbSaisons']); ++$j)
                         echo '<param id="s' . ($j-1) . '" value="' . $db->getMediaSeason(intval($_GET['id']), $j)[0]['nbEpisodes'] . '">';
